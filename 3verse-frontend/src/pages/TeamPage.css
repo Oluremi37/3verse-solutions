@@ -1,0 +1,479 @@
+/* 
+   TEAM PAGE
+*/
+
+.team-page{
+    padding-top:110px;
+    background:#fff;
+}
+
+ 
+/* 
+   HERO
+ */
+
+.team-hero{
+
+    padding:50px 0 90px;
+
+}
+
+.team-hero-content{
+
+    width:min(92%,760px);
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.team-hero h1{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:22px;
+
+}
+
+.team-hero p{
+
+    color:#667085;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+ 
+/* 
+   EXECUTIVES
+ */
+
+.executive-section{
+    width:min(92%,1240px);
+    margin:0 auto 110px;
+
+    display:grid;
+    grid-template-columns:399px 1fr;
+    align-items:center;
+    gap:90px;
+}
+
+/* CTO layout */
+.executive-section.reverse{
+    grid-template-columns:1fr 399px;
+}
+
+/* Image Box */
+
+.executive-image{
+    width:399px;
+    height:385px;
+
+    background:#C1D8F1;
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+}
+
+/* MD Image */
+
+.executive-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center bottom;
+}
+
+/* Text */
+
+.executive-content{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.executive-content h2{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:8px;
+
+}
+
+.executive-content h4{
+
+    color:#4A9018;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    margin-bottom:22px;
+
+}
+
+.executive-content p{
+
+    color:#667085;
+
+    line-height:2;
+
+    margin-bottom:18px;
+
+}
+
+/* 
+   SOCIAL
+ */
+
+.social-icons{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:28px;
+
+}
+
+.social-icons svg{
+
+    width:18px;
+
+    height:18px;
+
+    color:#111827;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.social-icons svg:hover{
+
+    color:#4A9018;
+
+    transform:translateY(-2px);
+
+}
+
+/* 
+   MANAGEMENT SECTION
+ */
+
+.management{
+
+    width:min(92%,1240px);
+
+    margin:0 auto 120px;
+
+}
+
+.management-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:60px;
+
+    margin-bottom:60px;
+
+}
+
+.management-top h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.management-top p{
+
+    max-width:460px;
+
+    color:#667085;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+}
+
+.management-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:28px;
+
+}
+
+/* 
+   MANAGEMENT CARD
+ */
+
+.management-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.management-card img{
+
+    width:100%;
+
+    height:460px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.5s;
+
+}
+
+.management-card:hover img{
+
+    transform:scale(1.06);
+
+}
+
+.management-overlay{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    padding:28px;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.92),
+        rgba(0,0,0,.45),
+        transparent
+    );
+
+}
+
+.management-overlay h3{
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    margin-bottom:6px;
+
+}
+
+.management-overlay span{
+
+    color:rgba(255,255,255,.9);
+
+    font-size:15px;
+
+}
+
+/* 
+   RESPONSIVE
+ */
+
+@media(max-width:1100px){
+
+.management-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:992px){
+
+.executive-section{
+
+display:flex;
+flex-direction:column;
+
+text-align:center;
+
+gap:55px;
+
+}
+
+.executive-section.reverse{
+
+display:flex;
+flex-direction:column-reverse;
+
+}
+
+.executive-image{
+
+width:100%;
+max-width:399px;
+height:385px;
+
+margin:auto;
+
+}
+
+.social-icons{
+
+justify-content:center;
+
+}
+
+.management-top{
+
+flex-direction:column;
+
+text-align:center;
+
+gap:20px;
+
+}
+
+.management-top p{
+
+max-width:100%;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.team-hero h1{
+
+font-size:40px;
+
+}
+
+.team-hero p{
+
+font-size:16px;
+
+}
+
+.executive-content h2{
+
+font-size:30px;
+
+}
+
+.executive-content h4{
+
+font-size:16px;
+
+}
+
+.management-top h2{
+
+font-size:34px;
+
+}
+
+.management-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.management-card img{
+
+height:420px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.team-page{
+
+padding-top:95px;
+
+}
+
+.team-hero{
+
+padding:35px 0 70px;
+
+}
+
+.team-hero h1{
+
+font-size:32px;
+
+}
+
+.executive-image img{
+
+max-width:100%;
+
+}
+
+.executive-content h2{
+
+font-size:26px;
+
+}
+
+.executive-content p{
+
+font-size:15px;
+
+line-height:1.8;
+
+}
+
+.management-top h2{
+
+font-size:30px;
+
+}
+
+.management-card img{
+
+height:380px;
+
+}
+
+}

@@ -1,0 +1,105 @@
+.contact-hero {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef7f1 100%);
+  padding: 110px 24px 90px;
+}
+
+.contact-hero-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-hero-tag {
+  display: inline-block;
+  color: #16a34a;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.contact-hero h1 {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #101828;
+  margin-bottom: 24px;
+}
+
+.contact-hero h1 span {
+  color: #16a34a;
+}
+
+.contact-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #667085;
+}
+
+.contact-hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 42px;
+  flex-wrap: wrap;
+}
+
+.hero-primary-btn,
+.hero-secondary-btn {
+  width: 190px;
+  height: 56px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.hero-primary-btn {
+  background: #16a34a;
+  color: #fff;
+}
+
+.hero-primary-btn:hover {
+  background: #15803d;
+}
+
+.hero-secondary-btn {
+  background: #fff;
+  border: 1px solid #16a34a;
+  color: #16a34a;
+}
+
+.hero-secondary-btn:hover {
+  background: #16a34a;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 90px 20px 70px;
+  }
+
+  .contact-hero h1 {
+    font-size: 36px;
+  }
+
+  .contact-hero p {
+    font-size: 16px;
+  }
+
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

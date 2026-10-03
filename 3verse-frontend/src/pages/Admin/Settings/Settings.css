@@ -1,0 +1,175 @@
+.settings-page {
+  padding: 30px;
+}
+
+.settings-header {
+  margin-bottom: 25px;
+}
+
+.settings-header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #0f172a;
+}
+
+.settings-header p {
+  margin-top: 8px;
+  color: #64748b;
+}
+
+.settings-card {
+  max-width: 650px;
+  background: #ffffff;
+  border: 1px solid #edf2f7;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+.settings-card-header {
+  margin-bottom: 25px;
+}
+
+.settings-card-header h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 22px;
+}
+
+.settings-card-header p {
+  margin-top: 7px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.settings-form-group {
+  margin-bottom: 20px;
+}
+
+.settings-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.settings-form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.settings-form-group input:focus {
+  border-color: #16a34a;
+}
+
+.settings-save-btn {
+  border: none;
+  background: #16a34a;
+  color: #ffffff;
+  padding: 13px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.settings-save-btn:hover {
+  background: #15803d;
+}
+
+.settings-save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.password-field {
+  position: relative;
+  width: 100%;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 45px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  background: transparent;
+  color: #64748b;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+}
+
+.toggle-password:hover {
+  color: #16a34a;
+}
+
+.account-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.account-info-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.account-info-item label {
+  display: block;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.account-info-item p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+}
+.settings-form-group small {
+  display: block;
+  margin-top: 6px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .account-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .settings-page {
+    padding: 20px;
+  }
+
+  .settings-header h1 {
+    font-size: 26px;
+  }
+
+  .settings-card {
+    padding: 20px;
+  }
+}

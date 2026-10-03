@@ -1,0 +1,79 @@
+.products-hero {
+  background: linear-gradient(135deg, #14320f 0%, #4a7c1f 100%);
+  padding: 100px 24px 0;   /* was "0 24px" — top padding pushes content below the fixed navbar */
+}
+
+.products-hero-container {
+  max-width: 1291px;
+  margin: 0 auto;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.products-hero-text {
+  flex: 1;
+  max-width: 480px;
+}
+
+.products-hero-text h1 {
+  color: #fff;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+
+.products-hero-text p {
+  color: #d7e6c9;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.demo-btn {
+  background: #fff;
+  color: #16a34a;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.demo-btn:hover {
+  background: #f2f4f7;
+}
+
+.products-hero-image {
+  flex: 1.2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.products-hero-image img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .products-hero-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 48px 0;
+  }
+
+  .products-hero-text {
+    max-width: 100%;
+  }
+
+  .products-hero-image {
+    margin-top: 24px;
+  }
+}

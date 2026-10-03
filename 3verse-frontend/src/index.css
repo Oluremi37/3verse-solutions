@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary-color: #4A9018;
+  --text-color: #111827;
+  --secondary-text: #6B7280;
+  --white: #FFFFFF;
+  --border-color: #E5E7EB;
+  --container-width: 1280px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #fff;
+  color: var(--text-color);
+  padding-top: 96px; /* ← Added this to push content below fixed header */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#home,
+#about,
+#services,
+#products,
+#contact,
+#schedule-demo {
+  scroll-margin-top: 96px !important;
+}

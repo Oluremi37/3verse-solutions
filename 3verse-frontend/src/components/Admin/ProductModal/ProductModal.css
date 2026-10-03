@@ -1,0 +1,286 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.product-modal {
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+  overflow-y: auto;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.product-modal-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 28px;
+  border-bottom: 1px solid #eee;
+}
+
+@keyframes modalFade {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.product-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  border-bottom: 1px solid #eee;
+}
+
+.product-modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #111827;
+}
+
+.close-btn {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+  color: #555;
+}
+
+.close-btn:hover {
+  color: #16a34a;
+}
+
+.product-form {
+  padding: 28px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: .2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #16a34a;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.modal-actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-btn,
+.save-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancel-btn {
+  background: #e5e7eb;
+}
+
+.cancel-btn:hover {
+  background: #d1d5db;
+}
+
+.save-btn {
+  background: #16a34a;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #15803d;
+}
+
+.save-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.image-preview {
+  margin-top: 12px;
+}
+
+.image-preview img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+/* Gallery */
+
+.gallery-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.gallery-preview img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Specifications */
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 50px;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.spec-row input {
+  width: 100%;
+}
+
+.spec-row button {
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.spec-row button:hover {
+  background: #dc2626;
+}
+
+.add-spec-btn {
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-spec-btn:hover {
+  background: #15803d;
+}
+
+/* Checkbox */
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.checkbox-group input {
+  width: 18px;
+  height: 18px;
+}
+
+.availability-badge {
+  display: inline-block;
+  margin: 8px 0;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.availability-badge.in-stock {
+  background: rgba(94, 175, 68, 0.12);
+  color: #16a34a;
+}
+
+.availability-badge.out-of-stock {
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+}
+
+.availability-badge.available-in-1-week,
+.availability-badge.available-in-2-weeks,
+.availability-badge.available-in-4-weeks,
+.availability-badge.pre-order {
+  background: rgba(217, 119, 6, 0.12);
+  color: #d97706;
+}
+@media (max-width: 768px) {
+
+  .product-modal {
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .cancel-btn,
+  .save-btn {
+    width: 100%;
+  }
+}

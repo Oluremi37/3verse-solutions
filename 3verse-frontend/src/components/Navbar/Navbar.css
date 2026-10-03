@@ -1,0 +1,329 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  z-index: 9999;
+  isolation: isolate;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+}
+
+.logo {
+  width: 200px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.logo img {
+  width: 118%;
+  height: 118%;
+  object-fit: contain;
+}
+
+.nav-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  white-space: nowrap;
+  position: relative;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #111827;
+  transition: all .3s ease;
+}
+
+.nav-item:hover > a {
+  color: #4A9018;
+}
+
+/* ===========================
+   DROPDOWNS (About + Services)
+=========================== */
+
+.nav-item-dropdown {
+  position: relative;
+  z-index: 10;
+}
+
+.nav-item-dropdown:hover,
+.nav-item-dropdown:focus-within {
+  z-index: 20;
+}
+
+.services-dropdown-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Invisible bridge so mouse never loses hover */
+.services-dropdown-wrapper::after {
+  content: "";
+  position: absolute;
+  left: -30px;
+  right: -30px;
+  top: 100%;
+  height: 18px;
+}
+
+.dropdown-icon {
+  font-size: 12px;
+  color: #111827;
+  transition: all .3s ease;
+}
+
+.services-dropdown-wrapper:hover a,
+.services-dropdown-wrapper:hover .dropdown-icon {
+  color: #4A9018;
+}
+
+.services-dropdown-wrapper:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.services-dropdown-wrapper:hover .dropdown-trigger {
+  color: #4A9018;
+}
+
+.quote-btn {
+  width: 177px;
+  height: 48px;
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid #4A9018;
+  border-radius: 8px;
+
+  color: #4A9018;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  transition: .3s ease;
+}
+
+.quote-btn:hover {
+  background: #4A9018;
+  color: #ffffff;
+}
+
+/* ===========================
+   HAMBURGER
+=========================== */
+
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #111827;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+.mobile-overlay {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 992px) {
+
+  .nav-container {
+    padding: 16px 24px;
+  }
+
+  .nav-menu,
+  .quote-btn {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .mobile-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 10001;
+  }
+
+  .mobile-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 280px;
+    max-width: 80vw;
+    height: 100%;
+
+    background: white;
+
+    padding: 20px 24px;
+
+    transform: translateX(100%);
+    transition: transform .3s ease;
+
+    box-shadow: -4px 0 24px rgba(0,0,0,.1);
+
+    z-index: 10002;
+
+    overflow-y: auto;
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  .mobile-menu-header .logo {
+    width: 150px;
+    height: 42px;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #111827;
+    cursor: pointer;
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mobile-nav-item a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+  }
+
+  .mobile-quote-btn {
+    width: 100%;
+  }
+
+  .mobile-nav-item-dropdown {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mobile-services-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    background: none;
+    border: none;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    color: #111827;
+
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .mobile-services-toggle .dropdown-icon {
+    transition: .3s ease;
+  }
+
+  .mobile-services-toggle .dropdown-icon.rotated {
+    transform: rotate(180deg);
+  }
+
+  .mobile-services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    margin-top: 14px;
+    padding-left: 12px;
+  }
+
+  .mobile-services-list a {
+    font-size: 14px;
+    color: #667085;
+    text-decoration: none;
+  }
+}

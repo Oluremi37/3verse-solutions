@@ -1,0 +1,309 @@
+.about {
+  padding: 120px 0 100px;
+  background: #fff;
+}
+
+.about-container {
+  width: min(92%, 1240px);
+  margin: 0 auto;
+}
+
+/* =========================
+   Heading
+========================= */
+
+.about-heading {
+  text-align: center;
+  margin-bottom: 85px;
+}
+
+.about-heading h2 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+  margin: 0 0 22px;
+}
+
+.about-heading p {
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--secondary-text);
+}
+
+/* =========================
+   About Cards
+========================= */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 55px;
+  align-items: start;
+}
+
+.about-card {
+  padding: 0 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+}
+
+/* =========================
+   Icons
+========================= */
+
+.icon-box {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 26px;
+  border-radius: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-box img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+/* =========================
+   Card Headings
+========================= */
+
+.about-card h3 {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 20px;
+  color: var(--text-color);
+}
+
+/* =========================
+   Card Text
+========================= */
+
+.about-card p {
+  max-width: 390px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--secondary-text);
+}
+
+/* =========================
+   Core Values
+========================= */
+
+.about-card ul {
+  max-width: 390px;
+  padding: 0;
+  margin: 18px auto 0;
+}
+
+.about-card li {
+  list-style: none;
+  margin-bottom: 14px;
+  color: var(--secondary-text);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* =========================
+   Partners
+========================= */
+
+.partners {
+  margin-top: 110px;
+  text-align: center;
+}
+
+.partners h2 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 18px;
+  color: var(--text-color);
+}
+
+.partners p {
+  max-width: 650px;
+  margin: 0 auto 60px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--secondary-text);
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  align-items: center;
+  justify-items: center;
+}
+
+.partners-grid img {
+  width: 100%;
+  max-width: 120px;
+  height: 55px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.partners-grid img:hover {
+  transform: scale(1.08);
+}
+
+/* =========================
+   Laptop
+========================= */
+
+@media (max-width: 1200px) {
+  .about-grid {
+    gap: 35px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 992px) {
+  .about {
+    padding: 90px 0;
+  }
+
+  .about-heading {
+    margin-bottom: 65px;
+  }
+
+  .about-heading h2 {
+    font-size: 40px;
+  }
+
+  .about-heading p {
+    font-size: 17px;
+  }
+
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 55px 35px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 0;
+  }
+
+  .about-heading {
+    text-align: center;
+    margin-bottom: 55px;
+  }
+
+  .about-heading h2 {
+    font-size: 34px;
+  }
+
+  .about-heading p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .about-card {
+    padding: 0;
+  }
+
+  .about-card h3 {
+    font-size: 26px;
+  }
+
+  .about-card p,
+  .about-card ul {
+    max-width: 500px;
+  }
+
+  .partners {
+    margin-top: 80px;
+  }
+
+  .partners h2 {
+    font-size: 34px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* =========================
+   Small Phones
+========================= */
+
+@media (max-width: 480px) {
+  .about {
+    padding: 70px 0;
+  }
+
+  .about-heading h2 {
+    font-size: 30px;
+  }
+
+  .about-heading p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .about-card h3 {
+    font-size: 24px;
+  }
+
+  .about-card p,
+  .about-card li {
+    font-size: 15px;
+  }
+
+  .partners h2 {
+    font-size: 30px;
+  }
+
+  .partners p {
+    font-size: 15px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .partners-grid img {
+    max-width: 95px;
+  }
+}

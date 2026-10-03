@@ -1,0 +1,271 @@
+.request-quote-section {
+  padding: 130px 24px 80px;
+  background: #ffffff;
+  min-height: 70vh;
+}
+
+.request-quote-container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.request-quote-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.request-quote-tag {
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.request-quote-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #101828;
+  margin: 12px 0 12px;
+}
+
+.request-quote-header p {
+  font-size: 15px;
+  color: #667085;
+  line-height: 1.6;
+}
+
+.quote-form {
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quote-form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.quote-form-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-form-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #344054;
+  margin-bottom: 6px;
+}
+
+.quote-form-field input,
+.quote-form-field select,
+.quote-form-field textarea {
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #101828;
+  outline: none;
+  font-family: inherit;
+  background: #fff;
+}
+
+.quote-form-field input:focus,
+.quote-form-field select:focus,
+.quote-form-field textarea:focus {
+  border-color: #16a34a;
+}
+
+.quote-form-field textarea {
+  resize: vertical;
+}
+
+.quote-submit-btn {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.quote-submit-btn:hover {
+  background: #128a3e;
+}
+
+/* Thank you state */
+
+.quote-thank-you {
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.quote-thank-you-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #e9f9ee;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.quote-thank-you h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #101828;
+  margin: 0 0 8px;
+}
+
+.quote-thank-you-subtitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #344054;
+  margin: 0 0 16px;
+}
+
+.quote-thank-you-body {
+  font-size: 14px;
+  color: #667085;
+  line-height: 1.6;
+  max-width: 420px;
+  margin: 0 0 28px;
+}
+
+.quote-thank-you-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-outline,
+.btn-filled {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-outline {
+  background: #fff;
+  color: #16a34a;
+  border: 1px solid #16a34a;
+}
+
+.btn-outline:hover {
+  background: #f2f4f7;
+}
+
+.btn-filled {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+}
+
+.btn-filled:hover {
+  background: #128a3e;
+}
+
+.input-error {
+  border: 1px solid #dc2626 !important;
+  background: #fffafa;
+}
+
+.input-error:focus {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.field-error {
+  display: block;
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: -12px;
+  margin-bottom: 16px;
+}
+
+.submit-error {
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.required {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.optional {
+  color: #777;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.quote-form-field.has-error label {
+  color: #dc2626;
+}
+
+.quote-form-field .input-error {
+  border-color: #dc2626 !important;
+  outline: none;
+}
+
+.quote-form-field .input-error:focus {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.field-error {
+  display: block;
+  margin-top: 6px;
+  color: #dc2626;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.submit-error {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border: 1px solid #dc2626;
+  border-radius: 6px;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .quote-form {
+    padding: 24px;
+  }
+
+  .quote-form-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .quote-thank-you-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+}

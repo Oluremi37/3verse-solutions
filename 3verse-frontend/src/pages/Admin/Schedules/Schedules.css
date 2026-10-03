@@ -1,0 +1,159 @@
+.schedule-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* =========================
+   Action Buttons
+========================= */
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: .25s;
+}
+
+.actions button:first-child {
+  background: #2563eb;
+  color: #fff;
+}
+
+.actions button:first-child:hover {
+  background: #1d4ed8;
+}
+
+.actions button:nth-child(2) {
+  background: #16a34a;
+  color: #fff;
+}
+
+.actions button:nth-child(2):hover {
+  background: #15803d;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+/* =========================
+   Status Badge
+========================= */
+
+.status {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status.completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* =========================
+   Modal
+========================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, .45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.schedule-modal {
+  width: 720px;
+  max-width: 95%;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,.15);
+}
+
+.schedule-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.schedule-modal-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.close-btn {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  padding: 24px;
+}
+
+.schedule-grid label {
+  display: block;
+  margin-bottom: 8px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.schedule-grid p {
+  margin: 0;
+  color: #0f172a;
+  font-size: 15px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+}

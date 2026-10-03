@@ -1,0 +1,235 @@
+.contact-section {
+  padding: 80px 24px;
+  background: #ffffff;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 48px;
+}
+
+.contact-tag {
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.contact-header h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 12px 0;
+  color: #101828;
+}
+
+.contact-header p {
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.contact-map-wrapper{
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 560px;
+}
+
+.contact-map{
+    width:100%;
+    height:560px;
+}
+
+/* Card */
+.contact-card{
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    width:360px;      /* slightly smaller than 392 */
+    height:500px;
+
+    background:#fff;
+    border-radius:16px;
+
+    padding:24px 20px;
+
+    display:flex;
+    flex-direction:column;
+
+    box-shadow:0 15px 40px rgba(16,24,40,.10);
+
+    z-index:5;
+}
+
+.contact-info{
+    display:flex;
+    gap:14px;
+
+    padding-bottom:18px;
+    margin-bottom:18px;
+
+    border-bottom:1px solid #EAECF0;
+}
+
+.contact-info:last-of-type{
+    margin-bottom:0;
+    padding-bottom:0;
+    border-bottom:none;
+}
+
+.contact-icon{
+    width:40px;
+    height:40px;
+
+    background:#ECFDF3;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+}
+
+.contact-icon svg{
+    width:18px;
+    height:18px;
+}
+
+.contact-info h4 {
+  font-size: 14px;
+  margin: 0 0 4px;
+  color: #101828;
+}
+
+.contact-info p {
+  font-size: 13px;
+  color: #667085;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Buttons */
+.contact-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:auto;
+}
+
+.btn-directions,
+.btn-contact-sales {
+  width: 168px;
+  height: 48px;
+  display: flex;
+   flex:1;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn-directions {
+  background: #16a34a;
+  color: #fff;
+  border: 1px solid #16a34a;
+}
+
+.btn-contact-sales {
+  background: #fff;
+  color: #16a34a;
+  border: 1px solid #16a34a;
+}
+
+.btn-send-message{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:100%;
+    height:48px;
+
+    margin-top:16px;
+
+    background:#101828;
+    color:#fff;
+
+    border-radius:8px;
+
+    text-decoration:none;
+    font-weight:600;
+
+    transition:.3s ease;
+}
+
+.btn-send-message:hover{
+    background:#16a34a;
+}
+/* Features row */
+.contact-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.feature-icon {
+  background: #f2f4f7;
+  color: #16a34a;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.feature-item h4 {
+  font-size: 14px;
+  margin: 0 0 4px;
+  color: #101828;
+}
+
+.feature-item p {
+  font-size: 13px;
+  color: #667085;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .contact-map-wrapper {
+    flex-direction: column;
+  }
+  .contact-card {
+    position: static;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .contact-features {
+    grid-template-columns: 1fr 1fr;
+  }
+}

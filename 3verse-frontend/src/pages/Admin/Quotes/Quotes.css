@@ -1,0 +1,74 @@
+.quote-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.55);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    z-index:1000;
+}
+
+.quote-modal-content{
+    width:100%;
+    max-width:850px;
+    background:#fff;
+    border-radius:16px;
+    padding:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+.quote-modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.quote-modal-header h2{
+    margin:0;
+}
+
+.close-btn{
+    border:none;
+    background:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.quote-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.quote-grid label{
+    display:block;
+    font-size:12px;
+    font-weight:600;
+    color:#64748b;
+    margin-bottom:6px;
+    text-transform:uppercase;
+}
+
+.quote-grid p{
+    margin:0;
+    color:#0f172a;
+    line-height:1.6;
+}
+
+.full-width{
+    grid-column:1/-1;
+}
+
+@media(max-width:768px){
+
+.quote-grid{
+    grid-template-columns:1fr;
+}
+
+.quote-modal-content{
+    padding:20px;
+}
+
+}

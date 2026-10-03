@@ -1,0 +1,244 @@
+.project-cta-section {
+  padding: 60px 24px;
+  background: #ffffff;
+}
+
+.project-cta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  background: linear-gradient(135deg, #14320f 0%, #4a7c1f 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 48px;
+  gap: 48px;
+}
+
+.project-cta-left {
+  flex: 1;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-cta-left h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+
+.project-cta-left > p {
+  font-size: 14px;
+  color: #d7e6c9;
+  line-height: 1.6;
+  max-width: 380px;
+  margin: 0 0 24px;
+}
+
+.project-cta-divider {
+  width: 100%;
+  border-top: 1px dashed rgba(255, 255, 255, 0.35);
+  margin-bottom: 24px;
+}
+
+.project-cta-left h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.project-cta-subtext {
+  font-size: 13px;
+  color: #d7e6c9;
+  margin: 0 0 10px;
+}
+
+.project-cta-contact {
+  font-size: 14px;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.project-cta-right {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.schedule-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-form h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #101828;
+  margin: 0 0 20px;
+}
+
+.schedule-form label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #344054;
+  margin-bottom: 6px;
+}
+
+.schedule-form input,
+.schedule-form select {
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  margin-bottom: 18px;
+  color: #101828;
+  outline: none;
+  font-family: inherit;
+}
+
+.schedule-form input:focus,
+.schedule-form select:focus {
+  border-color: #4a7c1f;
+}
+
+.date-time-row {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.date-time-field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.date-time-field label {
+  margin-bottom: 6px;
+}
+
+.date-time-field input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.submit-btn {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.submit-btn:hover {
+  background: #128a3e;
+}
+
+/* ================= THANK YOU CARD ================= */
+
+.thank-you-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.thank-you-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #e9f9ee;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  animation: pop-in 0.4s ease;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.thank-you-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #101828;
+  margin: 0 0 8px;
+}
+
+.thank-you-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #344054;
+  margin: 0 0 16px;
+}
+
+.thank-you-body {
+  font-size: 13px;
+  color: #667085;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.reset-btn {
+  background: #fff;
+  color: #16a34a;
+  border: 1px solid #16a34a;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.reset-btn:hover {
+  background: #f2f4f7;
+}
+
+@media (max-width: 900px) {
+  .project-cta-container {
+    flex-direction: column;
+    padding: 32px 24px;
+  }
+
+  .project-cta-left > p {
+    max-width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .date-time-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

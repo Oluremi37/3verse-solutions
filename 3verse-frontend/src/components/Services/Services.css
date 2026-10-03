@@ -1,0 +1,216 @@
+.services {
+  background: #fff;
+  padding: 120px 100px;
+}
+
+.services-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.services-header {
+  max-width: 760px;
+  margin-bottom: 60px;
+}
+
+.services-header h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #101828;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.services-header p {
+  font-size: 16px;
+  line-height: 30px;
+  color: #667085;
+}
+
+/* ================= CAROUSEL ================= */
+
+.services-slider-wrapper {
+  position: relative;
+}
+
+.services-slider-embla {
+  overflow: hidden;
+}
+
+.services-slider-container {
+  display: flex;
+  gap: 24px;
+}
+
+.service-slide {
+  flex: 0 0 340px;
+  min-width: 340px;
+}
+
+/* ================= CARD ================= */
+
+.service-card {
+  background: #fff;
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+
+  padding: 32px;
+
+  min-height: 348px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(16, 24, 40, 0.08);
+}
+
+/*  ICON */
+
+.service-icon-box {
+  width: 56px;
+  height: 56px;
+
+  background: #fff;
+
+  border: 1px solid #f2f4f7;
+
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 28px;
+}
+
+.service-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+.software-development-icon {
+  width: 60px;
+height: 60px;
+color: #4a9018;
+  object-fit: contain;
+}
+
+/* ================= TITLE ================= */
+
+.service-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #101828;
+  line-height: 32px;
+  margin-bottom: 16px;
+}
+
+/* ================= DESCRIPTION ================= */
+
+.service-card p {
+  font-size: 16px;
+  line-height: 28px;
+  color: #667085;
+
+  flex: 1;
+}
+
+/* ================= LEARN MORE ================= */
+
+.learn-more {
+  margin-top: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  border: none;
+  background: none;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  color: #4a9018;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  padding: 0;
+}
+
+.learn-more svg {
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.service-card:hover .learn-more svg {
+  transform: translateX(5px);
+}
+
+/* ================= NAV ARROWS ================= */
+
+.services-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.services-nav button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #eaecf0;
+  background: #fff;
+  color: #101828;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.services-nav button:hover {
+  background: #4a9018;
+  color: #fff;
+  border-color: #4a9018;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .services {
+    padding: 100px 40px;
+  }
+
+  .service-slide {
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 80px 20px;
+  }
+
+  .services-header h2 {
+    font-size: 36px;
+  }
+
+  .services-header p {
+    font-size: 15px;
+    line-height: 28px;
+  }
+
+  .service-slide {
+    width: 85%;
+  }
+}

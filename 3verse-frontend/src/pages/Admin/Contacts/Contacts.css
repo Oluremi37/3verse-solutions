@@ -1,0 +1,155 @@
+.contacts-page {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===========================
+   Status Badges
+=========================== */
+
+.read,
+.unread {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.read {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.unread {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.read::before,
+.unread::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ===========================
+   Action Buttons
+=========================== */
+
+.actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.actions button{
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:500;
+    white-space:nowrap;
+    transition:.2s;
+}
+
+.actions button:hover{
+    transform:translateY(-2px);
+}
+
+.actions button:first-child{
+    background:#2563eb;
+    color:#fff;
+}
+
+.actions button:nth-child(2){
+    background:#16a34a;
+    color:#fff;
+}
+
+.delete-btn{
+    background:#dc2626 !important;
+    color:#fff;
+}
+
+/* ===========================
+   Contact Details Modal
+=========================== */
+
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 999;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 550px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.modal-content p {
+  margin-bottom: 14px;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.modal-content strong {
+  color: #0f172a;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  border: none;
+  background: #0f172a;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+  .contacts-page {
+    padding: 16px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  .modal-content {
+    padding: 22px;
+  }
+}

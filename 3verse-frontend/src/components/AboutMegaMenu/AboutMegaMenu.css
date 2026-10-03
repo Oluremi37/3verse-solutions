@@ -1,0 +1,92 @@
+.about-mega-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 430px;
+  max-width: calc(100vw - 40px);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(16, 24, 40, 0.12);
+  z-index: 999;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.about-mega-content {
+  display: block;
+}
+
+.about-mega-column {
+  padding: 28px;
+}
+
+.about-mega-heading {
+  color: #4a9018;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 20px;
+}
+
+.about-mega-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 11px 10px;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+  margin-bottom: 2px;
+  text-decoration: none;
+}
+
+.about-mega-item:hover {
+  background: #f4f9f0;
+}
+
+.about-mega-icon {
+  color: #4a9018;
+  font-size: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.about-mega-text h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 3px;
+}
+
+.about-mega-text p {
+  font-size: 13px;
+  color: #667085;
+  line-height: 1.4;
+}
+
+/* Hide unused sister company styles for now */
+.about-mega-sister-column,
+.sister-company-card,
+.sister-company-logo,
+.sister-company-text,
+.sister-company-btn {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .about-mega-menu {
+    width: 430px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-mega-menu {
+    width: calc(100vw - 32px);
+    max-width: 430px;
+  }
+
+  .about-mega-column {
+    padding: 24px 20px;
+  }
+}

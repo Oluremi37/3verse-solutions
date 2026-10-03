@@ -1,0 +1,520 @@
+/* ===========================
+TEAM SECTION
+=========================== */
+
+.team {
+  padding: 110px 0;
+  background: #fff;
+  scroll-margin-top: 100px;
+}
+
+.team-container {
+  width: min(92%, 1300px);
+  margin: auto;
+}
+
+/* ===========================
+HEADER
+=========================== */
+
+.team-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.team-top-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-small-title {
+  display: inline-block;
+  color: #4A9018;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.team-top h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #101828;
+  margin-bottom: 18px;
+}
+
+.team-top p {
+  max-width: 620px;
+  color: #667085;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+.view-team {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: #4a9018;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+
+  padding: 14px 28px;
+  border-radius: 999px;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: 0.3s;
+}
+
+.view-team::after {
+  content: none;
+}
+
+.view-team:hover {
+  background: #3a7513;
+}
+
+/* 
+SLIDER
+ */
+
+.team-slider {
+  display: flex;
+  gap: 18px;
+  height: 560px;
+}
+
+/* 
+CARD
+ */
+
+.team-item {
+  position: relative;
+
+  flex: 1;
+
+  border-radius: 26px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    flex .75s cubic-bezier(.22,.61,.36,1),
+    transform .45s;
+
+  min-width: 110px;
+}
+
+.team-item.active {
+  flex: 3.8;
+}
+
+.team-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+
+  transition: transform .8s;
+}
+
+.team-item.active img {
+  transform: scale(1.05);
+}
+
+/* ===========================
+OVERLAY
+=========================== */
+
+.team-content {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 30px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.78),
+    rgba(0,0,0,.12),
+    transparent
+  );
+}
+
+.team-content div {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: .45s;
+}
+
+.team-item.active .team-content div {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-content h3 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.team-content span {
+  color: #ECECEC;
+  font-size: 15px;
+}
+.executive-reverse .executive-image{
+    justify-self:end;
+}
+
+.executive-reverse .executive-content{
+    justify-self:start;
+}
+
+
+/* ===========================
+   STATIC MODE (no animation)
+=========================== */
+
+.team-slider.static .team-item {
+  flex: 1;
+  transition: none;
+}
+
+.team-slider.static .team-item.static {
+  flex: 1;
+}
+
+.team-slider.static:hover .team-item.static,
+.team-slider.static:hover .team-item:hover,
+.team-slider.static:hover .team-item:not(:hover) {
+  flex: 1;
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+
+.team-slider.static .team-item img {
+  transform: none;
+}
+
+.team-slider.static .team-content div {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ==========================================
+   LARGE LAPTOPS
+========================================== */
+
+@media (max-width: 1200px) {
+
+  .team-slider {
+    height: 500px;
+  }
+
+  .team-top h2 {
+    font-size: 42px;
+  }
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+
+  .team {
+    padding: 90px 0;
+  }
+
+  .team-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .team-top h2 {
+    font-size: 38px;
+  }
+
+  .team-top p {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .view-team {
+    width: 160px;
+    height: 50px;
+  }
+
+  .team-slider {
+    height: 420px;
+    gap: 14px;
+  }
+
+  .team-item.active {
+    flex: 3;
+  }
+
+  .team-content {
+    padding: 22px;
+  }
+
+  .team-content h3 {
+    font-size: 22px;
+  }
+
+}
+/* ===========================
+HOVER IMPROVEMENTS
+=========================== */
+
+.team-slider:hover .team-item.active{
+    flex:1;
+}
+
+.team-slider:hover .team-item:hover{
+    flex:3.8;
+    z-index:20;
+}
+
+.team-slider:hover .team-item:hover img{
+    transform:scale(1.05);
+}
+
+.team-slider:hover .team-item:hover .team-content div{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.team-slider:hover .team-item:hover{
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+}
+
+.team-slider:hover .team-item:not(:hover){
+    filter:brightness(.92);
+}
+
+/* ==========================================
+   HOVER MODE
+========================================== */
+
+.team-item {
+  transition:
+    flex 0.7s cubic-bezier(.22,.61,.36,1),
+    transform .4s ease,
+    box-shadow .4s ease,
+    filter .35s ease;
+}
+
+/* During hover, collapse all active animation */
+
+.team-slider:hover .team-item.active {
+  flex: 1;
+}
+
+/* Expand hovered card */
+
+.team-slider:hover .team-item:hover {
+  flex: 3.8;
+  transform: translateY(-8px);
+  z-index: 20;
+  box-shadow: 0 28px 50px rgba(0,0,0,.22);
+}
+
+/* Zoom image */
+
+.team-slider:hover .team-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Show content */
+
+.team-slider:hover .team-item:hover .team-content div {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Darken other cards */
+
+.team-slider:hover .team-item:not(:hover) {
+  filter: brightness(.88);
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+  .team{
+
+    padding:80px 0;
+
+  }
+
+  .team-top{
+
+    margin-bottom:40px;
+
+  }
+
+  .team-top h2{
+
+    font-size:32px;
+
+  }
+
+  .team-top p{
+
+    font-size:15px;
+
+  }
+
+  .team-slider{
+
+    height:320px;
+
+    gap:10px;
+
+  }
+
+  .team-item{
+
+    min-width:45px;
+
+  }
+
+  .team-item.active{
+
+    flex:4;
+
+  }
+
+  .team-content{
+
+    padding:18px;
+
+  }
+
+  .team-content h3{
+
+    font-size:18px;
+
+    margin-bottom:5px;
+
+  }
+
+  .team-content span{
+
+    font-size:13px;
+
+  }
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width:480px){
+
+  .team{
+
+    padding:70px 0;
+
+  }
+
+  .team-container{
+
+    width:94%;
+
+  }
+
+  .team-top h2{
+
+    font-size:28px;
+
+  }
+
+  .team-top p{
+
+    font-size:14px;
+
+    line-height:1.6;
+
+  }
+
+  .team-slider{
+
+    height:280px;
+
+    gap:8px;
+
+  }
+
+  .team-item{
+
+    border-radius:16px;
+
+    min-width:36px;
+
+  }
+
+  .team-item.active{
+
+    flex:5;
+
+  }
+
+  .team-content{
+
+    padding:14px;
+
+  }
+
+  .team-content h3{
+
+    font-size:16px;
+
+  }
+
+  .team-content span{
+
+    font-size:12px;
+
+  }
+
+}
+
+/* ==========================================
+   SMOOTH ANIMATION
+========================================== */
+
+.team-item,
+.team-item img,
+.team-content,
+.team-content div{
+
+    will-change:transform,opacity,flex;
+
+}
+
+.team-item{
+
+    backface-visibility:hidden;
+
+    transform:translateZ(0);
+
+}
