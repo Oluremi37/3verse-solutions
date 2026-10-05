@@ -11,7 +11,7 @@
 
 .contact-hero-tag {
   display: inline-block;
-  color: #16a34a;
+  color: var(--green);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -23,12 +23,12 @@
   font-size: 52px;
   font-weight: 700;
   line-height: 1.15;
-  color: #101828;
+  color: var(--text-dark);
   margin-bottom: 24px;
 }
 
 .contact-hero h1 span {
-  color: #16a34a;
+  color: var(--green);
 }
 
 .contact-hero p {
@@ -36,7 +36,7 @@
   margin: 0 auto;
   font-size: 18px;
   line-height: 1.8;
-  color: #667085;
+  color: var(--text-muted);
 }
 
 .contact-hero-buttons {
@@ -65,22 +65,22 @@
 }
 
 .hero-primary-btn {
-  background: #16a34a;
+  background: var(--green);
   color: #fff;
 }
 
 .hero-primary-btn:hover {
-  background: #15803d;
+  background: var(--green-hover);
 }
 
 .hero-secondary-btn {
   background: #fff;
-  border: 1px solid #16a34a;
-  color: #16a34a;
+  border: 1px solid var(--green);
+  color: var(--green);
 }
 
 .hero-secondary-btn:hover {
-  background: #16a34a;
+  background: var(--green);
   color: #fff;
 }
 

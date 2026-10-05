@@ -1,5 +1,5 @@
 .products-hero {
-  background: linear-gradient(135deg, #14320f 0%, #4a7c1f 100%);
+ background: linear-gradient(135deg, var(--navy) 0%, #0a3d6e 100%);
   padding: 100px 24px 0;   /* was "0 24px" — top padding pushes content below the fixed navbar */
 }
 
@@ -35,7 +35,7 @@
 
 .demo-btn {
   background: #fff;
-  color: #16a34a;
+  color: var(--green);
   border: none;
   border-radius: 8px;
   padding: 12px 24px;

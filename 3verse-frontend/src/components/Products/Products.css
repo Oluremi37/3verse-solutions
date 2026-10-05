@@ -22,19 +22,21 @@
 .products-preview-header h2 {
   font-size: 28px;
   font-weight: 700;
-  color: #101828;
+  color: var(--text-dark);
   margin: 0;
 }
 
 .view-all-link {
   font-size: 14px;
   font-weight: 600;
-  color: #16a34a;
+  color: var(--green);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .view-all-link:hover {
   text-decoration: underline;
+  color: var(--green-hover);
 }
 
 .products-preview-grid {
@@ -73,13 +75,13 @@
 .product-content h3 {
   font-size: 15px;
   font-weight: 600;
-  color: #101828;
+  color: var(--text-dark);
   margin: 0 0 4px;
 }
 
 .category {
   font-size: 13px;
-  color: #667085;
+  color: var(--text-muted);
   margin: 0 0 16px;
 }
 
@@ -87,15 +89,12 @@
   display: flex;
   gap: 10px;
 }
+
 .btn-view,
 .btn-quote {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-}
-
-.btn-view,
-.btn-quote {
   flex: 1;
   padding: 10px 12px;
   border-radius: 8px;
@@ -103,6 +102,7 @@
   font-weight: 500;
   cursor: pointer;
   border: 1px solid #d0d5dd;
+  transition: all 0.3s ease;
 }
 
 .btn-view {
@@ -111,9 +111,9 @@
 }
 
 .btn-quote {
-  background: #344054;
+  background: var(--navy);
   color: #fff;
-  border-color: #344054;
+  border-color: var(--navy);
 }
 
 .btn-view:hover {
@@ -121,8 +121,10 @@
 }
 
 .btn-quote:hover {
-  background: #1d2939;
+  background: var(--green);
+  border-color: var(--green);
 }
+
 .product-price {
   margin: 8px 0;
   display: flex;
@@ -134,7 +136,7 @@
 .price-sale {
   font-size: 18px;
   font-weight: 700;
-  color: #16a34a;
+  color: var(--green);
 }
 
 .price-original {
@@ -153,8 +155,8 @@
 }
 
 .availability-badge.in-stock {
-  background: rgba(94, 175, 68, 0.12);
-  color: #16a34a;
+  background: rgba(106, 195, 25, 0.12);
+  color: var(--green);
 }
 
 .availability-badge.out-of-stock {

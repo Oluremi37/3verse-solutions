@@ -22,7 +22,7 @@
   line-height: 1.2;
   letter-spacing: -0.02em;
 
-  color: #101828;
+  color: var(--text-dark);
   text-align: center;
 }
 
@@ -34,7 +34,7 @@
   font-weight: 400;
   line-height: 1.7;
 
-  color: #6b7280;
+  color: var(--text-muted);
   text-align: center;
 }
 
@@ -48,8 +48,8 @@
   justify-content: center;
   align-items: center;
 
-  background: #4a9018;
-  color: #fff;
+  background: var(--green);
+  color: var(--white);
 
   border: none;
   border-radius: 8px;
@@ -60,12 +60,14 @@
   font-weight: 600;
   white-space: nowrap;
 
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 14px rgba(106, 195, 25, 0.25);
 }
 
 .hero-btn:hover {
-  opacity: 0.9;
+  background: var(--green-hover);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(106, 195, 25, 0.35);
 }
 
 /* =========================

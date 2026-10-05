@@ -15,7 +15,7 @@
 }
 
 .contact-tag {
-  color: #16a34a;
+  color: var(--green);
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -84,21 +84,16 @@
     border-bottom:none;
 }
 
-.contact-icon{
-    width:40px;
-    height:40px;
-
-    background:#ECFDF3;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    flex-shrink:0;
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--green-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-
 .contact-icon svg{
     width:18px;
     height:18px;
@@ -141,15 +136,15 @@
 }
 
 .btn-directions {
-  background: #16a34a;
+ background: var(--green);
   color: #fff;
-  border: 1px solid #16a34a;
+  border: 1px solid var(--green);
 }
 
 .btn-contact-sales {
-  background: #fff;
-  color: #16a34a;
-  border: 1px solid #16a34a;
+background: #fff;
+  color: var(--green);
+  border: 1px solid var(--green);
 }
 
 .btn-send-message{
@@ -162,8 +157,8 @@
 
     margin-top:16px;
 
-    background:#101828;
-    color:#fff;
+   background: var(--navy);
+  color: #fff;
 
     border-radius:8px;
 
@@ -174,7 +169,7 @@
 }
 
 .btn-send-message:hover{
-    background:#16a34a;
+    background: var(--green);
 }
 /* Features row */
 .contact-features {
@@ -191,8 +186,8 @@
 }
 
 .feature-icon {
-  background: #f2f4f7;
-  color: #16a34a;
+ background: #f2f4f7;
+  color: var(--green);
   width: 40px;
   height: 40px;
   border-radius: 50%;

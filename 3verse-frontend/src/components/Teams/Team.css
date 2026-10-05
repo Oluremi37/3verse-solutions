@@ -32,7 +32,7 @@ HEADER
 
 .team-small-title {
   display: inline-block;
-  color: #4A9018;
+  color: var(--green);
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 1px;
@@ -42,13 +42,13 @@ HEADER
 .team-top h2 {
   font-size: 48px;
   font-weight: 700;
-  color: #101828;
+  color: var(--text-dark);
   margin-bottom: 18px;
 }
 
 .team-top p {
   max-width: 620px;
-  color: #667085;
+  color: var(--text-muted);
   line-height: 1.8;
   font-size: 17px;
 }
@@ -59,7 +59,7 @@ HEADER
   justify-content: center;
   gap: 8px;
 
-  background: #4a9018;
+  background: var(--green);
   color: #fff;
   font-size: 15px;
   font-weight: 600;
@@ -78,7 +78,7 @@ HEADER
 }
 
 .view-team:hover {
-  background: #3a7513;
+  background: var(--green-hover);
 }
 
 /* 
@@ -173,6 +173,7 @@ OVERLAY
   color: #ECECEC;
   font-size: 15px;
 }
+
 .executive-reverse .executive-image{
     justify-self:end;
 }
@@ -212,6 +213,7 @@ OVERLAY
   opacity: 1;
   transform: translateY(0);
 }
+
 /* ==========================================
    LARGE LAPTOPS
 ========================================== */
@@ -276,6 +278,7 @@ OVERLAY
   }
 
 }
+
 /* ===========================
 HOVER IMPROVEMENTS
 =========================== */
@@ -359,67 +362,45 @@ HOVER IMPROVEMENTS
 @media (max-width:768px){
 
   .team{
-
     padding:80px 0;
-
   }
 
   .team-top{
-
     margin-bottom:40px;
-
   }
 
   .team-top h2{
-
     font-size:32px;
-
   }
 
   .team-top p{
-
     font-size:15px;
-
   }
 
   .team-slider{
-
     height:320px;
-
     gap:10px;
-
   }
 
   .team-item{
-
     min-width:45px;
-
   }
 
   .team-item.active{
-
     flex:4;
-
   }
 
   .team-content{
-
     padding:18px;
-
   }
 
   .team-content h3{
-
     font-size:18px;
-
     margin-bottom:5px;
-
   }
 
   .team-content span{
-
     font-size:13px;
-
   }
 
 }
@@ -431,69 +412,46 @@ HOVER IMPROVEMENTS
 @media (max-width:480px){
 
   .team{
-
     padding:70px 0;
-
   }
 
   .team-container{
-
     width:94%;
-
   }
 
   .team-top h2{
-
     font-size:28px;
-
   }
 
   .team-top p{
-
     font-size:14px;
-
     line-height:1.6;
-
   }
 
   .team-slider{
-
     height:280px;
-
     gap:8px;
-
   }
 
   .team-item{
-
     border-radius:16px;
-
     min-width:36px;
-
   }
 
   .team-item.active{
-
     flex:5;
-
   }
 
   .team-content{
-
     padding:14px;
-
   }
 
   .team-content h3{
-
     font-size:16px;
-
   }
 
   .team-content span{
-
     font-size:12px;
-
   }
 
 }
@@ -506,15 +464,10 @@ HOVER IMPROVEMENTS
 .team-item img,
 .team-content,
 .team-content div{
-
     will-change:transform,opacity,flex;
-
 }
 
 .team-item{
-
     backface-visibility:hidden;
-
     transform:translateZ(0);
-
 }

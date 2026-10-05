@@ -8,6 +8,22 @@
   --border-color: #E5E7EB;
   --container-width: 1280px;
   --transition: all 0.3s ease;
+
+  /* ===== Official Brand Colors ===== */
+  --navy:        #07305E;
+  --green:       #6AC319;
+  --blue:        #0084CE;
+  --cyan:        #00AFD8;
+
+  /* ===== Supporting ===== */
+  --text-dark:   #101828;
+  --text-muted:  #667085;
+  --bg-light:    #F4F8FB;
+  --white:       #FFFFFF;
+
+  /* ===== Optional soft tints ===== */
+  --green-soft:  #EAF7DF;
+  --green-hover: #5AAF16;   /* slightly darker for hover */
 }
 
 * {

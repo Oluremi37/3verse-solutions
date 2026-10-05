@@ -15,7 +15,7 @@
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #5eaf44;
+  color: var(--green);
   margin-bottom: 12px;
 }
 
@@ -24,7 +24,7 @@
   font-size: 48px;
   font-weight: 700;
   line-height: 58px;
-  color: #101828;
+  color: var(--text-dark);
   margin-bottom: 72px;
 }
 
@@ -145,7 +145,7 @@ overflow:hidden;
   margin-top: auto; /* Pushes to bottom */
   padding-top: 18px;
   border-top: 1px solid #f2f4f7;
-  color: #5eaf44;
+  color: var(--green);
   font-size: 15px;
   font-weight: 600;
 }
@@ -159,7 +159,7 @@ overflow:hidden;
 .result-icon {
   width: 20px;
   height: 20px;
-  color: #5eaf44;
+ color: var(--green);
   flex-shrink: 0;
 }
 
@@ -170,7 +170,7 @@ overflow:hidden;
 }
 
 .portfolio-btn {
-  background: #5eaf44;
+ background: var(--green);
   color: #fff;
   text-decoration: none;
   padding: 14px 32px;
@@ -180,7 +180,7 @@ overflow:hidden;
 }
 
 .portfolio-btn:hover {
-  background: #4b9635;
+ background: var(--green-hover);
   transform: translateY(-3px);
 }
 

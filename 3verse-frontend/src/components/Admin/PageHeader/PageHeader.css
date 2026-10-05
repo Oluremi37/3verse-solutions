@@ -11,7 +11,7 @@
   margin: 0;
   font-size: 30px;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-dark);
 }
 
 .page-header-right {
@@ -30,47 +30,45 @@
   background: #fff;
   outline: none;
   font-size: 14px;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
 }
 
 .page-header-right input:focus {
-  border-color: #16a34a;
-  box-shadow: 0 0 0 3px rgba(22,163,74,.15);
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(106, 195, 25, 0.15);
 }
 
 .page-header-right button {
   border: none;
-  background: #16a34a;
+  background: var(--green);
   color: #fff;
   padding: 12px 18px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
-  transition: .25s;
+  transition: 0.25s;
 }
 
 .page-header-right button:hover {
-  background: #15803d;
+  background: var(--green-hover);
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-.page-header{
-    flex-direction:column;
-    align-items:stretch;
-}
+  .page-header-right {
+    width: 100%;
+  }
 
-.page-header-right{
-    width:100%;
-}
+  .page-header-right input {
+    width: 100%;
+  }
 
-.page-header-right input{
-    width:100%;
-}
-
-.page-header-right button{
-    width:100%;
-}
-
+  .page-header-right button {
+    width: 100%;
+  }
 }

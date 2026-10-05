@@ -1,5 +1,5 @@
 .service-hero {
-  background: linear-gradient(135deg, #14320f 0%, #4a7c1f 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, #0a3d6e 100%);
   padding: 130px 24px 60px;
 }
 
@@ -26,17 +26,19 @@
 .service-hero-btn {
   display: inline-block;
   background: #fff;
-  color: #16a34a;
+  color: var(--green);
   border: none;
   border-radius: 8px;
   padding: 12px 28px;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .service-hero-btn:hover {
   background: #f2f4f7;
+  color: var(--green-hover);
 }
 
 .service-feature-section {
@@ -57,7 +59,7 @@
 }
 
 .service-feature-tag {
-  color: #16a34a;
+  color: var(--green);
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -66,13 +68,13 @@
 .service-feature-text h2 {
   font-size: 26px;
   font-weight: 700;
-  color: #101828;
+  color: var(--text-dark);
   margin: 12px 0 12px;
 }
 
 .service-feature-text > p {
   font-size: 14px;
-  color: #667085;
+  color: var(--text-muted);
   line-height: 1.6;
   margin: 0 0 20px;
 }
@@ -93,8 +95,8 @@
 }
 
 .check-icon {
-  background: #e9f9ee;
-  color: #16a34a;
+  background: var(--green-soft);
+  color: var(--green);
   border-radius: 50%;
   width: 20px;
   height: 20px;

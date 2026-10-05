@@ -33,7 +33,7 @@
 }
 
 .team-modal::-webkit-scrollbar-thumb {
-  background: #16a34a;
+  background: var(--green);
   border-radius: 20px;
 }
 
@@ -58,7 +58,7 @@
 .team-modal-header h2 {
   margin: 0;
   font-size: 24px;
-  color: #111827;
+  color: var(--text-dark);
 }
 
 .close-btn {
@@ -67,10 +67,11 @@
   font-size: 28px;
   cursor: pointer;
   color: #6b7280;
+  transition: color 0.3s ease;
 }
 
 .close-btn:hover {
-  color: #16a34a;
+  color: var(--green);
 }
 
 /* ===========================
@@ -114,7 +115,7 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #16a34a;
+  border-color: var(--green);
 }
 
 .form-group textarea {
@@ -170,6 +171,7 @@
   padding: 12px 24px;
   cursor: pointer;
   font-weight: 600;
+  transition: 0.3s ease;
 }
 
 .cancel-btn {
@@ -181,12 +183,12 @@
 }
 
 .save-btn {
-  background: #16a34a;
+  background: var(--green);
   color: white;
 }
 
 .save-btn:hover {
-  background: #15803d;
+  background: var(--green-hover);
 }
 
 .save-btn:disabled {
@@ -199,7 +201,6 @@
 =========================== */
 
 @media (max-width: 768px) {
-
   .team-modal {
     max-height: 95vh;
   }

@@ -2,9 +2,11 @@
   padding: 90px 24px;
   background: #f8fafc;
 }
+
 #contact-form {
   scroll-margin-top: 96px;
 }
+
 .contact-form-container {
   max-width: 900px;
   margin: 0 auto;
@@ -17,7 +19,7 @@
 
 .contact-form-header span {
   display: inline-block;
-  color: #16a34a;
+  color: var(--green);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -26,7 +28,7 @@
 
 .contact-form-header h2 {
   font-size: 38px;
-  color: #101828;
+  color: var(--text-dark);
   margin-bottom: 16px;
   font-weight: 700;
 }
@@ -34,7 +36,7 @@
 .contact-form-header p {
   max-width: 650px;
   margin: auto;
-  color: #667085;
+  color: var(--text-muted);
   line-height: 1.8;
   font-size: 16px;
 }
@@ -83,8 +85,8 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #16a34a;
-  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12);
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(106, 195, 25, 0.15);
 }
 
 .contact-btn {
@@ -92,7 +94,7 @@
   height: 56px;
   border: none;
   border-radius: 12px;
-  background: #16a34a;
+  background: var(--green);
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -101,7 +103,7 @@
 }
 
 .contact-btn:hover:not(:disabled) {
-  background: #15803d;
+  background: var(--green-hover);
 }
 
 .contact-btn:disabled {
@@ -131,7 +133,7 @@
   height: 90px;
   margin: 0 auto 24px;
   border-radius: 50%;
-  background: #16a34a;
+  background: var(--green);
   color: #fff;
   display: flex;
   align-items: center;
@@ -141,13 +143,13 @@
 }
 
 .contact-success-card h2 {
-  color: #101828;
+  color: var(--text-dark);
   margin-bottom: 16px;
   font-size: 34px;
 }
 
 .contact-success-card p {
-  color: #667085;
+  color: var(--text-muted);
   line-height: 1.8;
   margin-bottom: 35px;
   font-size: 16px;

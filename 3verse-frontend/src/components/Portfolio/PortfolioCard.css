@@ -72,7 +72,7 @@
 }
 
 .portfolio-thumbnails img.active {
-  border-color: #5ba315;
+  border-color: var(--green);
   transform: scale(1.08);
 }
 

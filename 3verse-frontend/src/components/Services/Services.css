@@ -16,7 +16,7 @@
 .services-header h2 {
   font-size: 48px;
   font-weight: 700;
-  color: #101828;
+  color: var(--text-dark);
   margin-bottom: 18px;
   line-height: 1.2;
 }
@@ -24,7 +24,7 @@
 .services-header p {
   font-size: 16px;
   line-height: 30px;
-  color: #667085;
+  color: var(--text-muted);
 }
 
 /* ================= CAROUSEL ================= */
@@ -70,16 +70,14 @@
   box-shadow: 0 16px 40px rgba(16, 24, 40, 0.08);
 }
 
-/*  ICON */
+/* ICON */
 
 .service-icon-box {
   width: 56px;
   height: 56px;
 
   background: #fff;
-
   border: 1px solid #f2f4f7;
-
   border-radius: 12px;
 
   display: flex;
@@ -94,10 +92,11 @@
   height: 28px;
   object-fit: contain;
 }
+
 .software-development-icon {
   width: 60px;
-height: 60px;
-color: #4a9018;
+  height: 60px;
+  color: var(--green);
   object-fit: contain;
 }
 
@@ -106,7 +105,7 @@ color: #4a9018;
 .service-card h3 {
   font-size: 22px;
   font-weight: 700;
-  color: #101828;
+  color: var(--text-dark);
   line-height: 32px;
   margin-bottom: 16px;
 }
@@ -116,8 +115,7 @@ color: #4a9018;
 .service-card p {
   font-size: 16px;
   line-height: 28px;
-  color: #667085;
-
+  color: var(--text-muted);
   flex: 1;
 }
 
@@ -138,12 +136,17 @@ color: #4a9018;
 
   cursor: pointer;
 
-  color: #4a9018;
+  color: var(--green);
 
   font-size: 15px;
   font-weight: 600;
 
   padding: 0;
+  transition: color 0.3s ease;
+}
+
+.learn-more:hover {
+  color: var(--green-hover);
 }
 
 .learn-more svg {
@@ -170,7 +173,7 @@ color: #4a9018;
   border-radius: 50%;
   border: 1px solid #eaecf0;
   background: #fff;
-  color: #101828;
+  color: var(--text-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,9 +182,9 @@ color: #4a9018;
 }
 
 .services-nav button:hover {
-  background: #4a9018;
+  background: var(--green);
   color: #fff;
-  border-color: #4a9018;
+  border-color: var(--green);
 }
 
 /* ================= RESPONSIVE ================= */

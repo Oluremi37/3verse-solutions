@@ -21,7 +21,7 @@
   font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
-  color: var(--text-color);
+  color: var(--text-dark);
   margin: 0 0 22px;
 }
 
@@ -30,7 +30,7 @@
   margin: 0 auto;
   font-size: 18px;
   line-height: 1.75;
-  color: var(--secondary-text);
+  color: var(--text-muted);
 }
 
 /* =========================
@@ -84,7 +84,7 @@
   font-weight: 600;
   line-height: 1.25;
   margin: 0 0 20px;
-  color: var(--text-color);
+  color: var(--text-dark);
 }
 
 /* =========================
@@ -96,7 +96,7 @@
   margin: 0 auto;
   font-size: 16px;
   line-height: 1.8;
-  color: var(--secondary-text);
+  color: var(--text-muted);
 }
 
 /* =========================
@@ -112,7 +112,7 @@
 .about-card li {
   list-style: none;
   margin-bottom: 14px;
-  color: var(--secondary-text);
+  color: var(--text-muted);
   font-size: 16px;
   line-height: 1.5;
 }
@@ -131,7 +131,7 @@
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 18px;
-  color: var(--text-color);
+  color: var(--text-dark);
 }
 
 .partners p {
@@ -139,7 +139,7 @@
   margin: 0 auto 60px;
   font-size: 16px;
   line-height: 1.8;
-  color: var(--secondary-text);
+  color: var(--text-muted);
 }
 
 .partners-grid {

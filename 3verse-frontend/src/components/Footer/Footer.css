@@ -1,5 +1,5 @@
 .site-footer {
-  background: #000000;
+  background: var(--navy);
   padding: 48px 24px 24px;
 }
 
@@ -37,17 +37,18 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #1a201b;
-  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   font-size: 14px;
+  transition: background 0.3s ease;
 }
 
 .footer-socials a:hover {
-  background: #16a34a;
+  background: var(--green);
 }
 
 /* Link columns */
@@ -56,6 +57,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .footer-links-grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -63,9 +65,8 @@
   row-gap: 12px;
 }
 
-
 .footer-links h4 {
-  color: #16a34a;
+  color: var(--green);
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 16px;
@@ -76,10 +77,11 @@
   font-size: 14px;
   text-decoration: none;
   margin-bottom: 0;
+  transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #fff;
+  color: var(--white);
 }
 
 .footer-phone {
@@ -90,13 +92,13 @@
 
 /* Divider + copyright */
 .footer-divider {
-  border-top: 1px solid #1f251f;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 20px;
 }
 
 .footer-copyright {
   text-align: center;
-  color: #667085;
+  color: #98a2b3;
   font-size: 13px;
   margin: 0;
 }

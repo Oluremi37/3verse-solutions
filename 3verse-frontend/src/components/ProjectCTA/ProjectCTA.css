@@ -7,7 +7,7 @@
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  background: linear-gradient(135deg, #14320f 0%, #4a7c1f 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, #0a3d6e 100%);
   border-radius: 16px;
   overflow: hidden;
   padding: 48px;
@@ -80,7 +80,7 @@
 .schedule-form h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #101828;
+  color: var(--text-dark);
   margin: 0 0 20px;
 }
 
@@ -98,14 +98,15 @@
   padding: 10px 12px;
   font-size: 14px;
   margin-bottom: 18px;
-  color: #101828;
+  color: var(--text-dark);
   outline: none;
   font-family: inherit;
+  transition: border-color 0.3s ease;
 }
 
 .schedule-form input:focus,
 .schedule-form select:focus {
-  border-color: #4a7c1f;
+  border-color: var(--green);
 }
 
 .date-time-row {
@@ -132,7 +133,7 @@
 }
 
 .submit-btn {
-  background: #16a34a;
+  background: var(--green);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -141,10 +142,11 @@
   font-weight: 600;
   cursor: pointer;
   margin-top: 4px;
+  transition: background 0.3s ease;
 }
 
 .submit-btn:hover {
-  background: #128a3e;
+  background: var(--green-hover);
 }
 
 /* ================= THANK YOU CARD ================= */
@@ -165,8 +167,8 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #e9f9ee;
-  color: #16a34a;
+  background: var(--green-soft);
+  color: var(--green);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,7 +194,7 @@
 .thank-you-card h3 {
   font-size: 20px;
   font-weight: 700;
-  color: #101828;
+  color: var(--text-dark);
   margin: 0 0 8px;
 }
 
@@ -205,21 +207,22 @@
 
 .thank-you-body {
   font-size: 13px;
-  color: #667085;
+  color: var(--text-muted);
   line-height: 1.6;
   margin: 0 0 24px;
 }
 
 .reset-btn {
   background: #fff;
-  color: #16a34a;
-  border: 1px solid #16a34a;
+  color: var(--green);
+  border: 1px solid var(--green);
   border-radius: 8px;
   padding: 12px 24px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   width: 100%;
+  transition: all 0.3s ease;
 }
 
 .reset-btn:hover {
@@ -236,6 +239,7 @@
     max-width: 100%;
   }
 }
+
 @media (max-width: 500px) {
   .date-time-row {
     flex-direction: column;

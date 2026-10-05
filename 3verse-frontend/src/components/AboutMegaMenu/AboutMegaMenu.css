@@ -22,7 +22,7 @@
 }
 
 .about-mega-heading {
-  color: #4a9018;
+  color: var(--green);
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -42,11 +42,11 @@
 }
 
 .about-mega-item:hover {
-  background: #f4f9f0;
+  background: var(--green-soft); /* soft green tint */
 }
 
 .about-mega-icon {
-  color: #4a9018;
+  color: var(--green);
   font-size: 18px;
   margin-top: 2px;
   flex-shrink: 0;

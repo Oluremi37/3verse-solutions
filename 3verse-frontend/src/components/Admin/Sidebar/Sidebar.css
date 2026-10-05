@@ -1,7 +1,7 @@
 .sidebar {
   width: 260px;
   height: 100vh;
-  background: #101828;
+  background: var(--navy);
   color: #fff;
 
   display: flex;
@@ -26,7 +26,7 @@
 .sidebar-logo h2 {
   margin: 0;
   font-size: 24px;
-  color: #16a34a;
+  color: var(--green);
 }
 
 .sidebar-logo span {
@@ -69,12 +69,12 @@
 }
 
 .menu-item:hover {
-  background: rgba(22, 163, 74, 0.15);
+  background: rgba(106, 195, 25, 0.15);
   color: #fff;
 }
 
 .menu-item.active {
-  background: #16a34a;
+ background: var(--green);
   color: #fff;
 }
 
