@@ -15,7 +15,7 @@
 }
 
 .contact-tag {
-  color: var(--green);
+  color: var(--navy);
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -136,15 +136,15 @@
 }
 
 .btn-directions {
- background: var(--green);
+ background: var(--navy);
   color: #fff;
-  border: 1px solid var(--green);
+  border: 1px solid var(--navy);
 }
 
 .btn-contact-sales {
 background: #fff;
-  color: var(--green);
-  border: 1px solid var(--green);
+  color: var(--navy);
+  border: 1px solid var(--navy);
 }
 
 .btn-send-message{

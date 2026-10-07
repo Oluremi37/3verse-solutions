@@ -19,7 +19,7 @@
 
 .contact-form-header span {
   display: inline-block;
-  color: var(--green);
+  color: var(--navy);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -85,8 +85,8 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 4px rgba(106, 195, 25, 0.15);
+  border-color: var(--navy);
+  box-shadow: 0 0 0 4px rgba(7, 48, 94, 0.15);
 }
 
 .contact-btn {
@@ -94,7 +94,7 @@
   height: 56px;
   border: none;
   border-radius: 12px;
-  background: var(--green);
+  background: var(--navy);
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -103,7 +103,7 @@
 }
 
 .contact-btn:hover:not(:disabled) {
-  background: var(--green-hover);
+  background: #0a3d6e;
 }
 
 .contact-btn:disabled {
@@ -133,7 +133,7 @@
   height: 90px;
   margin: 0 auto 24px;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--navy);
   color: #fff;
   display: flex;
   align-items: center;

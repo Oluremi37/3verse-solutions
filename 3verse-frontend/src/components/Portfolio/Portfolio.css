@@ -15,7 +15,7 @@
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--navy);
   margin-bottom: 12px;
 }
 
@@ -170,7 +170,7 @@ overflow:hidden;
 }
 
 .portfolio-btn {
- background: var(--green);
+  background: var(--navy);
   color: #fff;
   text-decoration: none;
   padding: 14px 32px;
@@ -180,7 +180,7 @@ overflow:hidden;
 }
 
 .portfolio-btn:hover {
- background: var(--green-hover);
+  background: #0a3d6e;
   transform: translateY(-3px);
 }
 
