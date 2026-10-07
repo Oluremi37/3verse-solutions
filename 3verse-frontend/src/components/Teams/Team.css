@@ -59,7 +59,7 @@ HEADER
   justify-content: center;
   gap: 8px;
 
-  background: var(--green);
+  background: var(--navy);
   color: #fff;
   font-size: 15px;
   font-weight: 600;
@@ -78,7 +78,7 @@ HEADER
 }
 
 .view-team:hover {
-  background: var(--green-hover);
+ background: #0a3d6e;
 }
 
 /* 
