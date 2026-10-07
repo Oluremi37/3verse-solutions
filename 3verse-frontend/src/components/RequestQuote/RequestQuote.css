@@ -15,7 +15,7 @@
 }
 
 .request-quote-tag {
-  color: var(--green);
+  color: var(--navy);
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -77,7 +77,7 @@
 .quote-form-field input:focus,
 .quote-form-field select:focus,
 .quote-form-field textarea:focus {
-  border-color: var(--green);
+  border-color: var(--navy);
 }
 
 .quote-form-field textarea {
@@ -85,7 +85,7 @@
 }
 
 .quote-submit-btn {
-  background: #16a34a;
+  background: #0a3d6e;
   color: #fff;
   border: none;
   border-radius: 8px;

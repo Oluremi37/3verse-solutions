@@ -1,5 +1,5 @@
 import "./Hero.css";
-import earth from "../../assets/images/3verse-logo-4.png";
+import heroImage from "../../assets/images/hero-boardroom.jpg"; // ← replace with your new image
 import ScrollReveal from "../ScrollReveal/ScrollReveal";
 import useScrollToSection from "../../hooks/useScrollToSection";
 
@@ -11,16 +11,14 @@ const Hero = () => {
       <ScrollReveal>
         <div className="hero-content">
           <h1>
-            Connecting People.
+            Connect. Collaborate.
             <br />
-            Transforming Businesses.
+            Perform.
           </h1>
 
           <p>
-            3VERSE SOLUTIONS LIMITED delivers world-class unified
-            communications, video conferencing, IP telephony, digital signage,
-            audio-visual, and systems integration solutions that help
-            organizations connect, collaborate, and grow.
+            Enterprise Unified Communications, Audio-Visual and IT solutions
+            designed for modern African organizations.
           </p>
 
           <button
@@ -32,7 +30,7 @@ const Hero = () => {
         </div>
 
         <div className="hero-image">
-          <img src={earth} alt="Earth" />
+          <img src={heroImage} alt="3Verse Unified Communications" />
         </div>
       </ScrollReveal>
     </section>

@@ -1,48 +1,41 @@
 .hero {
   width: 100%;
-  padding-top: 180px;
+  padding-top: 160px;
 }
 
 .hero-content {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 24px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .hero-content h1 {
-  max-width: 1000px;
   margin: 0;
-
-  font-size: clamp(38px, 4.2vw, 58px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: var(--text-dark);
-  text-align: center;
 }
 
 .hero-content p {
-  max-width: 850px;
-  margin: 22px auto 0;
-
-  font-size: clamp(15px, 1.5vw, 18px);
+  max-width: 640px;
+  margin: 24px auto 0;
+  font-size: clamp(16px, 1.6vw, 19px);
   font-weight: 400;
   line-height: 1.7;
-
   color: var(--text-muted);
-  text-align: center;
 }
 
 .hero-btn {
-  min-width: 175px;
-  height: 51px;
+  min-width: 180px;
+  height: 54px;
   margin-top: 36px;
-  padding: 0 32px;
+  padding: 0 36px;
 
   display: flex;
   justify-content: center;
@@ -52,144 +45,109 @@
   color: #ffffff;
 
   border: none;
-  border-radius: 8px;
-
-  cursor: pointer;
+  border-radius: 10px;
 
   font-size: 16px;
   font-weight: 600;
-  white-space: nowrap;
+  cursor: pointer;
 
-  transition: background 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 14px rgba(106, 195, 25, 0.25);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(7, 48, 94, 0.18);
 }
 
 .hero-btn:hover {
   background: #0a3d6e;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(106, 195, 25, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(7, 48, 94, 0.25);
 }
 
-/* =========================
-   Hero Image
-========================= */
-
+/* Hero Image */
 .hero-image {
   width: 100%;
-  height: 403px;
-  margin-top: 55px;
+  height: 460px;
+  margin-top: 60px;
   overflow: hidden;
 }
 
 .hero-image img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-  object-position: center center;
-
+  object-position: center;
   display: block;
 }
-/* .hero-image img {
-  filter: brightness(0) saturate(100%) invert(12%) sepia(40%) saturate(2000%) hue-rotate(185deg) brightness(90%) contrast(95%);
-} */
 
+.hero-content {
+  animation: fadeUp 0.8s ease both;
+}
 
+.hero-image {
+  animation: fadeIn 1s ease 0.3s both;
+}
 
-/* =========================
-   Tablet
-========================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Tablet */
 @media (max-width: 992px) {
   .hero {
-    padding-top: 150px;
-  }
-
-  .hero-content {
-    max-width: 850px;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(36px, 5vw, 50px);
-  }
-
-  .hero-content p {
-    max-width: 760px;
+    padding-top: 140px;
   }
 
   .hero-image {
-    height: 350px;
+    height: 380px;
   }
 }
 
-/* =========================
-   Mobile
-========================= */
-
+/* Mobile */
 @media (max-width: 768px) {
   .hero {
-    padding-top: 110px;
-  }
-
-  .hero-content {
-    padding: 0 20px;
+    padding-top: 120px;
   }
 
   .hero-content h1 {
-    max-width: 650px;
-    font-size: clamp(32px, 8vw, 44px);
-    line-height: 1.18;
+    font-size: clamp(34px, 8vw, 44px);
   }
 
   .hero-content p {
-    max-width: 600px;
-    margin-top: 18px;
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 16px;
+    margin-top: 20px;
   }
 
   .hero-btn {
-    min-width: 160px;
-    height: 48px;
+    height: 50px;
     margin-top: 28px;
-    padding: 0 28px;
-    font-size: 15px;
   }
 
   .hero-image {
     height: 300px;
-    margin-top: 45px;
+    margin-top: 48px;
   }
 }
 
-/* =========================
-   Small Phones
-========================= */
-
 @media (max-width: 480px) {
   .hero {
-    padding-top: 100px;
-  }
-
-  .hero-content {
-    padding: 0 16px;
-  }
-
-  .hero-content h1 {
-    font-size: 32px;
-  }
-
-  .hero-content p {
-    font-size: 15px;
-  }
-
-  .hero-btn {
-    min-width: 155px;
-    height: 46px;
+    padding-top: 110px;
   }
 
   .hero-image {
     height: 260px;
-    margin-top: 40px;
   }
 }

@@ -26,6 +26,7 @@
   font-weight: 700;
   margin: 0 0 16px;
   line-height: 1.25;
+  color: #ffff;
 }
 
 .project-cta-left > p {
@@ -46,6 +47,7 @@
   font-size: 15px;
   font-weight: 600;
   margin: 0 0 6px;
+  color: #ffff;
 }
 
 .project-cta-subtext {
