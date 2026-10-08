@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar/Navbar.jsx";
 import Hero from "../components/Hero/Hero.jsx";
 import About from "../components/About/About.jsx";
+import Partners from "../components/Partners/Partners.jsx";
 import Services from "../components/Services/Services.jsx";
 import Testimonials from "../components/Testimonials/Testimonials.jsx";
 import Team from "../components/Teams/Team.jsx";
@@ -15,6 +16,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <About />
+      <Partners />
       <Services />
       <Testimonials />
       <Team />

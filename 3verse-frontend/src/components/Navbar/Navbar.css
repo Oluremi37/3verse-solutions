@@ -60,7 +60,7 @@
 }
 
 .nav-item:hover > a {
-  color: var(--green); /* #6AC319 */
+  color: var(--cyan); /* #00AFD8 */
 }
 
 /* ===========================
@@ -103,7 +103,7 @@
 
 .services-dropdown-wrapper:hover a,
 .services-dropdown-wrapper:hover .dropdown-icon {
-  color: var(--green);
+  color: var(--cyan);
 }
 
 .services-dropdown-wrapper:hover .dropdown-icon {
@@ -121,7 +121,7 @@
 }
 
 .services-dropdown-wrapper:hover .dropdown-trigger {
-  color: var(--green);
+  color: var(--cyan);
 }
 
 .quote-btn {
@@ -133,8 +133,8 @@
   justify-content: center;
   align-items: center;
 
-  background: var(--navy);          /* solid navy like product page */
-  border: 1px solid var(--navy);
+  background: var(--cyan);          /* solid navy like product page */
+  border: 1px solid var(--cyan);
   border-radius: 8px;
 
   color: #ffffff;
@@ -148,8 +148,8 @@
 }
 
 .quote-btn:hover {
-  background: var(--green);         /* turns green on hover */
-  border-color: var(--green);
+  background: var(--cyan);         /* turns green on hover */
+  border-color: var(--cyan);
   color: #ffffff;
 }
 
@@ -292,8 +292,8 @@
   justify-content: center;
   align-items: center;
 
-  background: var(--navy);
-  border: 1px solid var(--navy);
+  background: var(--cyan);
+  border: 1px solid var(--cyan);
   border-radius: 8px;
 
   color: #ffffff;
@@ -304,8 +304,8 @@
 }
 
 .mobile-quote-btn:hover {
-  background: var(--green);
-  border-color: var(--green);
+  background: var(--cyan);
+  border-color: var(--cyan);
   color: #ffffff;
 } 
 
@@ -358,6 +358,6 @@
   }
 
   .mobile-services-list a:hover {
-    color: var(--green);
+    color: var(--cyan);
   }
 }

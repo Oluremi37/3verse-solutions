@@ -11,7 +11,13 @@ export default function Products() {
     const loadProducts = async () => {
       try {
         const response = await getProducts();
-        setProducts(response);
+
+        // Handle both array and { products: [] } response shapes
+        const list = Array.isArray(response)
+          ? response
+          : response?.products || [];
+
+        setProducts(list);
       } catch (err) {
         console.error(err);
       }
@@ -20,24 +26,29 @@ export default function Products() {
     loadProducts();
   }, []);
 
-  const featuredProducts = Array.isArray(products) ? products.slice(0, 3) : [];
+  const featuredProducts = products.slice(0, 3);
 
   return (
     <section className="products-preview-section" id="products">
       <div className="products-preview-container">
         <ScrollReveal>
           <div className="products-preview-header">
-            <h2>Products</h2>
+            <div>
+              <span className="section-tag_1">Products</span>
+              <h2 className="section-title">
+                Technology that powers modern workplaces
+              </h2>
+            </div>
 
             <Link to="/products" className="view-all-link">
               View All Products
             </Link>
-          </div>
+          </div>  
         </ScrollReveal>
 
         <div className="products-preview-grid">
           {featuredProducts.map((product, index) => (
-            <ScrollReveal key={product._id} delay={index * 0.1}>
+            <ScrollReveal key={product._id || index} delay={index * 0.1}>
               <div className="product-card">
                 <div className="product-image">
                   <img src={product.thumbnail} alt={product.name} />

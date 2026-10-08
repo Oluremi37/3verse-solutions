@@ -1,5 +1,5 @@
 import "./Hero.css";
-import heroImage from "../../assets/images/hero-boardroom.jpg"; // ← replace with your new image
+import heroImage from "../../assets/images/hero-boardroom-1.jpg"; // replace with your new image
 import ScrollReveal from "../ScrollReveal/ScrollReveal";
 import useScrollToSection from "../../hooks/useScrollToSection";
 
@@ -10,6 +10,8 @@ const Hero = () => {
     <section className="hero" id="home">
       <ScrollReveal>
         <div className="hero-content">
+          <span className="hero-tag">Unified Communications • AV • IT</span>
+
           <h1>
             Connect. Collaborate.
             <br />
@@ -17,16 +19,25 @@ const Hero = () => {
           </h1>
 
           <p>
-            Enterprise Unified Communications, Audio-Visual and IT solutions
-            designed for modern African organizations.
+            Enterprise communication and technology solutions designed for
+            modern African organizations.
           </p>
 
-          <button
-            className="hero-btn"
-            onClick={() => scrollToSection("schedule-demo")}
-          >
-            Book a Demo
-          </button>
+          <div className="hero-actions">
+            <button
+              className="hero-btn primary"
+              onClick={() => scrollToSection("schedule-demo")}
+            >
+              Book a Demo
+            </button>
+
+            <button
+              className="hero-btn secondary"
+              onClick={() => scrollToSection("services")}
+            >
+              Explore Services
+            </button>
+          </div>
         </div>
 
         <div className="hero-image">

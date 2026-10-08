@@ -1,26 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
 :root {
-  /* ===== Official Brand Colors ===== */
   --navy: #07305E;
   --green: #6AC319;
   --blue: #0084CE;
   --cyan: #00AFD8;
 
-  /* ===== Supporting ===== */
   --text-dark: #101828;
   --text-muted: #667085;
   --bg-light: #F4F8FB;
   --white: #FFFFFF;
 
-  /* ===== Soft tints ===== */
   --green-soft: #EAF7DF;
+  --blue-soft: #E0F4FC;
   --green-hover: #5AAF16;
-
-  /* ===== Other ===== */
-  --border-color: #E5E7EB;
-  --container-width: 1280px;
-  --transition: all 0.3s ease;
+  --cyan-hover: #0084CE;
 }
 
 * {
@@ -69,4 +63,47 @@ h1, h2, h3, h4, h5, h6 {
 #contact,
 #schedule-demo {
   scroll-margin-top: 96px !important;
+}
+
+/* =========================
+   Reusable Section Headers
+========================= */
+
+.section-tag {
+  display: inline-block;
+  color: var(--cyan);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: clamp(40px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin: 0 0 16px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0;
+}
+
+.section-header {
+  margin-bottom: 56px;
+}
+
+.section-header.center {
+  text-align: center;
+}
+
+.section-header.center .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
 }
