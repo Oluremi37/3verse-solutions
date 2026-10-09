@@ -1,16 +1,20 @@
+/* AboutMegaMenu.css */
+
 .about-mega-menu {
   position: absolute;
   top: calc(100% + 14px);
   left: 50%;
-  transform: translateX(-50%);
+  z-index: 999;
   width: 430px;
   max-width: calc(100vw - 40px);
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(16, 24, 40, 0.12);
-  z-index: 999;
-  isolation: isolate;
   overflow: hidden;
+  isolation: isolate;
+  transform: translateX(-50%);
+  border: 1px solid #e5edf4;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(7, 48, 94, 0.14);
+  animation: aboutMenuFadeIn 0.2s ease-out;
 }
 
 .about-mega-content {
@@ -21,51 +25,103 @@
   padding: 28px;
 }
 
+/* Menu heading */
+
 .about-mega-heading {
-  color: var(--green);
-  font-size: 13px;
-  font-weight: 700;
+  margin: 0 0 20px;
+  color: #0084ce;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  line-height: 1.5;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
-  margin-bottom: 20px;
 }
+
+/* Menu links */
 
 .about-mega-item {
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  padding: 11px 10px;
-  border-radius: 10px;
-  transition: background 0.2s ease;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
+  padding: 13px 12px;
+  border: 1px solid transparent;
+  border-radius: 11px;
   text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.about-mega-item:last-child {
+  margin-bottom: 0;
 }
 
 .about-mega-item:hover {
-  background: var(--green-soft); /* soft green tint */
+  transform: translateX(3px);
+  border-color: #d8edf8;
+  background: #f0f9fd;
 }
 
+.about-mega-item:focus-visible {
+  outline: 2px solid #0084ce;
+  outline-offset: 3px;
+}
+
+/* Icon */
+
 .about-mega-icon {
-  color: var(--green);
-  font-size: 18px;
-  margin-top: 2px;
+  display: flex;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-top: 1px;
+  border-radius: 10px;
+  background: #e0f4fc;
+  color: #0084ce;
+  font-size: 19px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.about-mega-item:hover .about-mega-icon {
+  background: #07305e;
+  color: #ffffff;
+}
+
+/* Link text */
+
+.about-mega-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .about-mega-text h4 {
+  margin: 0 0 5px;
+  color: #07305e;
   font-size: 15px;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 3px;
+  font-weight: 700;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.about-mega-item:hover .about-mega-text h4 {
+  color: #0084ce;
 }
 
 .about-mega-text p {
-  font-size: 13px;
+  margin: 0;
   color: #667085;
-  line-height: 1.4;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
-/* Hide unused sister company styles for now */
+/* Unused sister-company section */
+
 .about-mega-sister-column,
 .sister-company-card,
 .sister-company-logo,
@@ -74,11 +130,29 @@
   display: none;
 }
 
-@media (max-width: 900px) {
-  .about-mega-menu {
-    width: 430px;
+/* Entrance animation */
+
+@keyframes aboutMenuFadeIn {
+  from {
+    opacity: 0;
+    margin-top: -4px;
+  }
+
+  to {
+    opacity: 1;
+    margin-top: 0;
   }
 }
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .about-mega-menu {
+    width: 400px;
+  }
+}
+
+/* Mobile */
 
 @media (max-width: 600px) {
   .about-mega-menu {
@@ -87,6 +161,39 @@
   }
 
   .about-mega-column {
-    padding: 24px 20px;
+    padding: 22px 18px;
+  }
+
+  .about-mega-heading {
+    margin-bottom: 14px;
+  }
+
+  .about-mega-item {
+    gap: 12px;
+    padding: 12px 8px;
+  }
+
+  .about-mega-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-mega-menu {
+    animation: none;
+  }
+
+  .about-mega-item,
+  .about-mega-icon,
+  .about-mega-text h4 {
+    transition: none;
+  }
+
+  .about-mega-item:hover {
+    transform: none;
   }
 }

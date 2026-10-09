@@ -23,12 +23,13 @@ export default function ShopByCategory({
   selectedCategory = "",
   onSelectCategory,
 }) {
-  const getCategoryCount = (categoryName) => {
-    return products.filter(
-      (product) =>
-        product.category?.toLowerCase() === categoryName.toLowerCase(),
-    ).length;
-  };
+ const getCategoryCount = (categoryName) => {
+   return products.filter(
+     (product) =>
+       product.category?.trim().toLowerCase() ===
+       categoryName.trim().toLowerCase(),
+   ).length;
+ };
 
   const handleCategoryClick = (categoryName) => {
     // Clicking the already-active category deselects it (shows all again)

@@ -1,115 +1,172 @@
-/* ========== SHARED STYLES FOR STORY & MISSION ========== */
 
-.story-hero,
-.mission-hero {
-  padding: 140px 0 100px;
-  background: #fff;
+/* ========================================
+   OUR STORY PAGE
+   3Verse Solutions — Navy & Cyan
+======================================== */
+
+.story-hero {
+  padding: 40px 0 65px;
+  background: #F4F8FB;
+  overflow: hidden;
 }
 
-.story-hero-container,
-.mission-hero-container {
-  max-width: 1280px;
+.story-hero-container {
+  width: min(1200px, 92%);
   margin: 0 auto;
-  padding: 0 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: 64px;
   align-items: center;
 }
 
-.breadcrumb {
+.story-hero-content {
+  min-width: 0;
+}
+
+/* Breadcrumb */
+.story-hero .breadcrumb {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 10px;
+  margin-bottom: 25px;
   color: #667085;
-  margin-bottom: 24px;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
-.breadcrumb a {
+.story-hero .breadcrumb a {
   color: #667085;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
-.breadcrumb a:hover {
-  color: #4A9018;
+.story-hero .breadcrumb a:hover {
+  color: #0084CE;
 }
 
-.breadcrumb .current {
-  color: #4A9018;
-  font-weight: 500;
+.story-hero .breadcrumb > span {
+  color: #98A2B3;
 }
 
-.story-hero-content h1,
-.mission-hero-content h1 {
-  font-size: 48px;
+.story-hero .breadcrumb .current {
+  color: #0084CE;
   font-weight: 700;
-  color: #111827;
-  margin-bottom: 16px;
-  line-height: 1.2;
 }
 
-.green-line {
-  width: 60px;
+/* Heading */
+.story-hero-content h1 {
+  margin: 0 0 22px;
+  color: #07305E;
+  font-size: clamp(36px, 4.5vw, 52px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+/* Optional accent line */
+.story-hero-content .green-line {
+  width: 58px;
   height: 4px;
-  background: #4A9018;
-  border-radius: 2px;
-  margin-bottom: 28px;
+  margin-bottom: 25px;
+  border-radius: 4px;
+  background: #00AFD8;
 }
 
-.story-intro,
-.mission-intro {
+/* Intro */
+.story-intro {
+  margin: 0 0 24px;
+  color: #07305E;
   font-size: 18px;
-  font-weight: 500;
-  color: #111827;
-  line-height: 1.6;
-  margin-bottom: 24px;
+  font-weight: 600;
+  line-height: 1.85;
 }
 
-.story-hero-content p,
-.mission-hero-content p {
-  font-size: 16px;
-  color: #4B5563;
-  line-height: 1.7;
-  margin-bottom: 18px;
+/* Body copy */
+.story-hero-content p:not(.story-intro) {
+  margin: 0 0 18px;
+  color: #526174;
+  font-size: 15px;
+  line-height: 1.9;
 }
 
-.story-hero-image img,
-.mission-hero-image img {
+.story-hero-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   STORY IMAGE & CYAN BORDER
+======================================== */
+
+.story-hero-image {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  padding: 0 12px 12px 0;
+  box-sizing: border-box;
+}
+
+/* Border stays behind the image */
+.story-hero-image::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #00AFD8;
+  border-radius: 20px;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.story-hero-image img {
+  position: relative;
+  z-index: 1;
+  display: block;
   width: 100%;
   height: 480px;
   object-fit: cover;
+  object-position: center;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 45px rgba(7, 48, 94, 0.13);
 }
-/* Page Navigation */
-.page-nav {
-  padding: 40px 0 80px;
-  background: #fff;
+
+/* ========================================
+   PREVIOUS / NEXT NAVIGATION
+======================================== */
+
+.story-hero ~ .page-nav {
+  padding: 28px 0 65px;
+  background: #F4F8FB;
 }
 
 .page-nav-container {
-  max-width: 1280px;
+  width: min(1200px, 92%);
   margin: 0 auto;
-  padding: 0 40px;
+  padding-top: 22px;
+  border-top: 1px solid #E4EDF4;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .page-nav-link {
-  font-size: 15px;
-  font-weight: 500;
-  color: #4A9018;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 10px 0;
-  transition: all 0.25s ease;
+  color: #0084CE;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .page-nav-link:hover {
-  color: #3a7012;
-  transform: translateX(0);
+  color: #07305E;
 }
 
 .page-nav-link.prev:hover {
@@ -119,33 +176,102 @@
 .page-nav-link.next:hover {
   transform: translateX(4px);
 }
-/* Responsive */
+
+/* ========================================
+   TABLET
+======================================== */
+
 @media (max-width: 992px) {
-  .story-hero-container,
-  .mission-hero-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .story-hero {
+    padding: 50px 0 60px;
   }
 
-  .story-hero-image img,
-  .mission-hero-image img {
-    height: 360px;
+  .story-hero-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+    max-width: 760px;
   }
 
-  .story-hero-content h1,
-  .mission-hero-content h1 {
-    font-size: 36px;
+  .story-hero-content h1 {
+    font-size: 40px;
+  }
+
+  .story-hero-image img {
+    height: 400px;
   }
 }
 
+/* ========================================
+   MOBILE
+======================================== */
+
 @media (max-width: 600px) {
-  .story-hero,
-  .mission-hero {
-    padding: 120px 0 60px;
+  .story-hero {
+    padding: 35px 0 45px;
   }
 
-  .story-hero-container,
-  .mission-hero-container {
-    padding: 0 20px;
+  .story-hero-container {
+    width: 90%;
+    gap: 30px;
+  }
+
+  .story-hero .breadcrumb {
+    gap: 7px;
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+
+  .story-hero-content h1 {
+    font-size: 34px;
+  }
+
+  .story-intro {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .story-hero-content p:not(.story-intro) {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .story-hero-image {
+    padding: 0 7px 7px 0;
+  }
+
+  .story-hero-image::before {
+    top: 7px;
+    left: 7px;
+    border-radius: 15px;
+  }
+
+  .story-hero-image img {
+    height: 280px;
+    border-radius: 15px;
+  }
+
+  .story-hero ~ .page-nav {
+    padding: 20px 0 45px;
+  }
+
+  .page-nav-container {
+    width: 90%;
+    gap: 12px;
+  }
+
+  .page-nav-link {
+    font-size: 12px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .page-nav-link {
+    transition: none;
+  }
+
+  .page-nav-link.prev:hover,
+  .page-nav-link.next:hover {
+    transform: none;
   }
 }

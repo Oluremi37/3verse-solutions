@@ -12,7 +12,7 @@ const Services = () => {
     const loadServices = async () => {
       try {
         const data = await getServices();
-        setServices(data.services || []);
+       setServices(Array.isArray(data) ? data : data?.services || []);
       } catch (err) {
         console.error("Service Error:", err);
       }

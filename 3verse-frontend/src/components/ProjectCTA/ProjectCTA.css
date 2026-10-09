@@ -1,251 +1,433 @@
+
+/* =========================================
+   PROJECT CTA — 3VERSE SOLUTIONS
+========================================= */
+
 .project-cta-section {
-  padding: 60px 24px;
-  background: #ffffff;
+  padding: 90px 24px;
+  background: var(--bg-light);
 }
 
 .project-cta-container {
-  max-width: 1200px;
+  position: relative;
+  isolation: isolate;
+  width: min(1200px, 100%);
   margin: 0 auto;
-  display: flex;
-  background: linear-gradient(135deg, var(--navy) 0%, #0a3d6e 100%);
-  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  padding: 64px;
   overflow: hidden;
-  padding: 48px;
-  gap: 48px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #06274c 0%, var(--navy) 60%, #0b4779 100%);
+  box-shadow: 0 24px 70px rgba(7, 48, 94, 0.16);
+}
+
+/* Decorative background accents */
+.project-cta-container::before,
+.project-cta-container::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  
+}
+
+.project-cta-container::before {
+  width: 350px;
+  height: 350px;
+  top: -190px;
+  left: -140px;
+  border: 1px solid rgba(0, 175, 216, 0.3);
+  box-shadow:
+    0 0 0 35px rgba(0, 175, 216, 0.035),
+    0 0 0 75px rgba(0, 175, 216, 0.025);
+}
+
+.project-cta-container::after {
+  width: 260px;
+  height: 260px;
+  right: -130px;
+  bottom: -150px;
+  background: rgba(0, 175, 216, 0.09);
 }
 
 .project-cta-left {
-  flex: 1;
-  color: #fff;
+  min-width: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  color: #fff;
 }
 
 .project-cta-left h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin: 0 0 16px;
-  line-height: 1.25;
-  color: #ffff;
+  max-width: 440px;
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: clamp(32px, 3.2vw, 44px);
+  font-weight: 750;
+  line-height: 1.16;
+  letter-spacing: -1.2px;
 }
 
 .project-cta-left > p {
-  font-size: 14px;
-  color: #d7e6c9;
-  line-height: 1.6;
-  max-width: 380px;
+  max-width: 430px;
   margin: 0 0 24px;
+  color: #d5e5f3;
+  font-size: 15px;
+  line-height: 1.85;
 }
 
 .project-cta-divider {
-  width: 100%;
-  border-top: 1px dashed rgba(255, 255, 255, 0.35);
-  margin-bottom: 24px;
+  width: 64px;
+  height: 4px;
+  margin: 12px 0 28px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--cyan);
 }
 
 .project-cta-left h4 {
-  font-size: 15px;
-  font-weight: 600;
-  margin: 0 0 6px;
-  color: #ffff;
-}
-
-.project-cta-subtext {
-  font-size: 13px;
-  color: #d7e6c9;
   margin: 0 0 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 650;
 }
 
-.project-cta-contact {
+.project-cta-left .project-cta-subtext {
+  margin: 0 0 12px;
+  color: #c2d7e9;
   font-size: 14px;
-  color: #fff;
-  margin: 0 0 4px;
 }
+
+.project-cta-left .project-cta-contact {
+  width: fit-content;
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.project-cta-contact:last-child {
+  color: #79ddf2;
+}
+
+/* =========================================
+   FORM PANEL
+========================================= */
 
 .project-cta-right {
-  flex: 1;
+  min-width: 0;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: center;
 }
 
 .schedule-form {
-  background: #fff;
-  border-radius: 12px;
-  padding: 28px;
   width: 100%;
-  max-width: 400px;
+  max-width: 480px;
+  padding: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
 }
 
 .schedule-form h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin: 0 0 20px;
+  margin: 0 0 26px;
+  color: var(--navy);
+  font-size: 25px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
 }
 
 .schedule-form label {
-  font-size: 13px;
-  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
   color: #344054;
-  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 650;
 }
 
 .schedule-form input,
 .schedule-form select {
-  border: 1px solid #d0d5dd;
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-size: 14px;
-  margin-bottom: 18px;
-  color: var(--text-dark);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0 0 19px;
+  padding: 13px 14px;
+  border: 1px solid #d8e1ea;
+  border-radius: 10px;
   outline: none;
+  background: #fbfdff;
+  color: var(--text-dark);
   font-family: inherit;
-  transition: border-color 0.3s ease;
+  font-size: 14px;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.schedule-form input::placeholder {
+  color: #98a2b3;
 }
 
 .schedule-form input:focus,
 .schedule-form select:focus {
-  border-color: var(--green);
+  border-color: var(--cyan);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(0, 175, 216, 0.12);
 }
 
+.schedule-form input:focus-visible,
+.schedule-form select:focus-visible,
+.submit-btn:focus-visible,
+.reset-btn:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+/* Date and time */
 .date-time-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   width: 100%;
-  margin-bottom: 0;
 }
 
 .date-time-field {
-  flex: 1;
-  min-width: 0;
   display: flex;
   flex-direction: column;
-}
-
-.date-time-field label {
-  margin-bottom: 6px;
+  min-width: 0;
 }
 
 .date-time-field input {
   width: 100%;
-  box-sizing: border-box;
 }
 
+/* Submit */
 .submit-btn {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 5px;
+  padding: 14px 20px;
+  border: 1px solid var(--navy);
+  border-radius: 10px;
   background: var(--navy);
   color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 14px;
-  font-weight: 600;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
-  margin-top: 4px;
-  transition: background 0.3s ease;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.submit-btn:hover {
-  background: var(--navy);
-  filter: brightness(1.1);
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #006f9f;
+  background: #006f9f;
+  box-shadow: 0 9px 22px rgba(7, 48, 94, 0.2);
 }
 
-/* ================= THANK YOU CARD ================= */
+.submit-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* Error message */
+.schedule-form .form-error {
+  margin: 0 0 16px;
+  color: #b42318;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   THANK-YOU STATE
+========================================= */
 
 .thank-you-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 32px;
   width: 100%;
-  max-width: 400px;
+  max-width: 480px;
+  box-sizing: border-box;
+  padding: 48px 34px;
+  border: 1px solid #e5edf4;
+  border-radius: 20px;
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
 }
 
 .thank-you-icon {
-  width: 56px;
-  height: 56px;
+  width: 66px;
+  height: 66px;
+  margin-bottom: 22px;
   border-radius: 50%;
-  background: var(--green-soft);
-  color: var(--green);
+  background: var(--blue-soft);
+  color: var(--navy);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
-  margin-bottom: 20px;
-  animation: pop-in 0.4s ease;
-}
-
-@keyframes pop-in {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  70% {
-    transform: scale(1.15);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
+  font-size: 30px;
+  animation: project-cta-pop 0.4s ease;
 }
 
 .thank-you-card h3 {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin: 0 0 8px;
+  margin: 0 0 12px;
+  color: var(--navy);
+  font-size: 27px;
+  font-weight: 750;
 }
 
 .thank-you-subtitle {
-  font-size: 14px;
-  font-weight: 500;
+  margin: 0 0 14px;
   color: #344054;
-  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
 }
 
 .thank-you-body {
-  font-size: 13px;
+  margin: 0 0 26px;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.8;
 }
 
 .reset-btn {
-  background: #fff;
-  color: var(--green);
-  border: 1px solid var(--green);
-  border-radius: 8px;
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
   width: 100%;
-  transition: all 0.3s ease;
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid var(--navy);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--navy);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .reset-btn:hover {
-  background: #f2f4f7;
+  background: var(--navy);
+  color: #fff;
 }
 
-@media (max-width: 900px) {
+@keyframes project-cta-pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .project-cta-section {
+    padding: 75px 24px;
+  }
+
   .project-cta-container {
-    flex-direction: column;
-    padding: 32px 24px;
+    grid-template-columns: 1fr;
+    gap: 38px;
+    padding: 42px;
+  }
+
+  .project-cta-left h2,
+  .project-cta-left > p {
+    max-width: 650px;
+  }
+
+  .project-cta-right {
+    justify-content: flex-start;
+  }
+
+  .schedule-form,
+  .thank-you-card {
+    max-width: none;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .project-cta-section {
+    padding: 55px 16px;
+  }
+
+  .project-cta-container {
+    gap: 30px;
+    padding: 30px 18px;
+    border-radius: 20px;
+  }
+
+  .project-cta-left h2 {
+    font-size: 31px;
+    letter-spacing: -0.7px;
   }
 
   .project-cta-left > p {
-    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .project-cta-divider {
+    margin: 8px 0 24px;
+  }
+
+  .schedule-form {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .schedule-form h3 {
+    margin-bottom: 22px;
+    font-size: 22px;
+  }
+
+  .date-time-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .thank-you-card {
+    padding: 36px 20px;
   }
 }
 
-@media (max-width: 500px) {
-  .date-time-row {
-    flex-direction: column;
-    gap: 0;
+@media (prefers-reduced-motion: reduce) {
+  .project-cta-container *,
+  .project-cta-container *::before,
+  .project-cta-container *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

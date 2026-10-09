@@ -14,23 +14,30 @@ export default function ProductDetail() {
   const [products, setProducts] = useState([]);
   const [activeImage, setActiveImage] = useState(0);
 
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const [productData, productsData] = await Promise.all([
-          getProductBySlug(slug),
-          getProducts(),
-        ]);
+ 
+useEffect(() => {
+  const loadData = async () => {
+    try {
+      const [productData, productsData] = await Promise.all([
+        getProductBySlug(slug),
+        getProducts(),
+      ]);
 
-        setProduct(productData);
-        setProducts(productsData);
-      } catch (err) {
-        console.error(err);
-      }
-    };
+      setProduct(productData);
 
-    loadData();
-  }, [slug]);
+      setProducts(
+        Array.isArray(productsData)
+          ? productsData
+          : productsData?.products || [],
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  loadData();
+}, [slug]);
+
 
   if (!product) {
     return (
@@ -145,7 +152,7 @@ export default function ProductDetail() {
                 {relatedProducts.map((related) => (
                   <div className="product-card" key={related._id}>
                     <div className="product-image">
-                      <img src={related.thumbnail} alt={related.thumbnail} />
+                      <img src={related.thumbnail} alt={related.name} />
                     </div>
 
                     <div className="product-content">

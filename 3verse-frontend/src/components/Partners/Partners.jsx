@@ -10,15 +10,15 @@ import dell from "../../assets/images/dell.png";
 import samsung from "../../assets/images/samsung.png";
 
 const partners = [
-  logitech,
-  cisco,
-  poly,
-  huawei,
-  avaya,
-  microsoft,
-  ibm,
-  dell,
-  samsung,
+  { name: "Logitech", logo: logitech },
+  { name: "Cisco", logo: cisco },
+  { name: "Poly", logo: poly },
+  { name: "Huawei", logo: huawei },
+  { name: "Avaya", logo: avaya },
+  { name: "Microsoft", logo: microsoft },
+  { name: "IBM", logo: ibm },
+  { name: "Dell", logo: dell },
+  { name: "Samsung", logo: samsung },
 ];
 
 const Partners = () => {
@@ -35,9 +35,13 @@ const Partners = () => {
         </div>
 
         <div className="partners-grid">
-          {partners.map((logo, index) => (
-            <div className="partner-logo" key={index}>
-              <img src={logo} alt={`Partner ${index + 1}`} />
+          {partners.map((partner) => (
+            <div className="partner-logo" key={partner.name}>
+              <img
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                loading="lazy"
+              />
             </div>
           ))}
         </div>

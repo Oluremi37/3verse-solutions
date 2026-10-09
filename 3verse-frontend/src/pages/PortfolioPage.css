@@ -1,6 +1,7 @@
 .portfolio-page {
   padding: 120px 0 100px;
   background: #f8fafc;
+  min-height: 65vh;
 }
 
 .portfolio-page-container {

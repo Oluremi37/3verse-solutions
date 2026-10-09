@@ -1,40 +1,83 @@
+
+/* ==========================================
+   3VERSE SOLUTIONS — PORTFOLIO
+========================================== */
+
+
+
+/* ========================================
+   PROJECTS / SUCCESS STORIES
+======================================== */
+
 .portfolio {
-  padding: 100px 0;
-  background: #f7f8fa;
+  position: relative;
+  padding: 90px 0 100px;
+  background: linear-gradient(
+    180deg,
+    #EAF7FC 0%,
+    #F2FAFD 100%
+  );
+  overflow: hidden;
+  scroll-margin-top: 96px;
 }
 
 .portfolio-container {
   width: min(1240px, 92%);
-  margin: auto;
+  margin: 0 auto;
 }
 
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
 .portfolio-tag {
-  display: block;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+
+  color: var(--blue, #0084CE);
+  font-size: 12px;
+  font-weight: 750;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--navy);
-  margin-bottom: 12px;
+}
+
+.portfolio-tag::before {
+  content: "";
+  width: 25px;
+  height: 3px;
+  border-radius: 10px;
+  background: var(--cyan, #00AFD8);
+  display: none;
 }
 
 .portfolio-heading {
+  max-width: 760px;
+  margin: 0 auto 52px;
+  color: var(--navy, #07305E);
   text-align: center;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 58px;
-  color: var(--text-dark);
-  margin-bottom: 72px;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
 }
 
-.portfolio-embla{
-overflow:hidden;
+/* ==========================================
+   EMBLA CAROUSEL
+========================================== */
+
+.portfolio-embla {
+  overflow: hidden;
+  padding: 4px 2px 18px;
+  margin: 0 -2px;
 }
 
 .portfolio-track {
   display: flex;
-  gap: 24px;
+  align-items: stretch;
+  gap: 22px;
 }
 
 .portfolio-track.centered {
@@ -42,189 +85,353 @@ overflow:hidden;
 }
 
 .portfolio-slide {
-  flex: 0 0 320px;
+  display: flex;
+  flex: 0 0 calc((100% - 44px) / 3);
+  min-width: 0;
+  align-self: stretch;
 }
-/* Card */
+
+/* ==========================================
+   PORTFOLIO CARD
+========================================== */
+
 .portfolio-card {
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(15, 123, 101, 0.04);
-  transition: 0.35s ease;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Important for consistent height */
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+
+  background: #fff;
+  border: 1px solid #E6EDF4;
+  border-radius: 14px;
+  box-shadow: 0 5px 22px rgba(7, 48, 94, 0.045);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .portfolio-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(15, 123, 101, 0.12);
+  transform: translateY(-6px);
+  border-color: rgba(0, 175, 216, 0.45);
+  box-shadow: 0 18px 38px rgba(7, 48, 94, 0.11);
 }
 
-/* Image Section */
+/* ==========================================
+   PROJECT IMAGE
+========================================== */
+
 .portfolio-image {
   position: relative;
   width: 100%;
-  height: 256px;
+  height: 235px;
+  flex-shrink: 0;
   overflow: hidden;
+  background: #E7EFF6;
 }
 
 .portfolio-image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+
+  transition: transform 0.55s ease;
 }
+
+.portfolio-card:hover .portfolio-image img {
+  transform: scale(1.045);
+}
+
+/* ==========================================
+   INDUSTRY LABEL
+========================================== */
 
 .industry-tag {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: #5eaf44;
+  max-width: calc(100% - 32px);
+
+  padding: 7px 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+
+  background: rgba(7, 48, 94, 0.92);
   color: #fff;
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 12px;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  backdrop-filter: blur(8px);
 }
 
-/* Content Section */
+/* ==========================================
+   CARD CONTENT
+========================================== */
+
 .portfolio-content {
-  flex: 1;
-  padding: 24px;
   display: flex;
+  flex: 1;
   flex-direction: column;
+  padding: 23px;
 }
 
 .client-logos {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 17px;
 }
 
 .client-logos img {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  object-fit: cover;
+  display: block;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  padding: 3px;
+
+  border: 1px solid #E8EEF4;
+  border-radius: 7px;
+  background: #fff;
 }
 
 .portfolio-text {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 10px;
 }
 
 .portfolio-text h3 {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 30px;
-  color: #101828;
   margin: 0;
+  color: var(--navy, #07305E);
+  font-size: 19px;
+  font-weight: 750;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .portfolio-text p {
-  font-size: 15px;
-  line-height: 26px;
-  color: #667085;
   display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+
+  color: var(--text-muted, #667085);
+  font-size: 14px;
+  line-height: 1.85;
+
+  -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  margin: 0;
 }
 
-/* Result Section */
+/* ==========================================
+   PROJECT RESULT
+========================================== */
+
 .portfolio-result {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  margin-top: auto; /* Pushes to bottom */
+
+  margin-top: auto;
   padding-top: 18px;
-  border-top: 1px solid #f2f4f7;
-  color: var(--green);
-  font-size: 15px;
-  font-weight: 600;
+  border-top: 1px solid #EAF0F5;
+
+  color: var(--blue, #0084CE);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.7;
 }
 
 .result-check {
-  font-size: 22px;
-  line-height: 1;
-  font-weight: bold;
+  flex-shrink: 0;
+  color: var(--cyan, #00AFD8);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
 }
 
 .result-icon {
-  width: 20px;
-  height: 20px;
- color: var(--green);
   flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  color: var(--cyan, #00AFD8);
 }
+
+/* ==========================================
+   VIEW ALL BUTTON
+========================================== */
 
 .portfolio-footer {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 38px;
 }
 
 .portfolio-btn {
-  background: var(--navy);
-  color: #fff;
-  text-decoration: none;
-  padding: 14px 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 50px;
+  padding: 0 25px;
+
+  border: 1px solid var(--navy, #07305E);
   border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  background: var(--navy, #07305E);
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.portfolio-btn::after {
+  content: "→";
+  font-size: 18px;
+  transition: transform 0.25s ease;
 }
 
 .portfolio-btn:hover {
-  background: #0a3d6e;
-  transform: translateY(-3px);
+  background: var(--blue, #0084CE);
+  border-color: var(--blue, #0084CE);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(7, 48, 94, 0.14);
 }
+
+.portfolio-btn:hover::after {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   LOADING SKELETONS
+========================================== */
 
 .portfolio-skeleton-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 22px;
 }
 
-@media (max-width: 900px) {
-  .portfolio-skeleton-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* Responsive */
-@media (max-width: 1200px) {
-    .portfolio-slide{
-    flex: 0 0 calc(33.333% - 16px);
-  }
-}
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 992px) {
   .portfolio {
     padding: 80px 0;
   }
+
   .portfolio-heading {
-    font-size: 40px;
-    line-height: 48px;
+    margin-bottom: 40px;
   }
-   .portfolio-slide{
-    flex:0 0 calc(50% - 12px);
+
+  .portfolio-track {
+    gap: 18px;
+  }
+
+  .portfolio-slide {
+    flex-basis: calc((100% - 18px) / 2);
+  }
+
+  .portfolio-skeleton-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-image {
+    height: 220px;
+  }
+
+  .portfolio-content {
+    padding: 20px;
   }
 }
 
-@media (max-width: 768px) {
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 640px) {
   .portfolio {
-    padding: 70px 0;
+    padding: 68px 0;
   }
+
+  .portfolio-container {
+    width: 91%;
+  }
+
+  .portfolio-tag {
+    font-size: 11px;
+    letter-spacing: 1.8px;
+  }
+
   .portfolio-heading {
-    font-size: 34px;
-    line-height: 42px;
-    margin-bottom: 50px;
+    margin-bottom: 32px;
+    font-size: 32px;
+    letter-spacing: -0.7px;
   }
-    .portfolio-slide{
-    flex:0 0 100%;
+
+  .portfolio-track {
+    gap: 14px;
+  }
+
+  .portfolio-slide {
+    flex-basis: 100%;
+  }
+
+  .portfolio-image {
+    height: 230px;
+  }
+
+  .portfolio-content {
+    padding: 19px;
+  }
+
+  .portfolio-text h3 {
+    font-size: 18px;
+  }
+
+  .portfolio-text p {
+    font-size: 14px;
+  }
+
+  .portfolio-footer {
+    margin-top: 25px;
+  }
+
+  .portfolio-skeleton-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-card,
+  .portfolio-image img,
+  .portfolio-btn,
+  .portfolio-btn::after {
+    transition: none;
   }
 }

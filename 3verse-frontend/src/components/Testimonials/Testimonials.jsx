@@ -87,9 +87,9 @@ const Testimonial = () => {
     <section className="testimonial">
       <div className="testimonial-container">
         <h2>
-          Trusted by 20+ world
+          Trusted by Businesses
           <br />
-          class businesses
+          That Move Technology Forward
         </h2>
 
         <div className="testimonial-embla" ref={emblaRef}>
@@ -117,6 +117,7 @@ const Testimonial = () => {
               }`}
               onClick={() => scrollTo(index)}
               aria-label={`Go to testimonial ${index + 1}`}
+              aria-current={selectedIndex === index ? "true" : undefined}
             />
           ))}
         </div>

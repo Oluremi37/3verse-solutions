@@ -106,27 +106,31 @@ export default function ContactForm() {
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-group">
-              <label>Full Name</label>
+              <label htmlFor="contact-fullName">Full Name</label>
 
               <input
+                id="contact-fullName"
                 type="text"
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="John Doe"
+                autoComplete="name"
                 required
               />
             </div>
 
             <div className="form-group">
-              <label>Email Address</label>
+              <label htmlFor="contact-email">Email Address</label>
 
               <input
+                id="contact-email"
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="john@example.com"
+                autoComplete="email"
                 required
               />
             </div>
@@ -134,21 +138,24 @@ export default function ContactForm() {
 
           <div className="form-row">
             <div className="form-group">
-              <label>Phone Number</label>
+              <label htmlFor="contact-phone">Phone Number</label>
 
               <input
-                type="text"
+                id="contact-phone"
+                type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="+234..."
+                autoComplete="tel"
               />
             </div>
 
             <div className="form-group">
-              <label>Subject</label>
+              <label htmlFor="contact-subject">Subject</label>
 
               <input
+                id="contact-subject"
                 type="text"
                 name="subject"
                 value={formData.subject}
@@ -160,9 +167,10 @@ export default function ContactForm() {
           </div>
 
           <div className="form-group">
-            <label>Message</label>
+            <label htmlFor="contact-message">Message</label>
 
             <textarea
+              id="contact-message"
               rows="7"
               name="message"
               value={formData.message}

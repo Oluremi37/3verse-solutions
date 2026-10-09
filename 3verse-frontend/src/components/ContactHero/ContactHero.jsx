@@ -30,9 +30,9 @@ export default function ContactHero() {
               Send a Message
             </button>
 
-            <a href="tel:+2348133809668" className="hero-secondary-btn">
+            {/* <a href="tel:+2348133809668" className="hero-secondary-btn">
               Call Us
-            </a>
+            </a> */}
           </div>
         </ScrollReveal>
       </div>

@@ -31,42 +31,42 @@ export default function PortfolioPage() {
     fetchPortfolio();
   }, []);
 
-  if (loading) {
-    return (
-      <section className="portfolio-grid">
-        {[...Array(6)].map((_, index) => (
-          <PortfolioSkeleton key={index} />
-        ))}
-      </section>
-    );
-  }
-
-  if (!projects.length) {
-    return <PortfolioEmpty />;
-  }
-
   return (
     <>
       <Navbar />
 
-      <section className="portfolio-page">
-        <div className="portfolio-page-container">
-          <span className="portfolio-page-tag">PROJECTS</span>
-
-          <h1 className="portfolio-page-title">Our Success Stories</h1>
-
-          <p className="portfolio-page-text">
-            Explore some of the collaboration and communication solutions we
-            have successfully delivered across different industries.
-          </p>
-
-          <div className="portfolio-grid">
-            {projects.map((project) => (
-              <PortfolioCard key={project._id} project={project} />
+      {loading ? (
+        <main className="portfolio-page">
+          <section className="portfolio-grid">
+            {[...Array(6)].map((_, index) => (
+              <PortfolioSkeleton key={index} />
             ))}
+          </section>
+        </main>
+      ) : !projects.length ? (
+        <main className="portfolio-page">
+          <PortfolioEmpty />
+        </main>
+      ) : (
+        <main className="portfolio-page">
+          <div className="portfolio-page-container">
+            <span className="portfolio-page-tag">PROJECTS</span>
+
+            <h1 className="portfolio-page-title">Our Success Stories</h1>
+
+            <p className="portfolio-page-text">
+              Explore some of the collaboration and communication solutions we
+              have successfully delivered across different industries.
+            </p>
+
+            <div className="portfolio-grid">
+              {projects.map((project) => (
+                <PortfolioCard key={project._id} project={project} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </main>
+      )}
 
       <Footer />
     </>

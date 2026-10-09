@@ -1,105 +1,205 @@
+/* ContactHero.css */
+
 .contact-hero {
-  background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
-  padding: 110px 24px 90px;
+  position: relative;
+  width: 100%;
+  padding: 90px 24px 85px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(0, 175, 216, 0.09),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #f8fbfd 0%, #eef7fc 100%);
 }
 
 .contact-hero-container {
-  max-width: 900px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
 
-.contact-hero-tag {
+/* Section label */
+
+.contact-hero .contact-hero-tag {
   display: inline-block;
-  color: var(--navy);
-  font-size: 14px;
-  font-weight: 700;
+  margin-bottom: 22px;
+  padding: 9px 16px;
+  border: 1px solid rgba(0, 132, 206, 0.18);
+  border-radius: 50px;
+  background: #e0f4fc;
+  color: #0084ce;
+  font-size: 12px;
+  font-weight: 800;
   letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 18px;
+  line-height: 1.5;
 }
 
+/* Main heading */
+
 .contact-hero h1 {
-  font-size: 52px;
-  font-weight: 700;
+  margin: 0 0 24px;
+  color: #07305e;
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 800;
   line-height: 1.15;
-  color: var(--text-dark);
-  margin-bottom: 24px;
+  letter-spacing: -1.5px;
 }
 
 .contact-hero h1 span {
-  color: var(--navy);
+  color: #0084ce;
 }
 
+/* Description */
+
 .contact-hero p {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
-  font-size: 18px;
-  line-height: 1.8;
-  color: var(--text-muted);
+  color: #667085;
+  font-size: 16px;
+  line-height: 1.9;
 }
+
+/* Buttons */
 
 .contact-hero-buttons {
   display: flex;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 42px;
   flex-wrap: wrap;
-}
-
-.hero-primary-btn,
-.hero-secondary-btn {
-  width: 190px;
-  height: 56px;
-  border-radius: 10px;
-  text-decoration: none;
-  display: flex;
   justify-content: center;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.contact-hero .hero-primary-btn,
+.contact-hero .hero-secondary-btn {
+  display: inline-flex;
   align-items: center;
-  font-size: 15px;
-  font-weight: 600;
-  transition: 0.3s ease;
-  border: none;
-  cursor: pointer;
+  justify-content: center;
+  min-width: 190px;
+  min-height: 54px;
+  padding: 14px 24px;
+  border: 1px solid transparent;
+  border-radius: 9px;
   font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
-.hero-primary-btn {
-  background: var(--navy);
-  color: #fff;
+.contact-hero .hero-primary-btn {
+  background: #0084ce;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 132, 206, 0.18);
 }
 
-.hero-primary-btn:hover {
-  background: #0a3d6e;
+.contact-hero .hero-primary-btn:hover {
+  transform: translateY(-2px);
+  background: #07305e;
+  box-shadow: 0 9px 22px rgba(7, 48, 94, 0.18);
 }
 
-.hero-secondary-btn {
-  background: #fff;
-  border: 1px solid var(--navy);
-  color: var(--navy);
+.contact-hero .hero-secondary-btn {
+  border-color: #07305e;
+  background: #ffffff;
+  color: #07305e;
 }
 
-.hero-secondary-btn:hover {
-  background: var(--navy);
-  color: #fff;
+.contact-hero .hero-secondary-btn:hover {
+  transform: translateY(-2px);
+  background: #07305e;
+  color: #ffffff;
 }
+
+.contact-hero .hero-primary-btn:focus-visible,
+.contact-hero .hero-secondary-btn:focus-visible {
+  outline: 3px solid rgba(0, 175, 216, 0.45);
+  outline-offset: 4px;
+}
+
+/* Tablet */
 
 @media (max-width: 768px) {
   .contact-hero {
-    padding: 90px 20px 70px;
+    padding: 70px 22px 65px;
   }
 
   .contact-hero h1 {
-    font-size: 36px;
+    font-size: clamp(34px, 6vw, 44px);
+    letter-spacing: -0.8px;
   }
 
   .contact-hero p {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.8;
   }
 
-  .hero-primary-btn,
-  .hero-secondary-btn {
+  .contact-hero-buttons {
+    margin-top: 28px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .contact-hero {
+    padding: 55px 18px 50px;
+  }
+
+  .contact-hero .contact-hero-tag {
+    margin-bottom: 18px;
+    padding: 8px 13px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .contact-hero h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.6px;
+  }
+
+  .contact-hero p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .contact-hero-buttons {
+    margin-top: 25px;
+  }
+
+  .contact-hero .hero-primary-btn,
+  .contact-hero .hero-secondary-btn {
     width: 100%;
     max-width: 300px;
+    min-height: 50px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-hero *,
+  .contact-hero *::before,
+  .contact-hero *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .contact-hero .hero-primary-btn:hover,
+  .contact-hero .hero-secondary-btn:hover {
+    transform: none;
   }
 }

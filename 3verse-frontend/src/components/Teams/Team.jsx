@@ -16,7 +16,7 @@ export default function Team() {
       try {
         const data = await getTeamMembers();
 
-        const members = data.teamMembers || [];
+        const members = Array.isArray(data) ? data : data?.teamMembers || [];
 
         const previews = members
           .filter((member) => member.isPublished && member.isPreview)

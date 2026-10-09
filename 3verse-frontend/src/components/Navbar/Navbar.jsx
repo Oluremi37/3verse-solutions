@@ -387,13 +387,13 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <a
-          href="#contact"
+        <Link
+          to="/request-quote"
           className="quote-btn mobile-quote-btn"
-          onClick={(e) => handleNavClick(e, "contact")}
+          onClick={closeMenu}
         >
           Request a Quote
-        </a>
+        </Link>
       </div>
     </header>
   );

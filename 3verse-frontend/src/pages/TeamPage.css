@@ -1,479 +1,532 @@
-/* 
+
+/* ========================================
    TEAM PAGE
-*/
+   3Verse Solutions — Navy & Cyan
+======================================== */
 
-.team-page{
-    padding-top:110px;
-    background:#fff;
+.team-page {
+  padding-top: 0;
+  background: #FFFFFF;
+  color: #101828;
+  overflow: hidden;
 }
 
- 
-/* 
+/* ========================================
    HERO
- */
+======================================== */
 
-.team-hero{
-
-    padding:50px 0 90px;
-
+.team-hero {
+  position: relative;
+  padding: 70px 0 85px;
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(0, 175, 216, 0.09),
+      transparent 32%
+    ),
+    linear-gradient(180deg, #F4F8FB 0%, #FFFFFF 100%);
 }
 
-.team-hero-content{
-
-    width:min(92%,760px);
-
-    margin:auto;
-
-    text-align:center;
-
+.team-hero-content {
+  width: min(92%, 850px);
+  margin: 0 auto;
+  text-align: center;
 }
 
-.team-hero h1{
-
-    font-size:52px;
-
-    font-weight:700;
-
-    color:#111827;
-
-    margin-bottom:22px;
-
+.team-hero h1 {
+  margin: 0 0 22px;
+  color: #07305E;
+  font-size: clamp(36px, 4.5vw, 52px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.2px;
 }
 
-.team-hero p{
-
-    color:#667085;
-
-    font-size:18px;
-
-    line-height:1.8;
-
+.team-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #667085;
+  font-size: 17px;
+  line-height: 1.85;
 }
 
- 
-/* 
-   EXECUTIVES
- */
+/* ========================================
+   EXECUTIVE PROFILES
+======================================== */
 
-.executive-section{
-    width:min(92%,1240px);
-    margin:0 auto 110px;
-
-    display:grid;
-    grid-template-columns:399px 1fr;
-    align-items:center;
-    gap:90px;
+.executive-section {
+  width: min(92%, 1240px);
+  margin: 0 auto;
+  padding: 65px 0 80px;
+  display: grid;
+  grid-template-columns: minmax(280px, 399px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 90px);
 }
 
-/* CTO layout */
-.executive-section.reverse{
-    grid-template-columns:1fr 399px;
+/* Alternate executive layout */
+.executive-section.reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 399px);
 }
 
-/* Image Box */
-
-.executive-image{
-    width:399px;
-    height:385px;
-
-    background:#C1D8F1;
-    border-radius:20px;
-
-    overflow:hidden;
-
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
+/* Executive image container */
+.executive-image {
+  position: relative;
+  width: 100%;
+  height: 385px;
+  background: linear-gradient(145deg, #E0F4FC, #D6E7F5);
+  border: 1px solid #D6EAF4;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  box-shadow: 0 14px 35px rgba(7, 48, 94, 0.08);
 }
 
-/* MD Image */
-
-.executive-image img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    object-position:center bottom;
+.executive-image::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0084CE, #00AFD8);
+  border-radius: 3px 3px 0 0;
 }
 
-/* Text */
-
-.executive-content{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+/* Executive portrait */
+.executive-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
 }
 
-.executive-content h2{
-
-    font-size:38px;
-
-    font-weight:700;
-
-    color:#111827;
-
-    margin-bottom:8px;
-
+/* Executive text */
+.executive-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.executive-content h4{
-
-    color:#4A9018;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    margin-bottom:22px;
-
+.executive-content h2 {
+  margin: 0 0 10px;
+  color: #07305E;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.6px;
 }
 
-.executive-content p{
-
-    color:#667085;
-
-    line-height:2;
-
-    margin-bottom:18px;
-
+.executive-content h4 {
+  margin: 0 0 22px;
+  color: #0084CE;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
-/* 
-   SOCIAL
- */
-
-.social-icons{
-
-    display:flex;
-
-    gap:18px;
-
-    margin-top:28px;
-
+.executive-content p {
+  margin: 0 0 18px;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
 }
 
-.social-icons svg{
+/* ========================================
+   SOCIAL LINKS
+======================================== */
 
-    width:18px;
-
-    height:18px;
-
-    color:#111827;
-
-    cursor:pointer;
-
-    transition:.3s;
-
+.social-icons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
 }
 
-.social-icons svg:hover{
-
-    color:#4A9018;
-
-    transform:translateY(-2px);
-
+.social-icons a {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #07305E;
+  background: #EAF7FC;
+  border: 1px solid #D7EDF7;
+  border-radius: 50%;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
-/* 
+.social-icons svg {
+  width: 17px;
+  height: 17px;
+}
+
+.social-icons a:hover {
+  color: #FFFFFF;
+  background: #0084CE;
+  border-color: #0084CE;
+  transform: translateY(-3px);
+}
+
+.social-icons a:focus-visible {
+  outline: 2px solid #00AFD8;
+  outline-offset: 4px;
+}
+
+/* ========================================
    MANAGEMENT SECTION
- */
+======================================== */
 
-.management{
-
-    width:min(92%,1240px);
-
-    margin:0 auto 120px;
-
+.management {
+  width: 100%;
+  margin: 0;
+  padding: 85px max(4%, calc((100% - 1240px) / 2)) 100px;
+  box-sizing: border-box;
+  background: #F4F8FB;
+  border-top: 1px solid #E7EEF5;
 }
 
-.management-top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:60px;
-
-    margin-bottom:60px;
-
+.management-top {
+  max-width: 1240px;
+  margin: 0 auto 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
 }
 
-.management-top h2{
-
-    font-size:42px;
-
-    font-weight:700;
-
-    color:#111827;
-
+.management-top h2 {
+  margin: 0;
+  color: #07305E;
+  font-size: clamp(30px, 3.5vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
 }
 
-.management-top p{
-
-    max-width:460px;
-
-    color:#667085;
-
-    line-height:1.8;
-
-    font-size:16px;
-
+.management-top p {
+  max-width: 460px;
+  margin: 0;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.9;
 }
 
-.management-grid{
+/* ========================================
+   MANAGEMENT GRID
+======================================== */
 
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:28px;
-
+.management-grid {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
 }
 
-/* 
-   MANAGEMENT CARD
- */
-
-.management-card{
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:20px;
-
-    cursor:pointer;
-
-    transition:.4s;
-
+/* Management card */
+.management-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: #DCEAF4;
+  border: 1px solid rgba(7, 48, 94, 0.08);
+  border-radius: 18px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(7, 48, 94, 0.06);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.management-card img{
-
-    width:100%;
-
-    height:460px;
-
-    object-fit:cover;
-
-    display:block;
-
-    transition:.5s;
-
+.management-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(7, 48, 94, 0.14);
 }
 
-.management-card:hover img{
-
-    transform:scale(1.06);
-
+.management-card img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
 }
 
-.management-overlay{
-
-    position:absolute;
-
-    left:0;
-
-    right:0;
-
-    bottom:0;
-
-    padding:28px;
-
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.92),
-        rgba(0,0,0,.45),
-        transparent
-    );
-
+.management-card:hover img {
+  transform: scale(1.04);
 }
 
-.management-overlay h3{
-
-    color:#fff;
-
-    font-size:22px;
-
-    font-weight:600;
-
-    margin-bottom:6px;
-
+/* Name and position overlay */
+.management-overlay {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 55px 24px 24px;
+  background: linear-gradient(
+    to top,
+    rgba(7, 48, 94, 0.96) 0%,
+    rgba(7, 48, 94, 0.72) 48%,
+    rgba(7, 48, 94, 0) 100%
+  );
 }
 
-.management-overlay span{
-
-    color:rgba(255,255,255,.9);
-
-    font-size:15px;
-
+.management-overlay h3 {
+  margin: 0 0 7px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
-/* 
-   RESPONSIVE
- */
-
-@media(max-width:1100px){
-
-.management-grid{
-
-grid-template-columns:repeat(2,1fr);
-
+.management-overlay span {
+  display: block;
+  color: #BFEFFF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+  .executive-section {
+    gap: 42px;
+  }
+
+  .management-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .management-card img {
+    height: 400px;
+  }
 }
 
-@media(max-width:992px){
+@media (max-width: 992px) {
+  .team-hero {
+    padding: 60px 0 65px;
+  }
 
-.executive-section{
+  .executive-section,
+  .executive-section.reverse {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 50px 0 65px;
+    text-align: center;
+  }
 
-display:flex;
-flex-direction:column;
+  .executive-section.reverse {
+    flex-direction: column;
+  }
 
-text-align:center;
+  .executive-image {
+    width: 100%;
+    max-width: 399px;
+    height: 385px;
+    margin: 0 auto;
+  }
 
-gap:55px;
+  .executive-content {
+    width: 100%;
+    max-width: 720px;
+    align-items: center;
+  }
 
+  .executive-content p {
+    max-width: 680px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .management {
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+
+  .management-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 36px;
+  }
+
+  .management-top p {
+    max-width: 650px;
+  }
 }
 
-.executive-section.reverse{
+/* ========================================
+   MOBILE
+======================================== */
 
-display:flex;
-flex-direction:column-reverse;
+@media (max-width: 768px) {
+  .team-hero {
+    padding: 45px 0 55px;
+  }
 
+  .team-hero h1 {
+    font-size: 36px;
+  }
+
+  .team-hero p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .executive-section,
+  .executive-section.reverse {
+    width: 90%;
+    padding: 40px 0 50px;
+    gap: 28px;
+  }
+
+  .executive-image {
+    max-width: 360px;
+    height: 350px;
+    border-radius: 16px;
+  }
+
+  .executive-content h2 {
+    font-size: 29px;
+  }
+
+  .executive-content h4 {
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .executive-content p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .management {
+    padding: 60px 5% 70px;
+  }
+
+  .management-top {
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+
+  .management-top h2 {
+    font-size: 32px;
+  }
+
+  .management-top p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .management-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .management-card {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    border-radius: 16px;
+  }
+
+  .management-card img {
+    height: 420px;
+  }
+
+  .management-overlay {
+    padding: 50px 20px 22px;
+  }
+
+  .management-overlay h3 {
+    font-size: 19px;
+  }
 }
 
-.executive-image{
+/* Small mobile */
+@media (max-width: 480px) {
+  .team-hero {
+    padding: 35px 0 45px;
+  }
 
-width:100%;
-max-width:399px;
-height:385px;
+  .team-hero h1 {
+    font-size: 32px;
+    letter-spacing: -0.6px;
+  }
 
-margin:auto;
+  .executive-image {
+    height: 310px;
+  }
 
+  .executive-content h2 {
+    font-size: 26px;
+  }
+
+  .social-icons {
+    gap: 10px;
+  }
+
+  .social-icons a {
+    width: 38px;
+    height: 38px;
+  }
+
+  .management-top h2 {
+    font-size: 28px;
+  }
+
+  .management-card img {
+    height: 370px;
+  }
+
+  .management-overlay {
+    padding: 45px 18px 20px;
+  }
 }
 
-.social-icons{
+/* ========================================
+   ACCESSIBILITY
+======================================== */
 
-justify-content:center;
+@media (prefers-reduced-motion: reduce) {
+  .social-icons a,
+  .management-card,
+  .management-card img,
+  .executive-image img {
+    transition: none;
+  }
 
-}
+  .social-icons a:hover,
+  .management-card:hover {
+    transform: none;
+  }
 
-.management-top{
-
-flex-direction:column;
-
-text-align:center;
-
-gap:20px;
-
-}
-
-.management-top p{
-
-max-width:100%;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.team-hero h1{
-
-font-size:40px;
-
-}
-
-.team-hero p{
-
-font-size:16px;
-
-}
-
-.executive-content h2{
-
-font-size:30px;
-
-}
-
-.executive-content h4{
-
-font-size:16px;
-
-}
-
-.management-top h2{
-
-font-size:34px;
-
-}
-
-.management-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.management-card img{
-
-height:420px;
-
-}
-
-}
-
-@media(max-width:480px){
-
-.team-page{
-
-padding-top:95px;
-
-}
-
-.team-hero{
-
-padding:35px 0 70px;
-
-}
-
-.team-hero h1{
-
-font-size:32px;
-
-}
-
-.executive-image img{
-
-max-width:100%;
-
-}
-
-.executive-content h2{
-
-font-size:26px;
-
-}
-
-.executive-content p{
-
-font-size:15px;
-
-line-height:1.8;
-
-}
-
-.management-top h2{
-
-font-size:30px;
-
-}
-
-.management-card img{
-
-height:380px;
-
-}
-
+  .management-card:hover img {
+    transform: none;
+  }
 }

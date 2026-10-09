@@ -94,9 +94,7 @@ export default function ProjectCTA() {
 
             <h4>Need assistance with your booking?</h4>
             <p className="project-cta-subtext">You can contact us on :</p>
-            <p className="project-cta-contact">
-              +234 8135710769
-            </p>
+            <p className="project-cta-contact">+234 8135710769</p>
             <p className="project-cta-contact">3versesltd@gmail.com</p>
           </div>
 
@@ -221,16 +219,11 @@ export default function ProjectCTA() {
                 )}
 
                 {error && (
-                  <p
-                    style={{
-                      color: "#dc2626",
-                      marginBottom: "16px",
-                      fontSize: "14px",
-                    }}
-                  >
+                  <p className="form-error" role="alert">
                     {error}
                   </p>
                 )}
+
                 <button type="submit" className="submit-btn" disabled={loading}>
                   {loading ? "Submitting..." : "Submit"}
                 </button>
