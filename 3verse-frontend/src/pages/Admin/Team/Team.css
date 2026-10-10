@@ -1,105 +1,131 @@
+
+/* ================= TEAM PAGE ================= */
+
 .team-page {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 24px;
+  width: 100%;
+  min-width: 0;
+  color: var(--text-dark, #101828);
 }
 
-/* ===========================
-   Team Avatar
-=========================== */
+/* ================= TEAM AVATAR ================= */
 
-.team-avatar {
-  width: 52px;
-  height: 52px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #e5e7eb;
-}
-
-/* ===========================
-   Actions
-=========================== */
-
-.actions {
+.team-page__avatar,
+.team-page__avatar-placeholder {
   display: flex;
-  gap: 8px;
   align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border: 2px solid #e8eef3;
+  border-radius: 50%;
+  background: var(--blue-soft, #e0f4fc);
+  color: var(--navy, #07305e);
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.actions button {
-  padding: 8px 14px;
+.team-page__avatar {
+  object-fit: cover;
+}
+
+.team-page__avatar-placeholder {
+  overflow: hidden;
+}
+
+/* ================= TABLE ACTIONS ================= */
+
+.team-page__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.team-page__actions button {
+  padding: 8px 13px;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
+  color: #fff;
   font-size: 13px;
   font-weight: 500;
-  transition: .25s;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.actions button:first-child {
-  background: #2563eb;
-  color: #fff;
+.team-page__actions button:hover {
+  transform: translateY(-1px);
 }
 
-.actions button:first-child:hover {
-  background: #1d4ed8;
+.team-page__actions button:first-child {
+  background: var(--blue, #0084ce);
 }
 
-.actions button:nth-child(2) {
-  background: #f59e0b;
-  color: #fff;
+.team-page__actions button:first-child:hover {
+  background: #006eae;
 }
 
-.actions button:nth-child(2):hover {
+.team-page__actions button:nth-child(2) {
   background: #d97706;
 }
 
-.delete-btn {
-  background: #dc2626;
-  color: #fff;
+.team-page__actions button:nth-child(2):hover {
+  background: #b45309;
 }
 
-.delete-btn:hover {
+.team-page__actions .delete-btn {
+  background: #dc2626;
+}
+
+.team-page__actions .delete-btn:hover {
   background: #b91c1c;
 }
 
-/* ===========================
-   Status
-=========================== */
+.team-page__actions button:focus-visible,
+.view-team-close:focus-visible {
+  outline: 3px solid rgba(0, 132, 206, 0.3);
+  outline-offset: 2px;
+}
 
-.status {
+/* ================= STATUS BADGES ================= */
+
+.team-page__status {
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
+  padding: 5px 12px;
   border-radius: 30px;
   font-size: 12px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
-.status.active {
-  background: #dcfce7;
-  color: #166534;
+.team-page__status.active {
+  background: var(--green-soft, #eaf7df);
+  color: #397b13;
 }
 
-.status.draft {
-  background: #fef3c7;
-  color: #92400e;
+.team-page__status.draft {
+  background: #fff3d6;
+  color: #925f08;
 }
 
-/* ===========================
-   View Modal
-=========================== */
+/* ================= DETAILS MODAL ================= */
 
 .view-team-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.55);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(7, 24, 43, 0.58);
+  backdrop-filter: blur(3px);
 }
 
 .view-team-modal {
@@ -108,8 +134,10 @@
   max-height: 90vh;
   overflow-y: auto;
   background: #fff;
+  border: 1px solid rgba(7, 48, 94, 0.08);
   border-radius: 14px;
-  box-shadow: 0 18px 40px rgba(0,0,0,.18);
+  box-shadow: 0 24px 70px rgba(16, 24, 40, 0.24);
+  animation: team-modal-enter 0.2s ease-out;
 }
 
 .view-team-modal::-webkit-scrollbar {
@@ -117,101 +145,206 @@
 }
 
 .view-team-modal::-webkit-scrollbar-thumb {
-  background: #16a34a;
-  border-radius: 20px;
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.view-team-modal::-webkit-scrollbar-track {
+  background: #f8fafc;
 }
 
 .view-team-header {
   position: sticky;
   top: 0;
-  background: #fff;
-  z-index: 5;
-
+  z-index: 2;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  padding: 22px 28px;
-  border-bottom: 1px solid #eee;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 26px;
+  background: #fff;
+  border-bottom: 1px solid #e8edf2;
 }
 
 .view-team-header h2 {
   margin: 0;
-  font-size: 24px;
+  color: var(--navy, #07305e);
+  font-size: 21px;
+  font-weight: 700;
 }
 
-.close-btn {
+.view-team-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
   border: none;
-  background: transparent;
-  font-size: 28px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475467;
+  font-size: 23px;
   cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.close-btn:hover {
-  color: #16a34a;
+.view-team-close:hover {
+  background: #fee2e2;
+  color: #b91c1c;
 }
+
+/* ================= DETAILS GRID ================= */
 
 .view-team-grid {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
-  padding: 28px;
+  padding: 26px;
+}
+
+.view-team-grid > div {
+  min-width: 0;
 }
 
 .view-team-grid label {
   display: block;
-  font-weight: 600;
-  color: #555;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
+  color: var(--text-muted, #667085);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .view-team-grid p {
   margin: 0;
-  color: #222;
-  line-height: 1.6;
+  color: var(--text-dark, #101828);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
-.full-width {
+.view-team-grid .team-page__full-width {
   grid-column: 1 / -1;
 }
 
-.team-image-preview {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid #ddd;
+.team-page__profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  grid-column: 1 / -1;
+  padding-bottom: 4px;
 }
 
-/* ===========================
-   Responsive
-=========================== */
+.team-page__image-preview,
+.team-page__image-placeholder {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #e4e7ec;
+  border-radius: 14px;
+}
 
-@media (max-width:768px){
+.team-page__image-preview {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
 
-  .team-page{
-    padding:16px;
+.team-page__image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue-soft, #e0f4fc);
+  color: var(--navy, #07305e);
+  font-size: 42px;
+  font-weight: 700;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes team-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
   }
 
-  .actions{
-    flex-wrap:wrap;
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .team-page {
+    gap: 18px;
   }
 
-  .actions button{
-    width:100%;
+  .team-page__actions {
+    align-items: stretch;
   }
 
-  .view-team-grid{
-    grid-template-columns:1fr;
+  .team-page__actions button {
+    flex: 1 1 auto;
   }
 
-  .team-image-preview{
-    width:100%;
-    height:auto;
+  .view-team-overlay {
+    align-items: flex-start;
+    padding: 12px;
   }
 
-  .view-team-modal{
-    max-height:95vh;
+  .view-team-modal {
+    max-height: calc(100vh - 24px);
+    border-radius: 12px;
   }
 
+  .view-team-header {
+    padding: 16px 18px;
+  }
+
+  .view-team-header h2 {
+    font-size: 18px;
+  }
+
+  .view-team-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .view-team-grid .team-page__full-width,
+  .team-page__profile {
+    grid-column: auto;
+  }
+
+  .team-page__image-preview,
+  .team-page__image-placeholder {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 420px) {
+  .team-page__actions {
+    flex-direction: column;
+  }
+
+  .team-page__actions button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .view-team-modal {
+    animation: none;
+  }
+
+  .team-page__actions button,
+  .view-team-close {
+    transition: none;
+  }
 }

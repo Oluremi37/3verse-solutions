@@ -139,7 +139,7 @@ export default function TeamModal({ isOpen, onClose, member, onSuccess }) {
     }
   };
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay team-modal-overlay">
       <div className="team-modal">
         <div className="team-modal-header">
           <h2>{member ? "Edit Team Member" : "Add Team Member"}</h2>

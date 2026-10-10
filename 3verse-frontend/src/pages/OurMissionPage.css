@@ -126,6 +126,7 @@
   box-sizing: border-box;
   pointer-events: none;
   z-index: 0;
+  display: none;
 }
 
 .mission-hero-image img {

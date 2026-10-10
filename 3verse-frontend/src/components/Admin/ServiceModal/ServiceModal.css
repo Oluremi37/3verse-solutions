@@ -1,57 +1,386 @@
-.service-modal {
-  width: 100%;
-  max-width: 700px;
-  max-height: 90vh;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
-  overflow-y: auto;
-}
+/* =========================================
+   SERVICE MODAL
+   Scoped styles to prevent CSS conflicts
+========================================= */
 
-.service-modal-header {
+.service-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 24px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.service-modal-header h2 {
-  font-size: 22px;
-  margin: 0;
-  color: var(--text-dark);
-}
-
-.close-btn {
-  border: none;
-  background: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #6b7280;
-  transition: color 0.3s ease;
-}
-
-.close-btn:hover {
-  color: var(--green);
-}
-
-.service-form {
+  justify-content: center;
   padding: 24px;
+  background: rgba(7, 48, 94, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.service-modal-overlay *,
+.service-modal-overlay *::before,
+.service-modal-overlay *::after {
+  box-sizing: border-box;
+}
+
+.service-modal {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  width: 100%;
+  max-width: 700px;
+  max-height: calc(100vh - 48px);
+  background: #fff;
+  border: 1px solid #e4eaf0;
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(7, 48, 94, 0.24);
+  overflow: hidden;
+  animation: serviceModalEnter 0.2s ease-out;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--green);
+/* Header */
+
+.service-modal .service-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e5eaf0;
 }
 
-.save-btn {
-  background: var(--green);
-  color: white;
+.service-modal .service-modal-header h2 {
+  margin: 0;
+  color: var(--navy, #07305e);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
-.save-btn:hover {
-  background: var(--green-hover);
+.service-modal .close-btn {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #e5eaf0;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #667085;
+  font-size: 21px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.service-modal .close-btn:hover {
+  background: var(--green-soft, #eaf7df);
+  color: var(--navy, #07305e);
+  border-color: var(--green, #6ac319);
+}
+
+/* Form layout */
+
+.service-modal .service-form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 0;
+  padding: 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.service-modal .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.service-modal .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+}
+
+.service-modal .form-group > label {
+  color: var(--text-dark, #101828);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.service-modal .form-group input:not([type="checkbox"]):not([type="file"]),
+.service-modal .form-group textarea,
+.service-modal .form-group select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 11px 13px;
+  border: 1px solid #d0d5dd;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: var(--text-dark, #101828);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.service-modal .form-group textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.service-modal .form-group input:not([type="checkbox"]):not([type="file"]):focus,
+.service-modal .form-group textarea:focus,
+.service-modal .form-group select:focus {
+  border-color: var(--green, #6ac319);
+  box-shadow: 0 0 0 3px rgba(106, 195, 25, 0.14);
+}
+
+.service-modal .form-group input::placeholder,
+.service-modal .form-group textarea::placeholder {
+  color: #98a2b3;
+}
+
+.service-modal .form-group input[type="file"] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: var(--text-muted, #667085);
+  font: inherit;
+  font-size: 13px;
+}
+
+.service-modal .form-group input[type="file"]::file-selector-button {
+  margin-right: 10px;
+  padding: 7px 11px;
+  border: none;
+  border-radius: 6px;
+  background: var(--blue-soft, #e0f4fc);
+  color: var(--navy, #07305e);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Image previews */
+
+.service-modal .image-preview {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  object-position: left center;
+  margin-top: 4px;
+  padding: 6px;
+  border: 1px solid #e5eaf0;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+/* Published checkbox */
+
+.service-modal .checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 10px;
+  color: var(--text-dark, #101828);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.service-modal .checkbox-label input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--green, #6ac319);
+  cursor: pointer;
+}
+
+/* Footer actions */
+
+.service-modal .modal-actions {
+  position: sticky;
+  bottom: -24px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+  margin: 4px -24px -24px;
+  padding: 16px 24px;
+  border-top: 1px solid #e5eaf0;
+  background: #fff;
+}
+
+.service-modal .cancel-btn,
+.service-modal .save-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.service-modal .cancel-btn {
+  border-color: #d0d5dd;
+  background: #fff;
+  color: #344054;
+}
+
+.service-modal .cancel-btn:hover {
+  border-color: #98a2b3;
+  background: #f8fafc;
+}
+
+.service-modal .save-btn {
+  background: var(--green, #6ac319);
+  color: #fff;
+}
+
+.service-modal .save-btn:hover:not(:disabled) {
+  background: var(--green-hover, #58a915);
+  box-shadow: 0 3px 10px rgba(106, 195, 25, 0.2);
+}
+
+.service-modal .save-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.service-modal .cancel-btn:focus-visible,
+.service-modal .save-btn:focus-visible,
+.service-modal .close-btn:focus-visible {
+  outline: 3px solid rgba(0, 132, 206, 0.3);
+  outline-offset: 2px;
+}
+
+/* Animation */
+
+@keyframes serviceModalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 640px) {
+  .service-modal-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .service-modal {
+    max-height: calc(100vh - 24px);
+    border-radius: 12px;
+  }
+
+  .service-modal .service-modal-header {
+    padding: 16px 18px;
+  }
+
+  .service-modal .service-modal-header h2 {
+    font-size: 19px;
+  }
+
+  .service-modal .service-form {
+    gap: 17px;
+    padding: 18px;
+  }
+
+  .service-modal .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+  }
+
+  .service-modal .modal-actions {
+    bottom: -18px;
+    gap: 10px;
+    margin: 2px -18px -18px;
+    padding: 14px 18px;
+  }
+
+  .service-modal .cancel-btn,
+  .service-modal .save-btn {
+    flex: 1;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .service-modal-overlay {
+    padding: 8px;
+  }
+
+  .service-modal {
+    max-height: calc(100vh - 16px);
+  }
+
+  .service-modal .service-modal-header {
+    padding: 14px;
+  }
+
+  .service-modal .service-form {
+    padding: 14px;
+  }
+
+  .service-modal .modal-actions {
+    bottom: -14px;
+    margin: 2px -14px -14px;
+    padding: 12px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-modal,
+  .service-modal * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

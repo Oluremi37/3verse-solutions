@@ -36,9 +36,7 @@
 
        
 
-        setPortfolios(data.portfolios || []);
-
-        setPortfolios(data.portfolios || []);
+       setPortfolios(data.portfolios || []);
       } catch (err) {
         console.error(err);
         toast.error("Failed to load portfolio.");
@@ -54,16 +52,14 @@
 
       initialize();
     }, [loadPortfolios]);
+const filteredPortfolios = portfolios.filter((project) => {
+  const keyword = search.toLowerCase();
 
-    const filteredPortfolios = portfolios.filter((project) => {
-      const keyword = search.toLowerCase();
-
-      return (
-        project.title.toLowerCase().includes(keyword) ||
-        project.industry.toLowerCase().includes(keyword)
-      );
-    });
-
+  return (
+    (project.title || "").toLowerCase().includes(keyword) ||
+    (project.industry || "").toLowerCase().includes(keyword)
+  );
+});
     const stats = {
       total: portfolios.length,
       featured: portfolios.filter((p) => p.isFeatured).length,

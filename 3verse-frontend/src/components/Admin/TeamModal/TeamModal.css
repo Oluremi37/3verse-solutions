@@ -1,225 +1,439 @@
-/* ===========================
-   Team Modal Overlay
-=========================== */
+/* =========================================
+   3Verse Solutions — Team Modal
+   Scoped styles to prevent global CSS conflicts
+========================================= */
 
-.modal-overlay {
+.team-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.55);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
   overflow-y: auto;
+  box-sizing: border-box;
+  background: rgba(7, 48, 94, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-/* ===========================
-   Team Modal
-=========================== */
+.team-modal-overlay *,
+.team-modal-overlay *::before,
+.team-modal-overlay *::after {
+  box-sizing: border-box;
+}
+
+/* Modal container */
 
 .team-modal {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 760px;
   max-height: 90vh;
+  max-height: 90dvh;
+  overflow: hidden;
   background: #fff;
-  border-radius: 14px;
-  overflow-y: auto;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+  border: 1px solid #dce8f1;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(7, 48, 94, 0.2);
+  animation: teamModalEnter 0.2s ease-out;
 }
 
-.team-modal::-webkit-scrollbar {
+/* Header */
+
+.team-modal .team-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 28px;
+  background: #07305e;
+  border-bottom: 3px solid #00afd8;
+}
+
+.team-modal .team-modal-header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Close button */
+
+.team-modal .close-btn {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.team-modal .close-btn:hover {
+  background: #00afd8;
+  color: #fff;
+}
+
+/* Scrollable form area */
+
+.team-modal .team-form {
+  flex: 1;
+  min-height: 0;
+  padding: 28px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #fff;
+  scrollbar-width: thin;
+  scrollbar-color: #00afd8 #eaf4f9;
+}
+
+.team-modal .team-form::-webkit-scrollbar {
   width: 8px;
 }
 
-.team-modal::-webkit-scrollbar-thumb {
-  background: var(--green);
+.team-modal .team-form::-webkit-scrollbar-track {
+  background: #eaf4f9;
+}
+
+.team-modal .team-form::-webkit-scrollbar-thumb {
+  background: #00afd8;
   border-radius: 20px;
 }
 
-/* ===========================
-   Header
-=========================== */
-
-.team-modal-header {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  z-index: 5;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 22px 28px;
-  border-bottom: 1px solid #ececec;
+.team-modal .team-form::-webkit-scrollbar-thumb:hover {
+  background: #0084ce;
 }
 
-.team-modal-header h2 {
-  margin: 0;
-  font-size: 24px;
-  color: var(--text-dark);
-}
+/* Form grid */
 
-.close-btn {
-  border: none;
-  background: transparent;
-  font-size: 28px;
-  cursor: pointer;
-  color: #6b7280;
-  transition: color 0.3s ease;
-}
-
-.close-btn:hover {
-  color: var(--green);
-}
-
-/* ===========================
-   Form
-=========================== */
-
-.team-form {
-  padding: 28px;
-}
-
-.form-grid {
+.team-modal .form-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 
-.full-width {
-  grid-column: 1 / -1;
-}
-
-.form-group {
+.team-modal .form-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
+  margin: 0;
 }
 
-.form-group label {
+.team-modal .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.team-modal .form-group > label {
+  color: #07305e;
+  font-size: 14px;
   font-weight: 600;
-  color: #374151;
+  line-height: 1.45;
 }
 
-.form-group input,
-.form-group textarea {
+/* Text inputs, dropdowns and textareas */
+
+.team-modal .form-group input:not([type="checkbox"]):not([type="file"]),
+.team-modal .form-group select,
+.team-modal .form-group textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
   padding: 12px 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #d5e2ec;
   border-radius: 8px;
-  font-size: 15px;
   outline: none;
-  transition: 0.25s;
+  background: #fff;
+  color: #101828;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--green);
+.team-modal .form-group input:not([type="checkbox"]):not([type="file"]):focus,
+.team-modal .form-group select:focus,
+.team-modal .form-group textarea:focus {
+  border-color: #00afd8;
+  box-shadow: 0 0 0 3px rgba(0, 175, 216, 0.13);
 }
 
-.form-group textarea {
+.team-modal .form-group input::placeholder,
+.team-modal .form-group textarea::placeholder {
+  color: #98a2b3;
+}
+
+.team-modal .form-group textarea {
   resize: vertical;
+  line-height: 1.6;
 }
 
-/* ===========================
-   Checkbox
-=========================== */
+.team-modal .form-group select {
+  cursor: pointer;
+}
 
-.checkbox-group label {
+/* Checkboxes */
+
+.team-modal .form-group.checkbox-group {
+  padding: 13px 15px;
+  border: 1px solid #e0f4fc;
+  border-radius: 9px;
+  background: #f4f8fb;
+}
+
+.team-modal .checkbox-group > label {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 10px;
+  margin: 0;
+  color: #07305e;
+  cursor: pointer;
 }
 
-.checkbox-group input {
-  width: 18px;
-  height: 18px;
+.team-modal .checkbox-group input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: #0084ce;
+  cursor: pointer;
 }
 
-/* ===========================
-   Image Preview
-=========================== */
+/* Profile image upload */
 
-.image-preview {
+.team-modal .form-group input[type="file"] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 12px;
+  border: 1px dashed #9ccfe3;
+  border-radius: 9px;
+  background: #f4f8fb;
+  color: #07305e;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.team-modal .form-group input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 9px 13px;
+  border: none;
+  border-radius: 6px;
+  background: #0084ce;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.team-modal .form-group input[type="file"]::file-selector-button:hover {
+  background: #07305e;
+}
+
+/* Image preview */
+
+.team-modal .image-preview {
+  width: fit-content;
+  max-width: 100%;
   margin-top: 12px;
+  padding: 12px;
+  overflow: hidden;
+  border: 1px solid #e0f4fc;
+  border-radius: 12px;
+  background: #f4f8fb;
 }
 
-.image-preview img {
+.team-modal .image-preview img {
+  display: block;
   width: 160px;
   height: 160px;
+  max-width: 100%;
   object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid #ddd;
+  border: 2px solid #00afd8;
+  border-radius: 9px;
 }
 
-/* ===========================
-   Footer Buttons
-=========================== */
+/* Footer actions */
 
-.modal-actions {
-  margin-top: 28px;
+.team-modal .modal-actions {
   display: flex;
+  flex-shrink: 0;
+  align-items: center;
   justify-content: flex-end;
-  gap: 14px;
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid #e5edf3;
+  background: #fff;
 }
 
-.cancel-btn,
-.save-btn {
-  border: none;
+.team-modal .cancel-btn,
+.team-modal .save-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
   border-radius: 8px;
-  padding: 12px 24px;
-  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
   font-weight: 600;
-  transition: 0.3s ease;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
-.cancel-btn {
-  background: #e5e7eb;
+/* Cancel */
+
+.team-modal .cancel-btn {
+  border-color: #d5e2ec;
+  background: #e0f4fc;
+  color: #07305e;
 }
 
-.cancel-btn:hover {
-  background: #d1d5db;
+.team-modal .cancel-btn:hover {
+  background: #c7eaf8;
 }
 
-.save-btn {
-  background: var(--green);
-  color: white;
+/* Save / update */
+
+.team-modal .save-btn {
+  border-color: #0084ce;
+  background: #0084ce;
+  color: #fff;
 }
 
-.save-btn:hover {
-  background: var(--green-hover);
+.team-modal .save-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: #07305e;
+  background: #07305e;
 }
 
-.save-btn:disabled {
+.team-modal .save-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
 }
 
-/* ===========================
-   Mobile
-=========================== */
+/* Keyboard accessibility */
+
+.team-modal .close-btn:focus-visible,
+.team-modal .cancel-btn:focus-visible,
+.team-modal .save-btn:focus-visible {
+  outline: 3px solid rgba(0, 175, 216, 0.4);
+  outline-offset: 3px;
+}
+
+/* Entry animation */
+
+@keyframes teamModalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet and mobile */
 
 @media (max-width: 768px) {
+  .team-modal-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
   .team-modal {
-    max-height: 95vh;
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
   }
 
-  .form-grid {
-    grid-template-columns: 1fr;
+  .team-modal .team-modal-header {
+    padding: 18px 20px;
   }
 
-  .modal-actions {
-    flex-direction: column;
+  .team-modal .team-modal-header h2 {
+    font-size: 20px;
   }
 
-  .cancel-btn,
-  .save-btn {
+  .team-modal .team-form {
+    padding: 20px;
+  }
+
+  .team-modal .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .team-modal .form-group.full-width {
+    grid-column: auto;
+  }
+
+  .team-modal .modal-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .team-modal .cancel-btn,
+  .team-modal .save-btn {
     width: 100%;
   }
+}
 
-  .image-preview img {
-    width: 100%;
-    height: auto;
+@media (max-width: 400px) {
+  .team-modal-overlay {
+    padding: 8px;
+  }
+
+  .team-modal {
+    max-height: calc(100vh - 16px);
+    max-height: calc(100dvh - 16px);
+    border-radius: 12px;
+  }
+
+  .team-modal .team-modal-header {
+    padding: 16px;
+  }
+
+  .team-modal .team-modal-header h2 {
+    font-size: 18px;
+  }
+
+  .team-modal .team-form {
+    padding: 16px;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .team-modal,
+  .team-modal * {
+    animation: none !important;
+    transition: none !important;
   }
 }

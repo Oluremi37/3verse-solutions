@@ -261,7 +261,7 @@ export default function ProductModal({
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay product-modal-overlay">
       <div className="product-modal">
         <div className="product-modal-header">
           <h2>{product ? "Edit Product" : "Add Product"}</h2>

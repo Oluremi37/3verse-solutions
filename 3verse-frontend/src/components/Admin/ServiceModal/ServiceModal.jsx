@@ -156,7 +156,7 @@ export default function ServiceModal({
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay service-modal-overlay">
       <div className="service-modal">
         <div className="service-modal-header">
           <h2>{service ? "Edit Service" : "Add Service"}</h2>

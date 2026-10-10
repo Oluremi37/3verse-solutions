@@ -1,155 +1,424 @@
+
+/*=====================================
+   CONTACTS PAGE — 3Verse Solutions
+========================================= */
+
 .contacts-page {
-  padding: 24px;
-  background: #f8fafc;
-  min-height: calc(100vh - 70px);
+  --contacts-navy: #07305E;
+  --contacts-green: #6AC319;
+  --contacts-blue: #0084CE;
+  --contacts-cyan: #00AFD8;
+  --contacts-text: #101828;
+  --contacts-muted: #667085;
+  --contacts-bg: #F4F8FB;
+  --contacts-border: #E4E7EC;
+
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--contacts-text);
+  box-sizing: border-box;
 }
 
-/* ===========================
-   Status Badges
-=========================== */
+.contacts-page *,
+.contacts-page *::before,
+.contacts-page *::after {
+  box-sizing: border-box;
+}
 
-.read,
-.unread {
+/* =========================================
+   READ / UNREAD STATUS
+========================================= */
+
+.contacts-page .read,
+.contacts-page .unread {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
+  justify-content: center;
+  gap: 7px;
+  padding: 5px 11px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
 }
 
-.read {
-  background: #dcfce7;
-  color: #15803d;
+.contacts-page .read {
+  background: #EAF7DF;
+  color: #347A0A;
 }
 
-.unread {
-  background: #fee2e2;
-  color: #b91c1c;
+.contacts-page .unread {
+  background: #FEECEC;
+  color: #B42318;
 }
 
-.read::before,
-.unread::before {
+.contacts-page .read::before,
+.contacts-page .unread::before {
   content: "";
+  flex-shrink: 0;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: currentColor;
 }
 
-/* ===========================
-   Action Buttons
-=========================== */
+/* =========================================
+   TABLE ACTION BUTTONS
+========================================= */
 
-.actions{
-    display:flex;
-    align-items:center;
-    gap:8px;
+.contacts-page .actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.actions button{
-    border:none;
-    padding:8px 14px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:13px;
-    font-weight:500;
-    white-space:nowrap;
-    transition:.2s;
+.contacts-page .actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.actions button:hover{
-    transform:translateY(-2px);
+.contacts-page .actions button:first-child {
+  background: #E0F4FC;
+  color: var(--contacts-navy);
+  border-color: #C3E8F8;
 }
 
-.actions button:first-child{
-    background:#2563eb;
-    color:#fff;
+.contacts-page .actions button:first-child:hover {
+  background: #C8EBFA;
 }
 
-.actions button:nth-child(2){
-    background:#16a34a;
-    color:#fff;
+.contacts-page .actions button:nth-child(2) {
+  background: #EAF7DF;
+  color: #347A0A;
+  border-color: #D4EDBF;
 }
 
-.delete-btn{
-    background:#dc2626 !important;
-    color:#fff;
+.contacts-page .actions button:nth-child(2):hover {
+  background: #D9F0C5;
 }
 
-/* ===========================
-   Contact Details Modal
-=========================== */
+.contacts-page .actions .delete-btn {
+  background: #FEECEC;
+  color: #B42318;
+  border-color: #FBCACA;
+}
 
-.contact-modal {
+.contacts-page .actions .delete-btn:hover {
+  background: #FDE0E0;
+}
+
+.contacts-page .actions button:focus-visible {
+  outline: 3px solid rgba(0, 132, 206, 0.3);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   CONTACT DETAILS MODAL OVERLAY
+========================================= */
+
+.contact-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.55);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  z-index: 2000;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 20px;
-  z-index: 999;
+  background: rgba(7, 24, 45, 0.65);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
-.modal-content {
+/* =========================================
+   CONTACT DETAILS MODAL CONTAINER
+========================================= */
+
+.contact-modal-content {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 550px;
-  background: #fff;
+  max-width: 560px;
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 14px;
-  padding: 30px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(7, 48, 94, 0.25);
+  animation: contactsModalEnter 0.2s ease-out;
 }
 
-.modal-content h2 {
-  margin-bottom: 20px;
-  color: #0f172a;
+/* Header */
+
+.contact-modal-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 26px;
+  border-bottom: 1px solid var(--contacts-border);
 }
 
-.modal-content p {
-  margin-bottom: 14px;
-  line-height: 1.7;
-  color: #475569;
+.contact-modal-header h2 {
+  margin: 0;
+  color: var(--contacts-navy);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
-.modal-content strong {
-  color: #0f172a;
-}
-
-.modal-content button {
-  margin-top: 20px;
+.contact-modal-close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   border: none;
-  background: #0f172a;
-  color: #fff;
-  padding: 10px 18px;
   border-radius: 8px;
+  background: var(--contacts-bg);
+  color: var(--contacts-muted);
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
-/* ===========================
-   Responsive
-=========================== */
+.contact-modal-close:hover {
+  background: #E0F4FC;
+  color: var(--contacts-navy);
+}
+
+/* Body */
+
+.contact-modal-body {
+  flex: 1;
+  min-height: 0;
+  padding: 24px 26px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.contact-modal-body > p {
+  margin: 0 0 16px;
+  color: #475467;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.contact-modal-body strong {
+  color: var(--contacts-text);
+  font-weight: 600;
+}
+
+/* Message */
+
+.contact-message {
+  padding: 16px;
+  border: 1px solid #D8EAF5;
+  border-radius: 10px;
+  background: var(--contacts-bg);
+  color: var(--contacts-text);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.contact-message > p {
+  margin: 8px 0 0;
+  color: #475467;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Footer */
+
+.contact-modal-footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 26px;
+  border-top: 1px solid var(--contacts-border);
+  background: #fff;
+}
+
+.contact-modal-footer button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  min-height: 42px;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--contacts-navy);
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contact-modal-footer button:hover {
+  background: #0B427C;
+  box-shadow: 0 3px 10px rgba(7, 48, 94, 0.16);
+}
+
+/* Keyboard accessibility */
+
+.contact-modal-close:focus-visible,
+.contact-modal-footer button:focus-visible {
+  outline: 3px solid rgba(0, 132, 206, 0.35);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   MODAL ANIMATION
+========================================= */
+
+@keyframes contactsModalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
 
 @media (max-width: 768px) {
   .contacts-page {
+    gap: 20px;
+  }
+
+  .contacts-page .actions {
+    gap: 6px;
+  }
+
+  .contacts-page .actions button {
+    padding: 8px 10px;
+  }
+
+  .contact-modal-header {
+    padding: 20px;
+  }
+
+  .contact-modal-body {
+    padding: 22px 20px;
+  }
+
+  .contact-modal-footer {
+    padding: 16px 20px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .contacts-page {
+    gap: 16px;
+  }
+
+  .contact-modal-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .contact-modal-content {
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 12px;
+  }
+
+  .contact-modal-header {
     padding: 16px;
   }
 
-  .actions {
-    flex-direction: column;
+  .contact-modal-header h2 {
+    font-size: 18px;
   }
 
-  .actions button {
+  .contact-modal-body {
+    padding: 18px 16px;
+  }
+
+  .contact-modal-body > p,
+  .contact-message,
+  .contact-message > p {
+    font-size: 13px;
+  }
+
+  .contact-modal-footer {
+    padding: 14px 16px;
+  }
+
+  .contact-modal-footer button {
     width: 100%;
   }
 
-  .modal-content {
-    padding: 22px;
+  .contacts-page .actions {
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-modal-content,
+  .contacts-page .actions button,
+  .contact-modal-close,
+  .contact-modal-footer button {
+    animation: none;
+    transition: none;
   }
 }

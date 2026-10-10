@@ -10,16 +10,20 @@ import {
 
 import "./Settings.css";
 
+const getProfileFormValues = (currentAdmin) => ({
+  fullName: currentAdmin?.fullName || "",
+  email: currentAdmin?.email || "",
+});
+
 export default function Settings() {
   const { admin, updateAdmin } = useContext(AuthContext);
 
   // Profile state
   const [profileLoading, setProfileLoading] = useState(false);
 
-  const [profileForm, setProfileForm] = useState({
-    fullName: admin?.fullName || "",
-    email: admin?.email || "",
-  });
+  const [profileForm, setProfileForm] = useState(() =>
+    getProfileFormValues(admin),
+  );
 
   // Password state
   const [loading, setLoading] = useState(false);
@@ -38,24 +42,27 @@ export default function Settings() {
   // PROFILE
   // =========================
 
-  const handleProfileChange = (e) => {
-    const { name, value } = e.target;
+  const handleProfileChange = (event) => {
+    const { name, value } = event.target;
 
-    setProfileForm((prev) => ({
-      ...prev,
+    setProfileForm((previous) => ({
+      ...previous,
       [name]: value,
     }));
   };
 
-  const handleProfileSubmit = async (e) => {
-    e.preventDefault();
+  const handleProfileSubmit = async (event) => {
+    event.preventDefault();
 
-    if (!profileForm.fullName.trim()) {
+    const fullName = profileForm.fullName.trim();
+    const email = profileForm.email.trim();
+
+    if (!fullName) {
       toast.error("Full name is required.");
       return;
     }
 
-    if (!profileForm.email.trim()) {
+    if (!email) {
       toast.error("Email is required.");
       return;
     }
@@ -63,26 +70,20 @@ export default function Settings() {
     try {
       setProfileLoading(true);
 
-      const data = await updateProfile({
-        fullName: profileForm.fullName,
-        email: profileForm.email,
-      });
+      const data = await updateProfile({ fullName, email });
+
+      if (!data?.admin) {
+        throw new Error("Updated profile data was not returned.");
+      }
 
       updateAdmin(data.admin);
 
       setProfileForm({
-        fullName: data.admin.fullName,
-        email: data.admin.email,
+        fullName: data.admin.fullName || "",
+        email: data.admin.email || "",
       });
 
-            updateAdmin(data.admin);
-
-            setProfileForm({
-              fullName: data.admin.fullName,
-              email: data.admin.email,
-            });
-
-            toast.success("Profile saved successfully.");
+      toast.success("Profile saved successfully.");
     } catch (error) {
       console.error("Update profile error:", error);
 
@@ -92,29 +93,39 @@ export default function Settings() {
     }
   };
 
-  
-  //  PASSWORD
-   
+  // =========================
+  // PASSWORD
+  // =========================
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-    setForm((prev) => ({
-      ...prev,
+    setForm((previous) => ({
+      ...previous,
       [name]: value,
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!form.currentPassword) {
+      toast.error("Current password is required.");
+      return;
+    }
+
+    if (form.newPassword.length < 8) {
+      toast.error("New password must be at least 8 characters.");
+      return;
+    }
 
     if (form.newPassword !== form.confirmPassword) {
       toast.error("New passwords do not match.");
       return;
     }
 
-    if (form.newPassword.length < 8) {
-      toast.error("New password must be at least 8 characters.");
+    if (form.currentPassword === form.newPassword) {
+      toast.error("Your new password must differ from your current password.");
       return;
     }
 
@@ -133,6 +144,10 @@ export default function Settings() {
         newPassword: "",
         confirmPassword: "",
       });
+
+      setShowCurrentPassword(false);
+      setShowNewPassword(false);
+      setShowConfirmPassword(false);
     } catch (error) {
       console.error("Change password error:", error);
 
@@ -146,175 +161,216 @@ export default function Settings() {
 
   return (
     <div className="settings-page">
-      <div className="settings-header">
-        <h1>Settings</h1>
-        <p>Manage your admin account settings.</p>
-      </div>
-
-      {/* =========================
-          ADMIN ACCOUNT
-      ========================= */}
-
-      <div className="settings-card">
-        <div className="settings-card-header">
-          <h2>Admin Account</h2>
-          <p>Update your administrator account information.</p>
+      <header className="settings-header">
+        <div>
+          <span className="settings-eyebrow">ACCOUNT MANAGEMENT</span>
+          <h1>Settings</h1>
+          <p>Manage your administrator profile and security.</p>
         </div>
+      </header>
 
-        <form onSubmit={handleProfileSubmit}>
-          <div className="settings-form-group">
-            <label htmlFor="fullName">Full Name</label>
+      <div className="settings-sections">
+        {/* ADMIN ACCOUNT */}
 
-            <input
-              id="fullName"
-              name="fullName"
-              type="text"
-              value={profileForm.fullName}
-              onChange={handleProfileChange}
-              placeholder="Enter your full name"
-              required
-            />
-          </div>
+        <section className="settings-card">
+          <div className="settings-card-header">
+            <div className="settings-card-icon">
+              <span aria-hidden="true">01</span>
+            </div>
 
-          <div className="settings-form-group">
-            <label htmlFor="email">Email</label>
-
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={profileForm.email}
-              onChange={handleProfileChange}
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-
-          <div className="settings-form-group">
-            <label>Role</label>
-
-            <input type="text" value={admin?.role || "N/A"} disabled readOnly />
-
-            <small>
-              Your administrator role can only be changed by an authorized
-              administrator.
-            </small>
-          </div>
-
-          <button
-            type="submit"
-            className="settings-save-btn"
-            disabled={profileLoading}
-          >
-            {profileLoading ? "Saving..." : "Save Profile"}
-          </button>
-        </form>
-      </div>
-
-      {/* =========================
-          CHANGE PASSWORD
-      ========================= */}
-
-      <div className="settings-card">
-        <div className="settings-card-header">
-          <h2>Change Password</h2>
-          <p>Update the password used to access the admin panel.</p>
-        </div>
-
-        <form onSubmit={handleSubmit}>
-          <div className="settings-form-group">
-            <label htmlFor="currentPassword">Current Password</label>
-
-            <div className="password-field">
-              <input
-                id="currentPassword"
-                name="currentPassword"
-                type={showCurrentPassword ? "text" : "password"}
-                value={form.currentPassword}
-                onChange={handleChange}
-                required
-              />
-
-              <button
-                type="button"
-                className="toggle-password"
-                onClick={() => setShowCurrentPassword((prev) => !prev)}
-                tabIndex={-1}
-                aria-label={
-                  showCurrentPassword
-                    ? "Hide current password"
-                    : "Show current password"
-                }
-              >
-                {showCurrentPassword ? <FiEyeOff /> : <FiEye />}
-              </button>
+            <div>
+              <h2>Admin Account</h2>
+              <p>Update your administrator account information.</p>
             </div>
           </div>
 
-          <div className="settings-form-group">
-            <label htmlFor="newPassword">New Password</label>
+          <form onSubmit={handleProfileSubmit}>
+            <div className="settings-form-group">
+              <label htmlFor="settings-fullName">Full Name</label>
 
-            <div className="password-field">
               <input
-                id="newPassword"
-                name="newPassword"
-                type={showNewPassword ? "text" : "password"}
-                value={form.newPassword}
-                onChange={handleChange}
+                id="settings-fullName"
+                name="fullName"
+                type="text"
+                autoComplete="name"
+                value={profileForm.fullName}
+                onChange={handleProfileChange}
+                placeholder="Enter your full name"
                 required
               />
+            </div>
 
+            <div className="settings-form-group">
+              <label htmlFor="settings-email">Email Address</label>
+
+              <input
+                id="settings-email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                value={profileForm.email}
+                onChange={handleProfileChange}
+                placeholder="Enter your email address"
+                required
+              />
+            </div>
+
+            <div className="settings-form-group">
+              <label htmlFor="settings-role">Administrator Role</label>
+
+              <input
+                id="settings-role"
+                type="text"
+                value={admin?.role || "N/A"}
+                disabled
+                readOnly
+              />
+
+              <small>
+                Your administrator role can only be changed by an authorized
+                administrator.
+              </small>
+            </div>
+
+            <div className="settings-form-footer">
               <button
-                type="button"
-                className="toggle-password"
-                onClick={() => setShowNewPassword((prev) => !prev)}
-                tabIndex={-1}
-                aria-label={
-                  showNewPassword ? "Hide new password" : "Show new password"
-                }
+                type="submit"
+                className="settings-save-btn"
+                disabled={profileLoading}
               >
-                {showNewPassword ? <FiEyeOff /> : <FiEye />}
+                {profileLoading ? "Saving Profile..." : "Save Profile"}
               </button>
+            </div>
+          </form>
+        </section>
+
+        {/* CHANGE PASSWORD */}
+
+        <section className="settings-card">
+          <div className="settings-card-header">
+            <div className="settings-card-icon settings-card-icon--security">
+              <span aria-hidden="true">02</span>
+            </div>
+
+            <div>
+              <h2>Change Password</h2>
+              <p>Keep your administrator account secure.</p>
             </div>
           </div>
 
-          <div className="settings-form-group">
-            <label htmlFor="confirmPassword">Confirm New Password</label>
+          <form onSubmit={handleSubmit}>
+            <div className="settings-form-group">
+              <label htmlFor="settings-currentPassword">Current Password</label>
 
-            <div className="password-field">
-              <input
-                id="confirmPassword"
-                name="confirmPassword"
-                type={showConfirmPassword ? "text" : "password"}
-                value={form.confirmPassword}
-                onChange={handleChange}
-                required
-              />
+              <div className="settings-password-field">
+                <input
+                  id="settings-currentPassword"
+                  name="currentPassword"
+                  type={showCurrentPassword ? "text" : "password"}
+                  autoComplete="current-password"
+                  value={form.currentPassword}
+                  onChange={handleChange}
+                  placeholder="Enter your current password"
+                  required
+                />
 
+                <button
+                  type="button"
+                  className="settings-toggle-password"
+                  onClick={() =>
+                    setShowCurrentPassword((previous) => !previous)
+                  }
+                  aria-label={
+                    showCurrentPassword
+                      ? "Hide current password"
+                      : "Show current password"
+                  }
+                  aria-pressed={showCurrentPassword}
+                >
+                  {showCurrentPassword ? <FiEyeOff /> : <FiEye />}
+                </button>
+              </div>
+            </div>
+
+            <div className="settings-form-group">
+              <label htmlFor="settings-newPassword">New Password</label>
+
+              <div className="settings-password-field">
+                <input
+                  id="settings-newPassword"
+                  name="newPassword"
+                  type={showNewPassword ? "text" : "password"}
+                  autoComplete="new-password"
+                  value={form.newPassword}
+                  onChange={handleChange}
+                  placeholder="Enter a new password"
+                  minLength={8}
+                  required
+                />
+
+                <button
+                  type="button"
+                  className="settings-toggle-password"
+                  onClick={() => setShowNewPassword((previous) => !previous)}
+                  aria-label={
+                    showNewPassword ? "Hide new password" : "Show new password"
+                  }
+                  aria-pressed={showNewPassword}
+                >
+                  {showNewPassword ? <FiEyeOff /> : <FiEye />}
+                </button>
+              </div>
+
+              <small>Use at least 8 characters.</small>
+            </div>
+
+            <div className="settings-form-group">
+              <label htmlFor="settings-confirmPassword">
+                Confirm New Password
+              </label>
+
+              <div className="settings-password-field">
+                <input
+                  id="settings-confirmPassword"
+                  name="confirmPassword"
+                  type={showConfirmPassword ? "text" : "password"}
+                  autoComplete="new-password"
+                  value={form.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="Re-enter your new password"
+                  minLength={8}
+                  required
+                />
+
+                <button
+                  type="button"
+                  className="settings-toggle-password"
+                  onClick={() =>
+                    setShowConfirmPassword((previous) => !previous)
+                  }
+                  aria-label={
+                    showConfirmPassword
+                      ? "Hide confirm password"
+                      : "Show confirm password"
+                  }
+                  aria-pressed={showConfirmPassword}
+                >
+                  {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
+                </button>
+              </div>
+            </div>
+
+            <div className="settings-form-footer">
               <button
-                type="button"
-                className="toggle-password"
-                onClick={() => setShowConfirmPassword((prev) => !prev)}
-                tabIndex={-1}
-                aria-label={
-                  showConfirmPassword
-                    ? "Hide confirm password"
-                    : "Show confirm password"
-                }
+                type="submit"
+                className="settings-save-btn"
+                disabled={loading}
               >
-                {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
+                {loading ? "Updating Password..." : "Change Password"}
               </button>
             </div>
-          </div>
-
-          <button
-            type="submit"
-            className="settings-save-btn"
-            disabled={loading}
-          >
-            {loading ? "Saving..." : "Change Password"}
-          </button>
-        </form>
+          </form>
+        </section>
       </div>
     </div>
   );

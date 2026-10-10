@@ -1,89 +1,96 @@
-/* SERVICES MEGA MENU */
+
+/* =========================================
+   SERVICES MEGA MENU
+========================================= */
 
 .services-mega-menu {
   position: absolute;
-  top: calc(100% + 18px);
+  top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%);
-  width: min(1047px, calc(100vw - 40px));
-  min-height: 440px;
-  padding: 27px 32px;
+
+  width: min(1080px, calc(100vw - 40px));
+  max-height: calc(100vh - 125px);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 18px;
   background: #fff;
   border: 1px solid #E0F4FC;
-  border-radius: 20px;
-  box-shadow: 0 18px 45px rgba(7, 48, 94, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 16px 38px rgba(7, 48, 94, 0.13);
   z-index: 999;
 }
 
-/* INNER LAYOUT */
+/* Three equal columns with no content overlap */
 
 .mega-menu-content {
-  width: 100%;
-  min-height: 386px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.05fr);
-  column-gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: start;
+  gap: 14px;
+  width: 100%;
 }
 
-/* LEFT AND MIDDLE COLUMNS */
+/* Left, middle and right columns */
 
-.mega-column {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  min-width: 0;
-}
-
-/* RIGHT COLUMN */
-
+.mega-column,
 .mega-preview-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: stretch;
+  gap: 8px;
   min-width: 0;
+  width: 100%;
 }
 
-/* MENU ITEM */
+/* =========================================
+   SERVICE ITEMS
+========================================= */
 
 .mega-item {
-  width: 100%;
+  box-sizing: border-box;
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
-  column-gap: 12px;
+  grid-template-columns: 30px minmax(0, 1fr);
   align-items: start;
-  padding: 12px;
+  gap: 9px;
+
+  width: 100%;
+  min-width: 0;
+  padding: 9px 7px;
+
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: 10px;
   text-decoration: none;
-  transition: background 0.25s ease, border-color 0.25s ease;
+
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.mega-item:hover {
-  background: #E0F4FC;
-  border-color: #B8E8F7;
-}
-
+.mega-item:hover,
 .mega-item.active {
   background: #F0FAFE;
   border-color: #B8E8F7;
 }
 
-/* NUMBER */
+/* Number badge */
 
 .mega-number {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: #F2F6FA;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
+
+  border-radius: 8px;
+  background: #F2F6FA;
   color: #07305E;
+  font-size: 12px;
+  font-weight: 700;
   flex-shrink: 0;
-  transition: background 0.25s ease, color 0.25s ease;
+
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .mega-item:hover .mega-number,
@@ -92,20 +99,22 @@
   color: #fff;
 }
 
-/* TEXT */
+/* Text must stay inside its own grid column */
 
 .mega-text {
   min-width: 0;
+  max-width: 100%;
   overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .mega-text h4 {
-  margin: 0 0 6px;
-  font-size: 14px;
+  margin: 1px 0 5px;
+  color: #07305E;
+  font-size: 12.5px;
   line-height: 1.45;
   font-weight: 700;
-  color: #07305E;
-  transition: color 0.25s ease;
+  overflow-wrap: anywhere;
 }
 
 .mega-item:hover .mega-text h4,
@@ -115,66 +124,82 @@
 
 .mega-text p {
   margin: 0;
-  font-size: 12px;
-  line-height: 1.65;
+  max-width: 100%;
   color: #667085;
+  font-size: 11px;
+  line-height: 1.55;
+
   white-space: normal;
   overflow-wrap: anywhere;
+  word-break: normal;
 }
 
-/* PREVIEW */
+/* =========================================
+   RIGHT COLUMN PREVIEW
+========================================= */
+
+.mega-preview-column {
+  gap: 8px;
+}
 
 .mega-preview {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+
   width: 100%;
   min-width: 0;
+  margin: 0;
+
   overflow: hidden;
-  border-radius: 14px;
-  background: #F4F8FB;
   border: 1px solid #E4EDF4;
+  border-radius: 12px;
+  background: #F4F8FB;
 }
 
 .mega-preview-image {
   display: block;
   width: 100%;
-  height: 170px;
+  height: 105px;
+  flex-shrink: 0;
   object-fit: cover;
-  border-radius: 13px 13px 0 0;
+  object-position: center;
 }
 
 .mega-preview-content {
-  padding: 16px;
+  min-width: 0;
+  padding: 10px;
 }
 
 .mega-preview-content h4 {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 700;
   color: #07305E;
-}
-
-.mega-preview-content p {
-  margin: 9px 0 0;
   font-size: 13px;
-  line-height: 1.7;
-  color: #667085;
+  line-height: 1.45;
+  font-weight: 700;
   overflow-wrap: anywhere;
 }
 
-/* PREVIEW ANIMATION */
+.mega-preview-content p {
+  margin: 5px 0 0;
+  color: #667085;
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Preview animation */
 
 .mega-preview-image,
 .mega-preview-content h4,
 .mega-preview-content p {
-  animation: fadePreview 0.25s ease;
+  animation: fadePreview 0.2s ease;
 }
 
 @keyframes fadePreview {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(4px);
   }
 
   to {
@@ -183,41 +208,68 @@
   }
 }
 
-/* TABLET */
+/* Extra services, if used */
+
+.mega-extra-services {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* =========================================
+   TABLET
+========================================= */
 
 @media (max-width: 1100px) {
   .services-mega-menu {
-    width: min(900px, calc(100vw - 32px));
-    padding: 24px;
+    width: min(960px, calc(100vw - 28px));
+    padding: 14px;
   }
 
   .mega-menu-content {
-    column-gap: 12px;
+    gap: 8px;
   }
 
   .mega-item {
-    grid-template-columns: 32px minmax(0, 1fr);
-    column-gap: 8px;
-    padding: 9px;
+    grid-template-columns: 27px minmax(0, 1fr);
+    gap: 6px;
+    padding: 7px 5px;
   }
 
   .mega-number {
-    width: 28px;
-    height: 28px;
-    font-size: 12px;
+    width: 27px;
+    height: 27px;
+    font-size: 11px;
+  }
+
+  .mega-text h4 {
+    font-size: 11.5px;
+  }
+
+  .mega-text p {
+    font-size: 10.5px;
+  }
+
+  .mega-preview-image {
+    height: 95px;
   }
 }
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 768px) {
   .services-mega-menu {
     position: static;
     transform: none;
     width: 100%;
-    min-height: 0;
-    padding: 16px;
-    border-radius: 14px;
+    max-height: none;
+    overflow: visible;
+
+    padding: 12px;
+    border-radius: 12px;
     box-shadow: none;
   }
 
@@ -225,30 +277,53 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    min-height: 0;
   }
 
   .mega-column,
-  .mega-preview-column {
+  .mega-preview-column,
+  .mega-extra-services {
     width: 100%;
-    gap: 8px;
+    gap: 6px;
   }
 
-  .mega-preview-column {
-    margin-top: 8px;
+  .mega-item {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .mega-text h4 {
+    font-size: 13px;
+  }
+
+  .mega-text p {
+    font-size: 12px;
   }
 
   .mega-preview-image {
-    height: 190px;
+    height: 170px;
+  }
+
+  .mega-preview-content {
+    padding: 12px;
+  }
+
+  .mega-preview-content h4 {
+    font-size: 14px;
+  }
+
+  .mega-preview-content p {
+    font-size: 12px;
   }
 }
 
-/* ACCESSIBILITY */
+/* =========================================
+   ACCESSIBILITY
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .mega-item,
-  .mega-number,
-  .mega-text h4 {
+  .mega-number {
     transition: none;
   }
 

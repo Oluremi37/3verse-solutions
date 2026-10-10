@@ -122,7 +122,6 @@ export default function Contacts() {
         onSearch={setSearch}
         searchPlaceholder="Search contacts..."
       />
-
       <StatsCards
         cards={[
           {
@@ -145,7 +144,6 @@ export default function Contacts() {
           },
         ]}
       />
-
       <DataTable
         columns={columns}
         data={filteredContacts}
@@ -168,7 +166,6 @@ export default function Contacts() {
           </div>
         )}
       />
-
       <ConfirmModal
         isOpen={!!deleteId}
         title="Delete Contact"
@@ -179,34 +176,51 @@ export default function Contacts() {
         onConfirm={handleDelete}
         onCancel={() => setDeleteId(null)}
       />
-
+      
       {selectedContact && (
-        <div className="contact-modal">
-          <div className="modal-content">
-            <h2>{selectedContact.fullName}</h2>
+        <div className="contact-modal-overlay">
+          <div className="contact-modal-content">
+            <div className="contact-modal-header">
+              <h2>{selectedContact.fullName}</h2>
 
-            <p>
-              <strong>Email:</strong> {selectedContact.email}
-            </p>
+              <button
+                type="button"
+                className="contact-modal-close"
+                onClick={() => setSelectedContact(null)}
+                aria-label="Close contact details"
+              >
+                ✕
+              </button>
+            </div>
 
-            <p>
-              <strong>Phone:</strong> {selectedContact.phone || "N/A"}
-            </p>
+            <div className="contact-modal-body">
+              <p>
+                <strong>Email:</strong> {selectedContact.email}
+              </p>
 
-            <p>
-              <strong>Subject:</strong> {selectedContact.subject}
-            </p>
+              <p>
+                <strong>Phone:</strong> {selectedContact.phone || "N/A"}
+              </p>
 
-            <p>
-              <strong>Message:</strong>
-            </p>
+              <p>
+                <strong>Subject:</strong> {selectedContact.subject}
+              </p>
 
-            <p>{selectedContact.message}</p>
+              <div className="contact-message">
+                <strong>Message:</strong>
+                <p>{selectedContact.message}</p>
+              </div>
+            </div>
 
-            <button onClick={() => setSelectedContact(null)}>Close</button>
+            <div className="contact-modal-footer">
+              <button type="button" onClick={() => setSelectedContact(null)}>
+                Close
+              </button>
+            </div>
           </div>
         </div>
       )}
+      
     </div>
   );
 }

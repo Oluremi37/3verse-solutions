@@ -153,12 +153,17 @@ export default function ProjectModal({
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay project-modal-overlay">
       <div className="project-modal">
         <div className="project-modal-header">
           <h2>{project ? "Edit Project" : "Add Project"}</h2>
 
-          <button className="close-btn" onClick={onClose}>
+          <button
+            type="button"
+            className="close-btn"
+            onClick={onClose}
+            aria-label="Close project modal"
+          >
             ✕
           </button>
         </div>

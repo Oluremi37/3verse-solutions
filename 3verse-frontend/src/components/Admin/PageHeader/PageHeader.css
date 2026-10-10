@@ -1,3 +1,4 @@
+
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -11,7 +12,7 @@
   margin: 0;
   font-size: 30px;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--navy, #07305E);
 }
 
 .page-header-right {
@@ -25,33 +26,40 @@
   width: 320px;
   max-width: 100%;
   padding: 12px 16px;
-  border: 1px solid #dbe2ea;
+  border: 1px solid #D0DDE8;
   border-radius: 10px;
   background: #fff;
+  color: #101828;
   outline: none;
   font-size: 14px;
-  transition: all 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .page-header-right input:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(106, 195, 25, 0.15);
+  border-color: var(--cyan, #00AFD8);
+  box-shadow: 0 0 0 3px rgba(0, 175, 216, 0.14);
 }
 
 .page-header-right button {
   border: none;
-  background: var(--green);
+  background: var(--blue, #0084CE);
   color: #fff;
   padding: 12px 18px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
-  transition: 0.25s;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .page-header-right button:hover {
-  background: var(--green-hover);
+  background: var(--navy, #07305E);
+  transform: translateY(-1px);
+}
+
+.page-header-right button:focus-visible {
+  outline: 3px solid rgba(0, 175, 216, 0.3);
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {

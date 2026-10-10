@@ -16,15 +16,11 @@ import "./Services.css";
 export default function Services() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const [search, setSearch] = useState("");
 
   const [openServiceModal, setOpenServiceModal] = useState(false);
-
   const [editingService, setEditingService] = useState(null);
-
   const [selectedService, setSelectedService] = useState(null);
-
   const [deleteId, setDeleteId] = useState(null);
 
   const loadServices = useCallback(async () => {
@@ -32,8 +28,7 @@ export default function Services() {
       setLoading(true);
 
       const data = await getServices();
-
-      setServices(data.services || []);
+      setServices(data?.services || []);
     } catch (err) {
       console.error(err);
       toast.error("Failed to load services.");
@@ -42,38 +37,73 @@ export default function Services() {
     }
   }, []);
 
-   useEffect(() => {
-     Promise.resolve().then(loadServices);
-   }, [loadServices]);
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchServices = async () => {
+      try {
+        setLoading(true);
+
+        const data = await getServices();
+
+        if (isMounted) {
+          setServices(data?.services || []);
+        }
+      } catch (err) {
+        console.error(err);
+
+        if (isMounted) {
+          toast.error("Failed to load services.");
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    void fetchServices();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const filteredServices = services.filter((service) => {
-    const keyword = search.toLowerCase();
+    const keyword = search.trim().toLowerCase();
 
     return (
-      service.title.toLowerCase().includes(keyword) ||
-      service.slug.toLowerCase().includes(keyword)
+      (service.title || "").toLowerCase().includes(keyword) ||
+      (service.slug || "").toLowerCase().includes(keyword)
     );
   });
 
   const stats = {
     total: services.length,
-    published: services.filter((s) => s.isPublished).length,
-    draft: services.filter((s) => !s.isPublished).length,
+    published: services.filter((service) => service.isPublished).length,
+    draft: services.filter((service) => !service.isPublished).length,
   };
 
   const columns = [
     {
       key: "title",
       label: "Title",
+      render: (service) => service.title || "N/A",
     },
     {
       key: "slug",
       label: "Slug",
+      render: (service) => service.slug || "N/A",
     },
     {
       key: "isPublished",
       label: "Status",
       render: (service) => (
-        <span className={`status ${service.isPublished ? "active" : "draft"}`}>
+        <span
+          className={`services-page__status ${
+            service.isPublished ? "active" : "draft"
+          }`}
+        >
           {service.isPublished ? "Published" : "Draft"}
         </span>
       ),
@@ -81,9 +111,38 @@ export default function Services() {
     {
       key: "createdAt",
       label: "Created",
-      render: (service) => new Date(service.createdAt).toLocaleDateString(),
+      render: (service) =>
+        service.createdAt
+          ? new Date(service.createdAt).toLocaleDateString()
+          : "N/A",
     },
   ];
+
+  const handleDelete = async () => {
+    if (!deleteId) return;
+
+    try {
+      await deleteService(deleteId);
+
+      toast.success("Service deleted successfully.");
+
+      setDeleteId(null);
+
+      if (selectedService?._id === deleteId) {
+        setSelectedService(null);
+      }
+
+      await loadServices();
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to delete service.");
+    }
+  };
+
+  const closeServiceModal = () => {
+    setOpenServiceModal(false);
+    setEditingService(null);
+  };
 
   return (
     <div className="services-page">
@@ -125,16 +184,13 @@ export default function Services() {
         loading={loading}
         emptyMessage="No services found."
         renderActions={(service) => (
-          <div className="actions">
-            <button
-              onClick={() => {
-                setSelectedService(service);
-              }}
-            >
+          <div className="services-page__actions">
+            <button type="button" onClick={() => setSelectedService(service)}>
               View
             </button>
 
             <button
+              type="button"
               onClick={() => {
                 setEditingService(service);
                 setOpenServiceModal(true);
@@ -144,6 +200,7 @@ export default function Services() {
             </button>
 
             <button
+              type="button"
               className="delete-btn"
               onClick={() => setDeleteId(service._id)}
             >
@@ -156,10 +213,7 @@ export default function Services() {
       <ServiceModal
         isOpen={openServiceModal}
         service={editingService}
-        onClose={() => {
-          setOpenServiceModal(false);
-          setEditingService(null);
-        }}
+        onClose={closeServiceModal}
         onSuccess={loadServices}
       />
 
@@ -170,32 +224,30 @@ export default function Services() {
         confirmText="Delete"
         cancelText="Cancel"
         danger
-        onConfirm={async () => {
-          try {
-            await deleteService(deleteId);
-
-            toast.success("Service deleted successfully.");
-
-            setDeleteId(null);
-
-            await loadServices();
-          } catch (err) {
-            console.error(err);
-            toast.error("Failed to delete service.");
-          }
-        }}
+        onConfirm={handleDelete}
         onCancel={() => setDeleteId(null)}
       />
 
       {selectedService && (
-        <div className="view-service-overlay">
-          <div className="view-service-modal">
+        <div
+          className="view-service-overlay"
+          onClick={() => setSelectedService(null)}
+        >
+          <div
+            className="view-service-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="view-service-title"
+            onClick={(event) => event.stopPropagation()}
+          >
             <div className="view-service-header">
-              <h2>Service Details</h2>
+              <h2 id="view-service-title">Service Details</h2>
 
               <button
-                className="close-btn"
+                type="button"
+                className="view-service-close"
                 onClick={() => setSelectedService(null)}
+                aria-label="Close service details"
               >
                 ✕
               </button>
@@ -204,17 +256,17 @@ export default function Services() {
             <div className="view-service-grid">
               <div>
                 <label>Title</label>
-                <p>{selectedService.title}</p>
+                <p>{selectedService.title || "N/A"}</p>
               </div>
 
               <div>
                 <label>Slug</label>
-                <p>{selectedService.slug}</p>
+                <p>{selectedService.slug || "N/A"}</p>
               </div>
 
               <div className="full-width">
                 <label>Short Description</label>
-                <p>{selectedService.shortDescription}</p>
+                <p>{selectedService.shortDescription || "N/A"}</p>
               </div>
 
               <div className="full-width">
@@ -224,7 +276,7 @@ export default function Services() {
 
               <div className="full-width">
                 <label>Hero Description</label>
-                <p>{selectedService.heroDescription}</p>
+                <p>{selectedService.heroDescription || "N/A"}</p>
               </div>
 
               <div>
@@ -248,7 +300,7 @@ export default function Services() {
                 {selectedService.checklist?.length ? (
                   <ul>
                     {selectedService.checklist.map((item, index) => (
-                      <li key={index}>{item}</li>
+                      <li key={`${index}-${item}`}>{item}</li>
                     ))}
                   </ul>
                 ) : (
@@ -260,7 +312,7 @@ export default function Services() {
                 <label>Status</label>
 
                 <span
-                  className={`status ${
+                  className={`services-page__status ${
                     selectedService.isPublished ? "active" : "draft"
                   }`}
                 >
@@ -274,7 +326,7 @@ export default function Services() {
                 {selectedService.heroImage ? (
                   <img
                     src={selectedService.heroImage}
-                    alt={selectedService.title}
+                    alt={selectedService.title || "Service"}
                     className="service-image-preview"
                   />
                 ) : (

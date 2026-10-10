@@ -1,142 +1,334 @@
+
+/* ================================
+   PROJECTS PAGE
+================================ */
+
 .projects-page {
-  padding: 30px;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text-dark, #101828);
+  box-sizing: border-box;
 }
 
-.project-cover {
+.projects-page *,
+.projects-page *::before,
+.projects-page *::after {
+  box-sizing: border-box;
+}
+
+/* Project cover in the data table */
+.projects-page .project-cover {
+  display: block;
   width: 80px;
   height: 60px;
   object-fit: cover;
   border-radius: 8px;
+  background: var(--bg-light, #f4f8fb);
 }
 
-.status {
-  display: inline-block;
+/* ================================
+   STATUS BADGES
+================================ */
+
+.projects-page .status,
+.projects-page .active,
+.projects-page .draft {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
   padding: 5px 12px;
+  border: 0;
   border-radius: 20px;
   font-size: 13px;
   font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
 }
 
-.status.active {
-  background: rgba(94, 175, 68, 0.12);
-  color: #5eaf44;
+.projects-page .status.active,
+.projects-page .active {
+  background: var(--green-soft, #eaf7df);
+  color: #367c16;
 }
 
-.status.draft {
-  background: rgba(239, 68, 68, 0.12);
-  color: #ef4444;
+.projects-page .status.draft,
+.projects-page .draft {
+  background: #fff0f0;
+  color: #c62828;
 }
 
-.actions {
+/* ================================
+   TABLE ACTIONS
+================================ */
+
+.projects-page .actions {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.actions button {
-  border: none;
+.projects-page .actions button {
+  appearance: none;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  color: var(--navy, #07305e);
   cursor: pointer;
   padding: 8px 12px;
   border-radius: 6px;
+  font: inherit;
+  font-size: 13px;
   font-weight: 600;
-  transition: 0.2s;
+  line-height: 1.3;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.actions .delete-btn {
-  background: #fee2e2;
-  color: #dc2626;
+.projects-page .actions button:hover {
+  background: var(--blue-soft, #e0f4fc);
+  border-color: var(--blue, #0084ce);
 }
 
-.actions button:hover {
-  transform: translateY(-2px);
+.projects-page .actions button:focus-visible,
+.projects-page .view-project-close:focus-visible {
+  outline: 3px solid rgba(0, 132, 206, 0.3);
+  outline-offset: 2px;
 }
 
-/* View Details Modal */
+.projects-page .actions .delete-btn {
+  background: #fff0f0;
+  color: #c62828;
+  border-color: #ffd5d5;
+}
 
-.view-project-overlay {
+.projects-page .actions .delete-btn:hover {
+  background: #ffe0e0;
+  border-color: #ef4444;
+}
+
+/* ================================
+   PROJECT DETAILS OVERLAY
+================================ */
+
+.projects-page .view-project-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.55);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1000;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(7, 25, 48, 0.62);
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
-.view-project-modal {
+/* Supports the project-view-modal class currently in JSX */
+.projects-page .view-project-modal,
+.projects-page .project-view-modal {
   width: 100%;
   max-width: 900px;
-  max-height: 90vh;
+  max-height: calc(100vh - 48px);
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
   background: #fff;
+  border: 1px solid rgba(7, 48, 94, 0.1);
   border-radius: 14px;
-  overflow-y: auto;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
 }
 
-.view-project-header {
+/* Sticky modal heading */
+.projects-page .view-project-header {
   position: sticky;
   top: 0;
-  background: #fff;
   z-index: 5;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 22px 28px;
-  border-bottom: 1px solid #ececec;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 28px;
+  background: #fff;
+  border-bottom: 1px solid #e4e7ec;
 }
 
-.view-project-header h2 {
+.projects-page .view-project-header h2 {
   margin: 0;
-  font-size: 24px;
-  color: #111827;
+  color: var(--navy, #07305e);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
-.view-project-grid {
-  padding: 28px;
+/* Modal close button — scoped to avoid global conflicts */
+.projects-page .view-project-close {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text-muted, #667085);
+  font-size: 18px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.projects-page .view-project-close:hover {
+  background: var(--blue-soft, #e0f4fc);
+  color: var(--navy, #07305e);
+  border-color: var(--blue, #0084ce);
+}
+
+/* ================================
+   PROJECT DETAILS GRID
+================================ */
+
+.projects-page .view-project-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 26px 28px 30px;
 }
 
-.view-project-grid .full-width {
+.projects-page .view-project-grid > div {
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #e8edf2;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.projects-page .view-project-grid > .full-width {
   grid-column: 1 / -1;
 }
 
-.view-project-grid label {
+.projects-page .view-project-grid label {
   display: block;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 6px;
+  margin: 0 0 7px;
+  color: var(--text-muted, #667085);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-.view-project-grid p {
-  color: #1f2937;
+.projects-page .view-project-grid p {
   margin: 0;
+  color: var(--text-dark, #101828);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
 }
 
-.view-cover-image {
+/* Cover image */
+.projects-page .view-cover-image {
+  display: block;
   width: 100%;
-  max-height: 260px;
-  object-fit: cover;
-  border-radius: 10px;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #eef3f7;
 }
 
-.gallery-grid {
+/* Gallery */
+.projects-page .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
 }
 
-.gallery-image {
+.projects-page .gallery-image {
+  display: block;
   width: 100%;
   height: 120px;
   object-fit: cover;
-  border-radius: 10px;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #eef3f7;
 }
 
+/* ================================
+   RESPONSIVE
+================================ */
+
 @media (max-width: 768px) {
-  .view-project-grid {
-    grid-template-columns: 1fr;
+  .projects-page .view-project-overlay {
+    align-items: flex-start;
+    padding: 14px;
+  }
+
+  .projects-page .view-project-modal,
+  .projects-page .project-view-modal {
+    max-height: calc(100vh - 28px);
+    border-radius: 12px;
+  }
+
+  .projects-page .view-project-header {
+    padding: 16px 18px;
+  }
+
+  .projects-page .view-project-header h2 {
+    font-size: 19px;
+  }
+
+  .projects-page .view-project-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .projects-page .view-project-grid > .full-width {
+    grid-column: auto;
+  }
+
+  .projects-page .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .projects-page .view-project-overlay {
+    padding: 8px;
+  }
+
+  .projects-page .view-project-modal,
+  .projects-page .project-view-modal {
+    max-height: calc(100vh - 16px);
+  }
+
+  .projects-page .view-project-header {
+    padding: 14px;
+  }
+
+  .projects-page .view-project-grid {
+    padding: 12px;
+  }
+
+  .projects-page .view-project-grid > div {
+    padding: 12px;
+  }
+
+  .projects-page .actions {
+    gap: 6px;
+  }
+
+  .projects-page .actions button {
+    padding: 7px 9px;
   }
 }

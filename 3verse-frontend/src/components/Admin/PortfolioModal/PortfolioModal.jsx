@@ -143,9 +143,9 @@ export default function PortfolioModal({
     }
   };
   return (
-    <div className="modal-overlay">
-      <div className="team-modal">
-        <div className="team-modal-header">
+    <div className="modal-overlay portfolio-modal-overlay">
+      <div className="portfolio-modal">
+        <div className="portfolio-modal-header">
           <h2>
             {portfolio ? "Edit Portfolio Project" : "Add Portfolio Project"}
           </h2>
@@ -219,7 +219,7 @@ export default function PortfolioModal({
                 Show Industry Badge on Website
               </label>
             </div>
-            
+
             <div className="form-group full-width">
               <label>Description</label>
 

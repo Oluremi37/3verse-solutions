@@ -3,7 +3,7 @@ import Footer from "../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import "./OurMissionPage.css";
 
- import missionImage from "../assets/images/mission-bg.png"; 
+ import missionImage from "../assets/images/ourMission.png"; 
 
 export default function OurMissionPage() {
   return (

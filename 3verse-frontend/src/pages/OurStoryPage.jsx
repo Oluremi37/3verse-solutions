@@ -3,7 +3,7 @@ import Footer from "../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import "./OurStoryPage.css";
 
-import storyImage from "../assets/images/story-bg.png"; 
+import storyImage from "../assets/images/ourStory.png"; 
 
 export default function OurStoryPage() {
   return (

@@ -1,168 +1,270 @@
+
+/* ================= SETTINGS PAGE ================= */
+
 .settings-page {
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 100%;
+  min-width: 0;
+  color: var(--text-dark, #101828);
 }
 
+/* ================= PAGE HEADER ================= */
+
 .settings-header {
-  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.settings-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--blue, #0084ce);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .settings-header h1 {
   margin: 0;
-  font-size: 32px;
-  color: #0f172a;
+  color: var(--navy, #07305e);
+  font-size: 30px;
+  font-weight: 750;
+  line-height: 1.25;
 }
 
 .settings-header p {
-  margin-top: 8px;
-  color: #64748b;
+  margin: 8px 0 0;
+  color: var(--text-muted, #667085);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ================= SETTINGS SECTIONS ================= */
+
+.settings-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 22px;
 }
 
 .settings-card {
-  max-width: 650px;
-  background: #ffffff;
-  border: 1px solid #edf2f7;
+  min-width: 0;
+  padding: 26px;
+  background: #fff;
+  border: 1px solid #e8eef3;
   border-radius: 14px;
-  padding: 28px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 18px rgba(7, 48, 94, 0.045);
 }
 
 .settings-card-header {
-  margin-bottom: 25px;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #edf1f5;
+}
+
+.settings-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: var(--blue-soft, #e0f4fc);
+  color: var(--navy, #07305e);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.settings-card-icon--security {
+  background: var(--green-soft, #eaf7df);
+  color: #397b13;
 }
 
 .settings-card-header h2 {
-  margin: 0;
-  color: #0f172a;
-  font-size: 22px;
+  margin: 1px 0 0;
+  color: var(--navy, #07305e);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .settings-card-header p {
-  margin-top: 7px;
-  color: #64748b;
-  font-size: 14px;
+  margin: 6px 0 0;
+  color: var(--text-muted, #667085);
+  font-size: 13px;
+  line-height: 1.6;
 }
 
+/* ================= FORM FIELDS ================= */
+
 .settings-form-group {
-  margin-bottom: 20px;
+  min-width: 0;
+  margin-bottom: 21px;
 }
 
 .settings-form-group label {
   display: block;
   margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #334155;
+  color: #344054;
+  font-size: 13px;
+  font-weight: 650;
 }
 
 .settings-form-group input {
+  display: block;
   width: 100%;
+  min-width: 0;
   box-sizing: border-box;
-  padding: 13px 14px;
-  border: 1px solid #cbd5e1;
+  padding: 12px 13px;
+  border: 1px solid #d0d5dd;
   border-radius: 8px;
   outline: none;
+  background: #fff;
+  color: var(--text-dark, #101828);
+  font: inherit;
   font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.settings-form-group input::placeholder {
+  color: #98a2b3;
 }
 
 .settings-form-group input:focus {
-  border-color: #16a34a;
+  border-color: var(--blue, #0084ce);
+  box-shadow: 0 0 0 3px rgba(0, 132, 206, 0.12);
 }
 
-.settings-save-btn {
-  border: none;
-  background: #16a34a;
-  color: #ffffff;
-  padding: 13px 22px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.settings-save-btn:hover {
-  background: #15803d;
-}
-
-.settings-save-btn:disabled {
-  opacity: 0.6;
+.settings-form-group input:disabled {
+  background: #f2f4f7;
+  color: #667085;
   cursor: not-allowed;
 }
 
-.password-field {
+.settings-form-group small {
+  display: block;
+  margin-top: 7px;
+  color: var(--text-muted, #667085);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ================= PASSWORD VISIBILITY ================= */
+
+.settings-password-field {
   position: relative;
   width: 100%;
 }
 
-.password-field input {
-  width: 100%;
-  padding-right: 45px;
+.settings-password-field input {
+  padding-right: 48px;
 }
 
-.toggle-password {
+.settings-toggle-password {
   position: absolute;
-  right: 12px;
   top: 50%;
-  transform: translateY(-50%);
-
-  border: none;
-  background: transparent;
-  color: #64748b;
-
+  right: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #667085;
   font-size: 18px;
-  padding: 4px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.toggle-password:hover {
-  color: #16a34a;
+.settings-toggle-password:hover {
+  background: var(--blue-soft, #e0f4fc);
+  color: var(--navy, #07305e);
 }
 
-.account-info {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.settings-toggle-password:focus-visible {
+  outline: 2px solid var(--blue, #0084ce);
+  outline-offset: 2px;
 }
 
-.account-info-item {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 16px;
+/* ================= FORM FOOTER & BUTTON ================= */
+
+.settings-form-footer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 8px;
+  padding-top: 5px;
 }
 
-.account-info-item label {
-  display: block;
+.settings-save-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--green, #6ac319);
+  color: #173d08;
   font-size: 13px;
-  color: #64748b;
-  margin-bottom: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.account-info-item p {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: #0f172a;
-}
-.settings-form-group small {
-  display: block;
-  margin-top: 6px;
-  color: #94a3b8;
-  font-size: 12px;
+.settings-save-btn:hover:not(:disabled) {
+  background: var(--green-hover, #58a915);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(88, 169, 21, 0.18);
 }
 
-@media (max-width: 768px) {
-  .account-info {
-    grid-template-columns: 1fr;
+.settings-save-btn:focus-visible {
+  outline: 3px solid rgba(106, 195, 25, 0.3);
+  outline-offset: 3px;
+}
+
+.settings-save-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .settings-sections {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .settings-card {
+    max-width: none;
   }
 }
 
 @media (max-width: 768px) {
   .settings-page {
-    padding: 20px;
+    gap: 20px;
   }
 
   .settings-header h1 {
@@ -170,6 +272,49 @@
   }
 
   .settings-card {
-    padding: 20px;
+    padding: 22px;
+  }
+
+  .settings-card-header {
+    margin-bottom: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-header h1 {
+    font-size: 24px;
+  }
+
+  .settings-card {
+    padding: 18px;
+    border-radius: 11px;
+  }
+
+  .settings-card-header {
+    gap: 10px;
+  }
+
+  .settings-card-icon {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+  }
+
+  .settings-card-header h2 {
+    font-size: 17px;
+  }
+
+  .settings-form-footer,
+  .settings-save-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .settings-form-group input,
+  .settings-toggle-password,
+  .settings-save-btn {
+    transition: none;
   }
 }

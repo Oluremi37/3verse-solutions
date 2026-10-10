@@ -1,28 +1,437 @@
-/* Reuse Team Modal Layout */
+/* =========================================
+   3Verse Solutions — Portfolio Modal
+   Independent styles; no TeamModal.css import
+========================================= */
 
-@import "../TeamModal/TeamModal.css";
+:root {
+  --portfolio-navy: #07305e;
+  --portfolio-blue: #0084ce;
+  --portfolio-cyan: #00afd8;
+  --portfolio-green: #6ac319;
+  --portfolio-light: #f4f8fb;
+  --portfolio-border: #dce8f1;
+  --portfolio-muted: #667085;
+}
 
-/* ===========================
-   Portfolio Image Preview
-=========================== */
+/* Overlay */
 
-.portfolio-preview-grid {
+.portfolio-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  background: rgba(7, 48, 94, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.portfolio-modal-overlay *,
+.portfolio-modal-overlay *::before,
+.portfolio-modal-overlay *::after {
+  box-sizing: border-box;
+}
+
+/* Modal container */
+
+.portfolio-modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  max-height: 90dvh;
+  overflow: hidden;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(7, 48, 94, 0.2);
+  animation: portfolioModalEnter 0.2s ease-out;
+}
+
+/* Header */
+
+.portfolio-modal .portfolio-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 28px;
+  border-bottom: 3px solid var(--portfolio-cyan);
+  background: var(--portfolio-navy);
+}
+
+.portfolio-modal .portfolio-modal-header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Close button */
+
+.portfolio-modal .close-btn {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.portfolio-modal .close-btn:hover {
+  background: var(--portfolio-cyan);
+  color: #fff;
+}
+
+/* Scrollable form */
+
+.portfolio-modal .team-form {
+  flex: 1;
+  min-height: 0;
+  padding: 28px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #fff;
+}
+
+/* Grid and form groups */
+
+.portfolio-modal .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.portfolio-modal .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+}
+
+.portfolio-modal .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.portfolio-modal .form-group > label {
+  color: var(--portfolio-navy);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Inputs, selects and textareas */
+
+.portfolio-modal .form-group input:not([type="checkbox"]):not([type="file"]),
+.portfolio-modal .form-group select,
+.portfolio-modal .form-group textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  color: #101828;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-modal .form-group input:not([type="checkbox"]):not([type="file"]):focus,
+.portfolio-modal .form-group select:focus,
+.portfolio-modal .form-group textarea:focus {
+  border-color: var(--portfolio-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 175, 216, 0.13);
+}
+
+.portfolio-modal .form-group textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.portfolio-modal .form-group select {
+  cursor: pointer;
+}
+
+.portfolio-modal .form-group input::placeholder,
+.portfolio-modal .form-group textarea::placeholder {
+  color: #98a2b3;
+}
+
+/* Checkbox groups */
+
+.portfolio-modal .form-group.checkbox-group {
+  padding: 13px 15px;
+  border: 1px solid #e0f4fc;
+  border-radius: 9px;
+  background: var(--portfolio-light);
+}
+
+.portfolio-modal .checkbox-group > label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--portfolio-navy);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.portfolio-modal .checkbox-group input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--portfolio-blue);
+  cursor: pointer;
+}
+
+/* Image upload */
+
+.portfolio-modal .form-group input[type="file"] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 12px;
+  border: 1px dashed #9ccfe3;
+  border-radius: 8px;
+  background: var(--portfolio-light);
+  color: var(--portfolio-navy);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.portfolio-modal .form-group input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--portfolio-blue);
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.portfolio-modal .form-group input[type="file"]::file-selector-button:hover {
+  background: var(--portfolio-navy);
+}
+
+/* Multiple image previews */
+
+.portfolio-modal .portfolio-preview-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   gap: 12px;
   margin-top: 16px;
 }
 
-.portfolio-preview-image {
+.portfolio-modal .portfolio-preview-image {
+  display: block;
   width: 100%;
-  height: 90px;
+  height: 110px;
   object-fit: cover;
+  border: 1px solid var(--portfolio-border);
   border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  background: #f8f9fa;
+  background: var(--portfolio-light);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.portfolio-preview-image:hover {
-  transform: scale(1.03);
-  transition: 0.25s ease;
+.portfolio-modal .portfolio-preview-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(7, 48, 94, 0.14);
+}
+
+/* Footer actions */
+
+.portfolio-modal .modal-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--portfolio-border);
+  background: #fff;
+}
+
+/* Buttons */
+
+.portfolio-modal .modal-actions .cancel-btn,
+.portfolio-modal .modal-actions .save-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 11px 20px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.portfolio-modal .modal-actions .cancel-btn {
+  border-color: #c5e8f5;
+  background: #e0f4fc;
+  color: var(--portfolio-navy);
+}
+
+.portfolio-modal .modal-actions .cancel-btn:hover {
+  background: #c7eaf8;
+}
+
+.portfolio-modal .modal-actions .save-btn {
+  border-color: var(--portfolio-blue);
+  background: var(--portfolio-blue);
+  color: #fff;
+}
+
+.portfolio-modal .modal-actions .save-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--portfolio-navy);
+  background: var(--portfolio-navy);
+}
+
+.portfolio-modal .modal-actions .save-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Keyboard accessibility */
+
+.portfolio-modal .close-btn:focus-visible,
+.portfolio-modal .cancel-btn:focus-visible,
+.portfolio-modal .save-btn:focus-visible {
+  outline: 3px solid rgba(0, 175, 216, 0.4);
+  outline-offset: 3px;
+}
+
+/* Entry animation */
+
+@keyframes portfolioModalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .portfolio-modal-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .portfolio-modal {
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+
+  .portfolio-modal .portfolio-modal-header {
+    padding: 18px 20px;
+  }
+
+  .portfolio-modal .portfolio-modal-header h2 {
+    font-size: 20px;
+  }
+
+  .portfolio-modal .team-form {
+    padding: 20px;
+  }
+
+  .portfolio-modal .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .portfolio-modal .form-group.full-width {
+    grid-column: auto;
+  }
+
+  .portfolio-modal .portfolio-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-modal .modal-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .portfolio-modal .modal-actions .cancel-btn,
+  .portfolio-modal .modal-actions .save-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .portfolio-modal-overlay {
+    padding: 8px;
+  }
+
+  .portfolio-modal {
+    max-height: calc(100vh - 16px);
+    max-height: calc(100dvh - 16px);
+    border-radius: 12px;
+  }
+
+  .portfolio-modal .portfolio-modal-header {
+    padding: 16px;
+  }
+
+  .portfolio-modal .portfolio-modal-header h2 {
+    font-size: 18px;
+  }
+
+  .portfolio-modal .team-form {
+    padding: 16px;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-modal,
+  .portfolio-modal * {
+    animation: none !important;
+    transition: none !important;
+  }
 }

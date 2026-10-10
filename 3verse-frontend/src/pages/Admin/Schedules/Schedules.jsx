@@ -1,7 +1,13 @@
+
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-import { FiCalendar, FiClock, FiCheckCircle } from "react-icons/fi";
+import {
+  FiCalendar,
+  FiClock,
+  FiCheckCircle,
+} from "react-icons/fi";
+
 import {
   getSchedules,
   updateSchedule,
@@ -18,11 +24,9 @@ import "./Schedules.css";
 export default function Schedule() {
   const [schedules, setSchedules] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const [search, setSearch] = useState("");
 
   const [selectedSchedule, setSelectedSchedule] = useState(null);
-
   const [deleteId, setDeleteId] = useState(null);
   const [completeSchedule, setCompleteSchedule] = useState(null);
 
@@ -31,18 +35,19 @@ export default function Schedule() {
       setLoading(true);
 
       const data = await getSchedules();
-
       setSchedules(data.schedules || []);
     } catch (err) {
       console.error(err);
-      toast.error("Failed to update schedule.");
+      toast.error("Failed to load schedules.");
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    const timer = setTimeout(loadSchedules, 0);
+    const timer = setTimeout(() => {
+      loadSchedules();
+    }, 0);
 
     return () => clearTimeout(timer);
   }, []);
@@ -51,9 +56,9 @@ export default function Schedule() {
     const keyword = search.toLowerCase();
 
     return (
-      schedule.fullName.toLowerCase().includes(keyword) ||
-      schedule.email.toLowerCase().includes(keyword) ||
-      schedule.consultationType.toLowerCase().includes(keyword)
+      schedule.fullName?.toLowerCase().includes(keyword) ||
+      schedule.email?.toLowerCase().includes(keyword) ||
+      schedule.consultationType?.toLowerCase().includes(keyword)
     );
   });
 
@@ -83,18 +88,59 @@ export default function Schedule() {
     {
       key: "preferredDate",
       label: "Date",
-      render: (schedule) => new Date(schedule.preferredDate).toLocaleString(),
+      render: (schedule) =>
+        schedule.preferredDate
+          ? new Date(schedule.preferredDate).toLocaleString()
+          : "N/A",
     },
     {
       key: "status",
       label: "Status",
       render: (schedule) => (
-        <span className={`status ${schedule.status.toLowerCase()}`}>
-          {schedule.status}
+        <span className={`status ${(schedule.status || "").toLowerCase()}`}>
+          {schedule.status || "Unknown"}
         </span>
       ),
     },
   ];
+
+  const handleComplete = async () => {
+    if (!completeSchedule) return;
+
+    try {
+      await updateSchedule(completeSchedule._id, {
+        status: "Completed",
+      });
+
+      toast.success("Schedule completed successfully.");
+
+      setCompleteSchedule(null);
+      await loadSchedules();
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to update schedule.");
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!deleteId) return;
+
+    try {
+      await deleteSchedule(deleteId);
+
+      toast.success("Deleted successfully.");
+      setDeleteId(null);
+
+      if (selectedSchedule?._id === deleteId) {
+        setSelectedSchedule(null);
+      }
+
+      await loadSchedules();
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to delete schedule.");
+    }
+  };
 
   return (
     <div className="schedule-page">
@@ -132,37 +178,15 @@ export default function Schedule() {
         emptyMessage="No schedules found."
         renderActions={(schedule) => (
           <div className="actions">
-            <button onClick={() => setSelectedSchedule(schedule)}>View</button>
-
-            <button onClick={() => setCompleteSchedule(schedule)}>
-              Complete
+            <button onClick={() => setSelectedSchedule(schedule)}>
+              View
             </button>
 
-            <ConfirmModal
-              isOpen={!!completeSchedule}
-              title="Complete Schedule"
-              message="Are you sure you want to mark this consultation as completed?"
-              confirmText="Complete"
-              cancelText="Cancel"
-              onConfirm={async () => {
-                try {
-                  await updateSchedule(completeSchedule._id, {
-                    status: "Completed",
-                  });
-
-                  toast.success("Schedule completed successfully.");
-
-                  setCompleteSchedule(null);
-
-                  await loadSchedules();
-                } catch (err) {
-                  console.error(err);
-
-                  toast.error("Failed to update schedule.");
-                }
-              }}
-              onCancel={() => setCompleteSchedule(null)}
-            />
+            {schedule.status !== "Completed" && (
+              <button onClick={() => setCompleteSchedule(schedule)}>
+                Complete
+              </button>
+            )}
 
             <button
               className="delete-btn"
@@ -174,6 +198,18 @@ export default function Schedule() {
         )}
       />
 
+      {/* Complete Schedule Confirmation */}
+      <ConfirmModal
+        isOpen={!!completeSchedule}
+        title="Complete Schedule"
+        message="Are you sure you want to mark this consultation as completed?"
+        confirmText="Complete"
+        cancelText="Cancel"
+        onConfirm={handleComplete}
+        onCancel={() => setCompleteSchedule(null)}
+      />
+
+      {/* Delete Schedule Confirmation */}
       <ConfirmModal
         isOpen={!!deleteId}
         title="Delete Schedule"
@@ -181,33 +217,27 @@ export default function Schedule() {
         confirmText="Delete"
         cancelText="Cancel"
         danger
-        onConfirm={async () => {
-          try {
-            await deleteSchedule(deleteId);
-
-            toast.success("Deleted successfully.");
-
-            setDeleteId(null);
-
-            await loadSchedules();
-          } catch (err) {
-            console.error(err);
-
-            toast.error("Failed to delete schedule.");
-          }
-        }}
+        onConfirm={handleDelete}
         onCancel={() => setDeleteId(null)}
       />
 
+      {/* Consultation Details Modal */}
       {selectedSchedule && (
-        <div className="modal-overlay">
-          <div className="schedule-modal">
+        <div
+          className="schedule-modal-overlay"
+          onClick={() => setSelectedSchedule(null)}
+        >
+          <div
+            className="schedule-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="schedule-modal-header">
               <h2>Consultation Details</h2>
 
               <button
-                className="close-btn"
+                className="schedule-modal-close"
                 onClick={() => setSelectedSchedule(null)}
+                aria-label="Close consultation details"
               >
                 ✕
               </button>
@@ -216,20 +246,21 @@ export default function Schedule() {
             <div className="schedule-grid">
               <div>
                 <label>Customer</label>
-                <p>{selectedSchedule.fullName}</p>
+                <p>{selectedSchedule.fullName || "N/A"}</p>
               </div>
 
               <div>
                 <label>Email</label>
-                <p>{selectedSchedule.email}</p>
+                <p>{selectedSchedule.email || "N/A"}</p>
               </div>
 
               <div>
                 <label>Consultation Type</label>
-                <p>{selectedSchedule.consultationType}</p>
+                <p>{selectedSchedule.consultationType || "N/A"}</p>
               </div>
 
-              {selectedSchedule.consultationType === "In-Person Meeting" && (
+              {selectedSchedule.consultationType ===
+                "In-Person Meeting" && (
                 <div>
                   <label>Office Location</label>
                   <p>{selectedSchedule.location || "N/A"}</p>
@@ -246,23 +277,32 @@ export default function Schedule() {
               <div>
                 <label>Preferred Date</label>
                 <p>
-                  {new Date(selectedSchedule.preferredDate).toLocaleString()}
+                  {selectedSchedule.preferredDate
+                    ? new Date(
+                        selectedSchedule.preferredDate,
+                      ).toLocaleString()
+                    : "N/A"}
                 </p>
               </div>
 
               <div>
                 <label>Status</label>
-
                 <span
-                  className={`status ${selectedSchedule.status.toLowerCase()}`}
+                  className={`status ${(selectedSchedule.status || "").toLowerCase()}`}
                 >
-                  {selectedSchedule.status}
+                  {selectedSchedule.status || "Unknown"}
                 </span>
               </div>
 
               <div>
                 <label>Created At</label>
-                <p>{new Date(selectedSchedule.createdAt).toLocaleString()}</p>
+                <p>
+                  {selectedSchedule.createdAt
+                    ? new Date(
+                        selectedSchedule.createdAt,
+                      ).toLocaleString()
+                    : "N/A"}
+                </p>
               </div>
             </div>
           </div>

@@ -1,21 +1,59 @@
+
+/* AdminLayout.css */
+
 .admin-layout {
   display: flex;
+  width: 100%;
   height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   background: #f5f7fa;
   overflow: hidden;
+  position: relative;
+  top: 0;
 }
 
+/* Main section beside the sidebar */
 .admin-main {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 0;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
+/* Scrollable page area */
 .admin-content {
   flex: 1;
-  padding: 30px;
+  min-height: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 24px 30px 30px;
   overflow-y: auto;
   overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Keep sizing predictable */
+.admin-layout *,
+.admin-layout *::before,
+.admin-layout *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent the public site's navbar offset from affecting admin */
+body:has(.admin-layout) {
+  padding-top: 0 !important;
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+  .admin-content {
+    padding: 18px 16px 24px;
+  }
 }
