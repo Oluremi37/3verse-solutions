@@ -83,11 +83,12 @@ export default function ProjectCTA() {
       <ScrollReveal>
         <div className="project-cta-container">
           <div className="project-cta-left">
-            <h2>Let’s Build Smarter Communication Solutions Together.</h2>
+            <h2>Let's Transform Your Business Communication</h2>
             <p>
-              Whether you’re deploying unified communications, upgrading meeting
-              spaces, or driving digital transformation, our experts are ready
-              to help your business connect and work better.
+              We're ready to help you deploy unified communications, video
+              conferencing, IP telephony, and integrated technology solutions
+              that improve collaboration, productivity, and business
+              performance.
             </p>
 
             <div className="project-cta-divider" />
