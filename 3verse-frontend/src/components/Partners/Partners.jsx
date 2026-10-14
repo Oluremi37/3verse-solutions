@@ -10,6 +10,9 @@ import dell from "../../assets/images/dell.png";
 import samsung from "../../assets/images/samsung.png";
 import extron from "../../assets/images/extron.png";
 import abuja from "../../assets/images/abuja.png";
+import lg from "../../assets/images/lg.png";
+import creston from "../../assets/images/creston.png";
+import shure from "../../assets/images/shure.png";
 
 
 const partners = [
@@ -24,6 +27,9 @@ const partners = [
   { name: "Samsung", logo: samsung },
   { name: "Extron", logo: extron },
   { name: "Abuja", logo: abuja },
+  { name: "Lg", logo: lg },
+  { name: "Creston", logo: creston },
+  { name: "Shure", logo: shure },
 ];
 
 const Partners = () => {

@@ -8,49 +8,42 @@ import sendEmail from "../utils/sendEmail.js";
 export const createQuote = asyncHandler(async (req, res) => {
   const quote = await Quote.create(req.body);
 
-  // Email to Admin
-  await sendEmail({
-    to: process.env.EMAIL_USER,
-    subject: "New Quote Request",
-    html: `
-      <h2>New Quote Request</h2>
+  // Send emails in the background so a Gmail timeout never causes a 500
+  Promise.all([
+    sendEmail({
+      to: process.env.EMAIL_USER,
+      subject: "New Quote Request",
+      html: `
+        <h2>New Quote Request</h2>
+        <p><strong>Name:</strong> ${quote.fullName}</p>
+        <p><strong>Company:</strong> ${quote.companyName || "N/A"}</p>
+        <p><strong>Email:</strong> ${quote.email}</p>
+        <p><strong>Phone:</strong> ${quote.phone}</p>
+        <p><strong>Product:</strong> ${quote.product}</p>
+        <p><strong>Quantity:</strong> ${quote.quantity}</p>
+        <p><strong>Details:</strong></p>
+        <p>${quote.details || "No additional details."}</p>
+      `,
+    }).catch((err) => console.error("Admin email failed:", err.message)),
 
-      <p><strong>Name:</strong> ${quote.fullName}</p>
-      <p><strong>Company:</strong> ${quote.companyName || "N/A"}</p>
-      <p><strong>Email:</strong> ${quote.email}</p>
-      <p><strong>Phone:</strong> ${quote.phone}</p>
-      <p><strong>Product:</strong> ${quote.product}</p>
-      <p><strong>Quantity:</strong> ${quote.quantity}</p>
+    sendEmail({
+      to: quote.email,
+      subject: "We've received your quote request",
+      html: `
+        <h2>Hello ${quote.fullName},</h2>
+        <p>
+          Thank you for contacting <strong>3Verse Solutions</strong>.
+        </p>
+        <p>Your quote request has been received successfully.</p>
+        <p>Our sales team will contact you within 24 hours.</p>
+        <br>
+        <p>Regards,</p>
+        <h3>3Verse Solutions</h3>
+      `,
+    }).catch((err) => console.error("Confirmation email failed:", err.message)),
+  ]);
 
-      <p><strong>Details:</strong></p>
-
-      <p>${quote.details || "No additional details."}</p>
-    `,
-  });
-
-  // Confirmation Email
-  await sendEmail({
-    to: quote.email,
-    subject: "We've received your quote request",
-    html: `
-      <h2>Hello ${quote.fullName},</h2>
-
-      <p>
-        Thank you for contacting <strong>3Verse Solutions</strong>.
-      </p>
-
-      <p>Your quote request has been received successfully.</p>
-
-      <p>Our sales team will contact you within 24 hours.</p>
-
-      <br>
-
-      <p>Regards,</p>
-
-      <h3>3Verse Solutions</h3>
-    `,
-  });
-
+  // Respond immediately — quote is already saved
   res.status(201).json({
     success: true,
     message: "Quote request submitted successfully.",

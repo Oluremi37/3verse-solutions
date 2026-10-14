@@ -66,7 +66,7 @@ export default function Footer() {
         <div className="footer-divider" />
 
         <p className="footer-copyright">
-          © 2025 3VERSE Solutions Limited. All Rights Reserved.
+          © 2026 3VERSE Solutions Limited. All Rights Reserved.
         </p>
       </div>
     </footer>
