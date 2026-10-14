@@ -130,14 +130,16 @@ export default function RequestQuote() {
     try {
       setIsSubmitting(true);
 
-      const response = await fetch("http://localhost:5001/api/quotes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/quotes`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
-
+      );
       const data = await response.json();
 
       if (!response.ok) {

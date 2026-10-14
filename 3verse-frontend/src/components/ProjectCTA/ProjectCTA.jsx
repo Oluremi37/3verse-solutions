@@ -32,7 +32,7 @@ export default function ProjectCTA() {
     try {
       const combinedDateTime = `${formData.preferredDate}T${formData.preferredTime}`;
 
-      await axios.post("http://localhost:5001/api/schedules", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/schedules`, {
         fullName: formData.fullName,
         email: formData.email,
         preferredDate: combinedDateTime,

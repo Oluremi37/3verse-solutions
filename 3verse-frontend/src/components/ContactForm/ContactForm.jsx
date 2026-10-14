@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./ContactForm.css";
 
-const API_URL = "http://localhost:5001/api/contacts";
+const API = `${import.meta.env.VITE_API_URL}/api/contacts`;
 
 const INITIAL_FORM = {
   fullName: "",
@@ -38,7 +38,7 @@ export default function ContactForm() {
     setError("");
 
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
