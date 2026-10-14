@@ -51,6 +51,7 @@
   right: -130px;
   bottom: -150px;
   background: rgba(0, 175, 216, 0.09);
+  
 }
 
 .project-cta-left {
@@ -86,6 +87,7 @@
   border: 0;
   border-radius: 10px;
   background: var(--cyan);
+  
 }
 
 .project-cta-left h4 {
@@ -112,6 +114,7 @@
 
 .project-cta-contact:last-child {
   color: #79ddf2;
+  
 }
 
 /* =========================================

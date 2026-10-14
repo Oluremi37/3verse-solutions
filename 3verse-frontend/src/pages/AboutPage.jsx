@@ -1,3 +1,5 @@
+
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import "./AboutPage.css";
@@ -15,26 +17,54 @@ import microsoft from "../assets/images/microsoft.png";
 import ibm from "../assets/images/ibm.png";
 import dell from "../assets/images/dell.png";
 import samsung from "../assets/images/samsung.png";
+import extron from "../assets/images/extron.png";
+import abuja from "../assets/images/abuja.png";
 
 const values = [
-  "Integrity and Honesty",
-  "Expertise",
-  "Passion",
-  "Boldness",
-  "Self critical",
-  "Accountability",
+  "Innovation",
+  "Integrity",
+  "Excellence",
+  "Customer-Centricity",
+  "Collaboration",
+  "Impact",
 ];
 
 const partners = [
-  logitech,
-  cisco,
-  poly,
-  huawei,
-  avaya,
-  microsoft,
-  ibm,
-  dell,
-  samsung,
+  { name: "Logitech", image: logitech },
+  { name: "Cisco", image: cisco },
+  { name: "Poly", image: poly },
+  { name: "Huawei", image: huawei },
+  { name: "Avaya", image: avaya },
+  { name: "Microsoft", image: microsoft },
+  { name: "IBM", image: ibm },
+  { name: "Dell", image: dell },
+  { name: "Samsung", image: samsung },
+  { name: "Extron", logo: extron },
+  { name: "Abuja", logo: abuja },
+];
+
+const services = [
+  {
+    number: "01",
+    title: "Unified Communications",
+    description:
+      "Empowering organizations with integrated communication platforms that enable seamless voice, messaging, collaboration, and customer engagement across teams.",
+    label: "CONNECT",
+  },
+  {
+    number: "02",
+    title: "Video Conferencing & Collaboration ",
+    description:
+      "Designing and deploying modern meeting solutions that connect people, enhance productivity, and support hybrid work environments. ",
+    label: "INNOVATE",
+  },
+  {
+    number: "03",
+    title: "Systems Integration ",
+    description:
+      "Bringing together communication, AV, cloud, and enterprise technologies to create connected, efficient, and future-ready business operations. ",
+    label: "COLLABORATE",
+  },
 ];
 
 export default function AboutPage() {
@@ -48,203 +78,304 @@ export default function AboutPage() {
           <span className="about-page-tag">ABOUT 3VERSE</span>
 
           <h1>
-            Connecting People.
+            Empowering Communication.
             <br />
-            Enabling Possibilities.
+            Driving Digital Transformation.
           </h1>
 
           <p>
-            We deliver flexible and affordable communication solutions that help
-            businesses connect, collaborate and grow seamlessly.
+            We deliver world-class unified communications, collaboration, and
+            technology solutions that help organizations connect seamlessly,
+            improve productivity, and accelerate business growth.
           </p>
         </div>
       </section>
 
-      {/* WHO WE ARE */}
-      <section className="about-who-section">
-        <div className="about-page-container">
-          <div className="about-who-grid">
-            <div className="about-who-heading">
-              <span className="section-tag">WHO WE ARE</span>
+      <main className="about-page-main">
+        {/* WHO WE ARE */}
+        <section className="about-who-section">
+          <div className="about-page-container">
+            <div className="about-who-layout">
+              <div className="about-who-intro">
+                <span className="about-eyebrow">
+                  <span className="about-eyebrow-line" />
+                  WHO WE ARE
+                </span>
 
-              <h2>Technology that brings people and businesses closer.</h2>
-            </div>
+                <h2>
+                  Enabling Smarter Communication{" "}
+                  <span>for Modern Businesses.</span>
+                </h2>
 
-            <div className="about-who-content">
-              <p>
-                3VERSE SOLUTIONS LIMITED provides communication and IT solutions
-                designed to help businesses connect, collaborate and operate
-                more effectively.
-              </p>
+                <p className="about-who-lead">
+                  We help businesses build better connections through dependable
+                  communication and IT solutions.
+                </p>
 
-              <p>
-                We combine technology, expertise and customer-focused solutions
-                to address the communication needs of modern businesses.
-              </p>
-
-              <p>
-                Our approach is centred on delivering solutions that are
-                flexible, accessible and built around the needs of the
-                organisations we serve.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT WE DO */}
-      <section className="about-what-section">
-        <div className="about-page-container">
-          <div className="about-section-heading">
-            <span className="section-tag">WHAT WE DO</span>
-
-            <h2>Helping businesses communicate better</h2>
-
-            <p>
-              We provide communication and technology solutions that support
-              seamless collaboration and connectivity.
-            </p>
-          </div>
-
-          <div className="about-what-grid">
-            <div className="about-what-card">
-              <span>01</span>
-              <h3>Business Communication</h3>
-              <p>
-                Communication solutions designed to help teams and businesses
-                stay connected and collaborate effectively.
-              </p>
-            </div>
-
-            <div className="about-what-card">
-              <span>02</span>
-              <h3>Technology Solutions</h3>
-              <p>
-                Technology solutions that help organisations improve their
-                operations and stay connected in a changing digital world.
-              </p>
-            </div>
-
-            <div className="about-what-card">
-              <span>03</span>
-              <h3>Collaboration</h3>
-              <p>
-                Solutions that make communication and collaboration easier
-                across teams, locations and business environments.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MISSION / VISION / VALUES */}
-      <section className="about-values-section">
-        <div className="about-page-container">
-          <div className="about-section-heading">
-            <span className="section-tag">WHAT DRIVES US</span>
-
-            <h2>Our Mission, Vision & Values</h2>
-
-            <p>
-              The principles that guide how we serve our customers and build
-              solutions.
-            </p>
-          </div>
-
-          <div className="about-values-grid">
-            {/* MISSION */}
-            <div className="about-value-card">
-              <div className="about-value-icon mission-icon">
-                <img src={missionIcon} alt="Mission" />
+                <Link to="/services" className="about-text-link">
+                  Explore our services <span aria-hidden="true">↗</span>
+                </Link>
               </div>
 
-              <h3>Mission</h3>
+              <div className="about-who-details">
+                <div className="about-who-index" aria-hidden="true">
+                  3V
+                </div>
+
+                <p>
+                  3VERSE Solutions Limited delivers innovative communication,
+                  collaboration, and technology solutions that help
+                  organizations connect, operate efficiently, and achieve their
+                  business objectives.
+                </p>
+
+                <p>
+                  We combine industry expertise, world-class technologies, and
+                  customer-focused service to design and implement solutions
+                  that drive productivity, enhance collaboration, and support
+                  digital transformation.
+                </p>
+
+                <p>
+                  Our approach is centred on delivering solutions that are
+                  flexible, accessible and built around the needs of the
+                  organisations we serve.
+                </p>
+
+                <div className="about-who-footer">
+                  <span>PEOPLE</span>
+                  <span className="about-who-footer-dot" />
+                  <span>TECHNOLOGY</span>
+                  <span className="about-who-footer-dot" />
+                  <span>POSSIBILITIES</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WHAT WE DO */}
+        <section className="about-what-section">
+          <div className="about-page-container">
+            <div className="about-what-heading">
+              <div>
+                <span className="about-eyebrow">
+                  <span className="about-eyebrow-line" />
+                  WHAT WE DO
+                </span>
+
+                <h2>
+                  Delivering Technology That
+                  <br />
+                  <span>Connects and Empowers.</span>
+                </h2>
+              </div>
 
               <p>
-                To deliver innovative, reliable, and scalable technology solutions
-                that help organizations communicate, collaborate, and succeed in a
-                digitally connected world.
+                We provide unified communications, collaboration, and technology
+                solutions that help organizations improve productivity,
+                strengthen connectivity, and accelerate digital transformation.
               </p>
             </div>
 
-            {/* VISION */}
-            <div className="about-value-card">
-              <div className="about-value-icon vision-icon">
-                <img src={visionIcon} alt="Vision" />
-              </div>
+            <div className="about-what-grid">
+              {services.map((service) => (
+                <article className="about-what-card" key={service.number}>
+                  <div className="about-what-card-top">
+                    <span className="about-what-number">{service.number}</span>
+                    <span className="about-what-label">{service.label}</span>
+                  </div>
 
-              <h3>Vision</h3>
+                  <div className="about-what-card-body">
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                  </div>
+
+                  <div className="about-what-card-bottom">
+                    <span>3Verse Solutions</span>
+                    <span className="about-card-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* MISSION, VISION AND VALUES */}
+        <section className="about-values-section">
+          <div className="about-page-container">
+            <div className="about-values-heading">
+              <span className="about-eyebrow">
+                <span className="about-eyebrow-line" />
+                WHAT DRIVES US
+              </span>
+
+              <h2>
+                Guided by purpose.
+                <br />
+                <span>Driven by possibilities.</span>
+              </h2>
 
               <p>
-                To become a world class telecommunications company connecting
-                people and businesses across borders and enabling seamless
-                global communication.
+                Our purpose, ambition and principles shape how we serve our
+                customers and approach every solution.
               </p>
             </div>
 
-            {/* VALUES */}
-            <div className="about-value-card">
-              <div className="about-value-icon values-icon">
-                <img src={valuesIcon} alt="Core Values" />
-              </div>
+            <div className="about-values-layout">
+              <article className="about-purpose-card about-mission-card">
+                <div className="about-purpose-top">
+                  <div className="about-purpose-icon">
+                    <img src={missionIcon} alt="" />
+                  </div>
+                  <span className="about-purpose-number">01 / PURPOSE</span>
+                </div>
 
-              <h3>Core Values</h3>
+                <h3>Our Mission</h3>
 
-              <ul>
-                {values.map((value) => (
-                  <li key={value}>{value}</li>
-                ))}
-              </ul>
+                <p>
+                  To deliver innovative, reliable, and scalable technology
+                  solutions that help organizations communicate, collaborate,
+                  and succeed in a digitally connected world.
+                </p>
+
+                <span className="about-purpose-accent" />
+              </article>
+
+              <article className="about-purpose-card about-vision-card">
+                <div className="about-purpose-top">
+                  <div className="about-purpose-icon">
+                    <img src={visionIcon} alt="" />
+                  </div>
+                  <span className="about-purpose-number">02 / AMBITION</span>
+                </div>
+
+                <h3>Our Vision</h3>
+
+                <p>
+                  To be a leading technology solutions provider, delivering
+                  world-class unified communications, digital transformation,
+                  and collaboration solutions that connect people, businesses,
+                  and communities.
+                </p>
+
+                <span className="about-purpose-accent" />
+              </article>
+
+              <article className="about-core-values-card">
+                <div className="about-core-values-heading">
+                  <div className="about-purpose-icon">
+                    <img src={valuesIcon} alt="" />
+                  </div>
+
+                  <span className="about-purpose-number">03 / PRINCIPLES</span>
+                </div>
+
+                <h3>Our Core Values</h3>
+
+                <p className="about-core-values-intro">
+                  The principles behind the way we work.
+                </p>
+
+                <ul>
+                  {values.map((value, index) => (
+                    <li key={value}>
+                      <span className="about-value-index">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span>{value}</span>
+                      <span className="about-value-check" aria-hidden="true">
+                        ↗
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* PARTNERS */}
-      <section className="about-partners-section">
-        <div className="about-page-container">
-          <div className="about-section-heading">
-            <span className="section-tag">OUR PARTNERS</span>
+        {/* PARTNERS */}
+        <section className="about-partners-section">
+          <div className="about-page-container">
+            <div className="about-partners-heading">
+              <div>
+                <span className="about-eyebrow">
+                  <span className="about-eyebrow-line" />
+                  OUR PARTNERS
+                </span>
 
-            <h2>Working with trusted technology leaders</h2>
-
-            <p>
-              Partnering with global technology leaders to deliver innovative,
-              secure and scalable communication solutions.
-            </p>
-          </div>
-
-          <div className="about-partners-grid">
-            {partners.map((partner, index) => (
-              <div className="about-partner-logo" key={index}>
-                <img src={partner} alt={`Technology partner ${index + 1}`} />
+                <h2>
+                  TRUSTED
+                  <br />
+                  <span>PARTNERS </span>
+                </h2>
               </div>
-            ))}
+
+              <p>
+                We collaborate with leading global technology providers to
+                deliver innovative, reliable, and scalable communication,
+                collaboration, and digital transformation solutions for our
+                clients.
+              </p>
+            </div>
+
+            <div className="about-partners-grid">
+              {partners.map((partner, index) => (
+                <div className="about-partner-logo" key={partner.name}>
+                  <span className="about-partner-index">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <img src={partner.image} alt={partner.name} loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA */}
-      <section className="about-page-cta">
-        <div className="about-page-cta-container">
-          <div>
-            <span className="section-tag">LET'S CONNECT</span>
+        {/* CALL TO ACTION */}
+        <section className="about-page-cta">
+          <div className="about-page-cta-container">
+            <div className="about-cta-copy">
+              <span className="about-eyebrow">
+                <span className="about-eyebrow-line" />
+                LET'S CONNECT
+              </span>
 
-            <h2>Ready to improve the way your business communicates?</h2>
+              <h2>
+                Let's build better
+                <br />
+                <span>ways to connect.</span>
+              </h2>
 
-            <p>
-              Talk to our team about communication and technology solutions
-              designed around your business needs.
-            </p>
+              <p>
+                Talk to our team about communication and technology solutions
+                designed around your business needs.
+              </p>
+            </div>
+
+            <div className="about-cta-action">
+              <Link to="/contact" className="about-cta-button">
+                Get in Touch <span aria-hidden="true">↗</span>
+              </Link>
+
+              <span className="about-cta-note">
+                Let's discuss what your business needs.
+              </span>
+            </div>
+
+            <span className="about-cta-decoration" aria-hidden="true">
+              3V
+            </span>
           </div>
-
-          <a href="/contact" className="about-cta-button">
-            Get in Touch
-          </a>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </>
   );
 }
+

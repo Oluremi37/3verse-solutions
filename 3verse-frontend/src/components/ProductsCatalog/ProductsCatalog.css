@@ -27,7 +27,7 @@
 .products-count {
   font-size: 16px;
   font-weight: 500;
-  color: var(--green);
+  color: var(--cyan);
 }
 
 .products-controls {
@@ -63,7 +63,7 @@
 }
 
 .search-input:focus {
-  border-color: var(--green);
+  border-color: var(--cyan);
 }
 
 .select-wrapper {
@@ -86,7 +86,7 @@
 }
 
 .filter-select:focus {
-  border-color: var(--green);
+  border-color: var(--cyan);
 }
 
 .select-chevron {
@@ -179,8 +179,8 @@
 }
 
 .btn-quote:hover {
-  background: var(--green);
-  border-color: var(--green);
+  background: var(--cyan);
+  border-color: var(--cyan);
 }
 
 .no-results {
@@ -201,7 +201,7 @@
 .price-sale {
   font-size: 18px;
   font-weight: 700;
-  color: var(--green);
+  color: var(--cyan);
 }
 
 .price-original {
@@ -221,7 +221,7 @@
 
 .availability-badge.in-stock {
   background: rgba(106, 195, 25, 0.12);
-  color: var(--green);
+  color: var(--cyan);
 }
 
 .availability-badge.out-of-stock {

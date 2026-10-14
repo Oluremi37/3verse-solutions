@@ -1,41 +1,56 @@
+
 import "./ContactHero.css";
 import ScrollReveal from "../ScrollReveal/ScrollReveal";
 
 export default function ContactHero() {
   const scrollToForm = () => {
-    const el = document.getElementById("contact-form");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById("contact-form")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
     <section className="contact-hero">
+      <div className="contact-hero__orb contact-hero__orb--left" aria-hidden="true" />
+      <div className="contact-hero__orb contact-hero__orb--right" aria-hidden="true" />
+
       <div className="contact-hero-container">
         <ScrollReveal>
-          <span className="contact-hero-tag">CONTACT US</span>
+          <span className="contact-hero-tag">
+            <span className="contact-hero-tag__dot" />
+            CONTACT 3VERSE
+          </span>
 
           <h1>
-            Let's Start a <span>Conversation</span>
+            Let’s Build Smarter Communication{" "}
+            <span>Solutions Together.</span>
           </h1>
 
           <p>
-            Whether you're looking for enterprise communication solutions,
-            managed IT services, cybersecurity, networking, or simply have a
-            question, our team is ready to help.
+            Whether you’re deploying unified communications, upgrading meeting
+            spaces, or driving digital transformation, our experts are ready to
+            help your business connect and work better.
           </p>
 
           <div className="contact-hero-buttons">
-            <button className="hero-primary-btn" onClick={scrollToForm}>
+            <button
+              type="button"
+              className="hero-primary-btn"
+              onClick={scrollToForm}
+            >
               Send a Message
+              <span aria-hidden="true">↗</span>
             </button>
+          </div>
 
-            {/* <a href="tel:+2348133809668" className="hero-secondary-btn">
-              Call Us
-            </a> */}
+          <div className="contact-hero-note">
+            <span className="contact-hero-note__line" />
+            Communication. Collaboration. Possibilities.
           </div>
         </ScrollReveal>
       </div>
     </section>
   );
 }
+

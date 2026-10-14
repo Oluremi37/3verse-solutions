@@ -29,6 +29,7 @@
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: linear-gradient(to right, transparent, #000 45%);
+  
 }
 
 .products-hero-container {

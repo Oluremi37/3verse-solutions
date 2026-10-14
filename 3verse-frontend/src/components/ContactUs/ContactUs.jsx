@@ -42,11 +42,11 @@ export default function ContactUs() {
         <ScrollReveal>
           <div className="contact-header">
             <span className="contact-tag">VISIT OUR OFFICE</span>
-            <h2>Let's Build Better Communication Together</h2>
+            <h2>Empowering Smarter Communication & Collaboration </h2>
             <p>
-              Whether you're planning a new communication infrastructure,
-              upgrading your collaboration tools, or exploring enterprise IT
-              solutions, our team is ready to help.
+              Whether you're deploying unified communications, upgrading meeting
+              spaces, or driving digital transformation, our experts are ready
+              to deliver solutions that help your business thrive.
             </p>
           </div>
         </ScrollReveal>

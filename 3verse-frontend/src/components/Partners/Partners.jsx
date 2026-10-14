@@ -8,6 +8,9 @@ import microsoft from "../../assets/images/microsoft.png";
 import ibm from "../../assets/images/ibm.png";
 import dell from "../../assets/images/dell.png";
 import samsung from "../../assets/images/samsung.png";
+import extron from "../../assets/images/extron.png";
+import abuja from "../../assets/images/abuja.png";
+
 
 const partners = [
   { name: "Logitech", logo: logitech },
@@ -19,6 +22,8 @@ const partners = [
   { name: "IBM", logo: ibm },
   { name: "Dell", logo: dell },
   { name: "Samsung", logo: samsung },
+  { name: "Extron", logo: extron },
+  { name: "Abuja", logo: abuja },
 ];
 
 const Partners = () => {
@@ -27,10 +32,11 @@ const Partners = () => {
       <div className="partners-container">
         <div className="partners-header">
           <span className="partners-tag">Our Partners</span>
-          <h2>Trusted by global technology leaders</h2>
+          <h2>Delivering Excellence Through Strategic Partnerships </h2>
           <p>
-            Partnering with leading brands to deliver innovative, secure and
-            scalable communication solutions.
+            We collaborate with leading global technology providers to deliver
+            innovative, reliable, and scalable communication, collaboration, and
+            digital transformation solutions for our clients.
           </p>
         </div>
 

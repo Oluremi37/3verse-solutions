@@ -73,13 +73,14 @@ export default function Team() {
         <div className="team-top">
           <ScrollReveal>
             <div className="team-top-text">
-              <span className="team-small-title">OUR PROFESSIONALS</span>
+              <span className="team-small-title">OUR EXPERTS </span>
 
-              <h2>Meet Our Team</h2>
+              <h2>Meet Our Technology Experts </h2>
 
               <p>
-                Meet the passionate professionals driving innovation,
-                collaboration and excellence across our organization.
+                Meet the dedicated experts powering unified communications,
+                digital transformation, and technology solutions that enable
+                businesses to communicate, collaborate, and succeed.
               </p>
             </div>
           </ScrollReveal>

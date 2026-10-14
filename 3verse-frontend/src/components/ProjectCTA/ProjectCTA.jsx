@@ -83,17 +83,17 @@ export default function ProjectCTA() {
       <ScrollReveal>
         <div className="project-cta-container">
           <div className="project-cta-left">
-            <h2>Talk to us about your project</h2>
+            <h2>Let’s Build Smarter Communication Solutions Together.</h2>
             <p>
-              We're ready to help you bring your ideas to life with reliable
-              telecom and IT solutions tailored to your business needs. Schedule
-              a discussion with our team at your convenience.
+              Whether you’re deploying unified communications, upgrading meeting
+              spaces, or driving digital transformation, our experts are ready
+              to help your business connect and work better.
             </p>
 
             <div className="project-cta-divider" />
 
-            <h4>Need assistance with your booking?</h4>
-            <p className="project-cta-subtext">You can contact us on :</p>
+            <h4>Need assistance?</h4>
+            <p className="project-cta-subtext">Speak with our experts on: </p>
             <p className="project-cta-contact">+234 8135710769</p>
             <p className="project-cta-contact">3versesltd@gmail.com</p>
           </div>

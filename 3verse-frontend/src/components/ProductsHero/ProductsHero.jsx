@@ -14,16 +14,16 @@ export default function ProductsHero() {
             </span>
 
             <h1>
-              Smart Office
-              <span> Devices.</span>
+              Modern Workplace
+              <span> Solutions.</span>
             </h1>
 
             <div className="products-hero-accent" />
 
             <p>
-              Discover business communication and collaboration
-              devices designed to connect your people, simplify
-              meetings, and keep your business moving.
+              Discover business communication and collaboration devices designed
+              to connect your people, simplify meetings, and keep your business
+              moving.
             </p>
 
             <div className="products-hero-actions">
@@ -31,10 +31,7 @@ export default function ProductsHero() {
                 Explore Products <span>→</span>
               </a>
 
-              <Link
-                to="/request-quote"
-                className="products-btn-outline"
-              >
+              <Link to="/request-quote" className="products-btn-outline">
                 Request a Quote <span>↗</span>
               </Link>
             </div>
