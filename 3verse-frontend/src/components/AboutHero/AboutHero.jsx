@@ -14,7 +14,7 @@ export default function AboutHero() {
           </h1>
 
           <p>
-            3VERSE SOLUTIONS LIMITED delivers innovative communication,
+            3VERSE Solutions Limited delivers innovative communication,
             collaboration, and technology solutions that help organizations
             connect, communicate, and grow. We specialize in Unified
             Communications, Video Conferencing, IP Telephony, Digital Signage,

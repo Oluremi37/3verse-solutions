@@ -17,8 +17,8 @@ const aboutLinks = [
   },
   {
     icon: <FiUsers />,
-    title: "Management Team",
-    description: "Meet the leaders driving 3Verse",
+    title: "OUR EXPERTS",
+    description: "Meet the experts driving 3Verse",
     path: "/team",
   },
 ];

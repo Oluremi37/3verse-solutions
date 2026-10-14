@@ -87,7 +87,7 @@ export default function Team() {
 
           <ScrollReveal delay={0.1}>
             <Link to="/team" className="view-team">
-              View Team
+              View Experts
             </Link>
           </ScrollReveal>
         </div>

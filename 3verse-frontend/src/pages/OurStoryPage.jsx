@@ -30,7 +30,7 @@ export default function OurStoryPage() {
             </p>
 
             <p>
-              3VERSE SOLUTIONS LIMITED was established to help organizations
+              3VERSE Solutions Limited was established to help organizations
               navigate an increasingly connected world through advanced
               communication, collaboration, and technology solutions. Founded on
               the belief that technology should simplify communication and
