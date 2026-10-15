@@ -19,6 +19,9 @@ import dell from "../assets/images/dell.png";
 import samsung from "../assets/images/samsung.png";
 import extron from "../assets/images/extron.png";
 import abuja from "../assets/images/abuja.png";
+import lg from "../assets/images/lg.png";
+import creston from "../assets/images/creston.png";
+import shure from "../assets/images/shure.png";
 
 const values = [
   "Innovation",
@@ -41,6 +44,9 @@ const partners = [
   { name: "Samsung", image: samsung },
   { name: "Extron", logo: extron },
   { name: "Abuja", logo: abuja },
+   { name: "Lg", logo: lg },
+    { name: "Creston", logo: creston },
+    { name: "Shure", logo: shure },
 ];
 
 const services = [
@@ -328,8 +334,13 @@ export default function AboutPage() {
                   <span className="about-partner-index">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-
-                  <img src={partner.image} alt={partner.name} loading="lazy" />
+                  
+                  <img
+                    src={partner.image || partner.logo}
+                    alt={`${partner.name} logo`}
+                    loading="lazy"
+                  />
+                  
                 </div>
               ))}
             </div>
